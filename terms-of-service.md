@@ -61,6 +61,6 @@ We may update these Terms from time to time. Continued use of the App after chan
 
 ## Contact Us
 If you have questions about these Terms, please contact us at:
-- Email: pocsomminfo@gmail.com
+- Email: support@pocsomm.com
 
 Melkar, LLC.
