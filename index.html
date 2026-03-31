@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocSomm - Your Pocket Sommelier</title>
+    <meta name="description" content="PocSomm puts expert wine knowledge in your pocket. Scan wine lists, discover food pairings, and explore grape varieties with AI-powered analysis.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #F7EBDC;
+            color: #2C2C2C;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 24px 48px;
+            max-width: 640px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            box-shadow: 0 8px 32px rgba(115, 13, 38, 0.15);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #730D26;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: #8F1A33;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #4A4A4A;
+            margin-bottom: 48px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            width: 100%;
+            margin-bottom: 48px;
+        }
+
+        .feature {
+            background: white;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            text-align: left;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .feature h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #730D26;
+            margin-bottom: 6px;
+        }
+
+        .feature p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .app-store-badge {
+            margin-bottom: 48px;
+        }
+
+        .app-store-badge img {
+            height: 54px;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: #730D26;
+            color: #C5A059;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 36px;
+            border-radius: 12px;
+            margin-bottom: 48px;
+            letter-spacing: 0.02em;
+        }
+
+        .legal {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+        .legal a {
+            color: #8F1A33;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .legal a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 24px;
+            text-align: center;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        footer a {
+            color: #8F1A33;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 48px 20px 32px; }
+            h1 { font-size: 2rem; }
+            .features { grid-template-columns: 1fr; }
+            .logo { width: 96px; height: 96px; border-radius: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="hero">
+        <img src="logo.png" alt="PocSomm" class="logo">
+        <h1>PocSomm</h1>
+        <p class="tagline">Your Pocket Sommelier</p>
+
+        <p class="description">
+            PocSomm puts expert wine knowledge in your pocket. Scan a restaurant wine list to instantly see
+            retail prices, critic ratings, and value assessments. Photograph a bottle label for tasting notes.
+            Match wines to your dinner with AI-powered food pairing. Explore grape varieties and get
+            personalized recommendations — all from your iPhone.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">&#127863;</div>
+                <h3>Scan Wine Lists</h3>
+                <p>Snap a photo of any wine list and get instant pricing insights, ratings, and value scores.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#127870;</div>
+                <h3>Food Pairing</h3>
+                <p>Photograph your menu, select dishes, then scan the wine list to find the perfect match.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#129346;</div>
+                <h3>Bottle Scanner</h3>
+                <p>Point your camera at any wine bottle label for detailed tasting notes and food suggestions.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#127815;</div>
+                <h3>Grape Explorer</h3>
+                <p>Discover grape varieties, their flavor profiles, regions, and ideal food pairings.</p>
+            </div>
+        </div>
+
+        <div class="coming-soon">Coming Soon to the App Store</div>
+
+        <div class="legal">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Melkar, LLC. &middot; <a href="mailto:pocsomminfo@gmail.com">Contact</a></p>
+    </footer>
+</body>
+</html>
