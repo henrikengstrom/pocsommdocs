@@ -68,6 +68,17 @@
         nav.top a.link:hover { text-decoration: underline; }
         @media (max-width: 720px) { nav.top .inner a.link { display: none; } }
 
+        /* language switcher */
+        nav.top select.langswitch {
+            font-family: inherit;
+            font-size: 0.85rem; font-weight: 600;
+            color: var(--burgundy);
+            background: rgba(255,255,255,0.6);
+            border: 1px solid rgba(115, 13, 38, 0.25);
+            border-radius: 9px; padding: 5px 9px; cursor: pointer;
+        }
+        nav.top select.langswitch:hover { border-color: var(--burgundy); }
+
         /* ---- Hero ---- */
         .hero {
             display: flex;
@@ -256,11 +267,19 @@
     <nav class="top">
         <div class="inner">
             <a href="#top" class="brand">PocSomm</a>
-            <a href="#how" class="link">How it works</a>
-            <a href="#features" class="link">Features</a>
-            <a href="#pricing" class="link">Pricing</a>
-            <a href="#faq" class="link">FAQ</a>
-            <a href="#about" class="link">About</a>
+            <a href="#how" class="link" data-i18n="nav.how">How it works</a>
+            <a href="#features" class="link" data-i18n="nav.features">Features</a>
+            <a href="#pricing" class="link" data-i18n="nav.pricing">Pricing</a>
+            <a href="#faq" class="link" data-i18n="nav.faq">FAQ</a>
+            <a href="#about" class="link" data-i18n="nav.about">About</a>
+            <select class="langswitch" id="langSelect" aria-label="Language">
+                <option value="en">🇬🇧 EN</option>
+                <option value="fr">🇫🇷 FR</option>
+                <option value="it">🇮🇹 IT</option>
+                <option value="es">🇪🇸 ES</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="zh">🇨🇳 中文</option>
+            </select>
         </div>
     </nav>
 
@@ -268,37 +287,37 @@
     <header class="hero" id="top">
         <img src="logo.png" alt="PocSomm" class="logo">
         <h1>PocSomm</h1>
-        <p class="tagline">Your Pocket Sommelier</p>
-        <p class="description">
+        <p class="tagline" data-i18n="hero.tagline">Your Pocket Sommelier</p>
+        <p class="description" data-i18n="hero.desc">
             PocSomm puts expert wine knowledge in your pocket. Scan a restaurant wine list to instantly see
             retail prices, critic ratings, and value assessments. Photograph a bottle label for tasting notes.
             Match wines to your dinner with AI-powered food pairing. Explore grape varieties and get
             wine suggestions for tonight's meal — all from your iPhone.
         </p>
-        <div class="badge">Now in beta testing &middot; App Store release coming soon</div>
+        <div class="badge" data-i18n="hero.badge">Now in beta testing &middot; Coming soon to the App Store &amp; Android</div>
     </header>
 
     <!-- ===== How it works ===== -->
     <section id="how">
         <div class="wrap">
-            <p class="eyebrow">How it works</p>
-            <h2>From photo to perfect pour in seconds</h2>
-            <p class="section-sub">No typing, no searching. Just point your camera and let PocSomm do the sommelier work.</p>
+            <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
+            <h2 data-i18n="how.h2">From photo to perfect pour in seconds</h2>
+            <p class="section-sub" data-i18n="how.sub">No typing, no searching. Just point your camera and let PocSomm do the sommelier work.</p>
             <div class="steps">
                 <div class="step">
                     <div class="num">1</div>
-                    <h3>Snap a photo</h3>
-                    <p>Point your camera at a wine list, a bottle label, or a restaurant menu.</p>
+                    <h3 data-i18n="how.s1h">Snap a photo</h3>
+                    <p data-i18n="how.s1p">Point your camera at a wine list, a bottle label, or a restaurant menu.</p>
                 </div>
                 <div class="step">
                     <div class="num">2</div>
-                    <h3>PocSomm reads it</h3>
-                    <p>AI instantly identifies every wine and adds retail prices, value scores, critic ratings, and tasting notes.</p>
+                    <h3 data-i18n="how.s2h">PocSomm reads it</h3>
+                    <p data-i18n="how.s2p">AI instantly identifies every wine and adds retail prices, value scores, critic ratings, and tasting notes.</p>
                 </div>
                 <div class="step">
                     <div class="num">3</div>
-                    <h3>Order with confidence</h3>
-                    <p>Spot the best value, find the perfect pairing, and read sommelier notes — right at the table.</p>
+                    <h3 data-i18n="how.s3h">Order with confidence</h3>
+                    <p data-i18n="how.s3p">Spot the best value, find the perfect pairing, and read sommelier notes — right at the table.</p>
                 </div>
             </div>
         </div>
@@ -307,21 +326,21 @@
     <!-- ===== Features (deep dive) ===== -->
     <section id="features" class="alt">
         <div class="wrap">
-            <p class="eyebrow">What you can do</p>
-            <h2>Everything a sommelier does, in your pocket</h2>
-            <p class="section-sub" style="margin-bottom:48px;">Four ways to make sense of any wine, anywhere.</p>
+            <p class="eyebrow" data-i18n="feat.eyebrow">What you can do</p>
+            <h2 data-i18n="feat.h2">Everything a sommelier does, in your pocket</h2>
+            <p class="section-sub" style="margin-bottom:48px;" data-i18n="feat.sub">Four ways to make sense of any wine, anywhere.</p>
 
             <!-- Wine list -->
             <div class="feature-row">
                 <div class="copy">
-                    <p class="kicker">Scan a wine list</p>
-                    <h3>See the smart picks before you order</h3>
-                    <p>Snap any restaurant wine list and PocSomm prices every bottle for you.</p>
+                    <p class="kicker" data-i18n="wl.kicker">Scan a wine list</p>
+                    <h3 data-i18n="wl.h">See the smart picks before you order</h3>
+                    <p data-i18n="wl.p">Snap any restaurant wine list and PocSomm prices every bottle for you.</p>
                     <ul>
-                        <li>Estimated retail price for each wine</li>
-                        <li>Value labels: Great value, Fair price, or High markup</li>
-                        <li>Critic ratings when available</li>
-                        <li>Knows the difference between by-the-glass and by-the-bottle</li>
+                        <li data-i18n="wl.li1">Estimated retail price for each wine</li>
+                        <li data-i18n="wl.li2">Value labels: Great value, Fair price, or High markup</li>
+                        <li data-i18n="wl.li3">Critic ratings when available</li>
+                        <li data-i18n="wl.li4">Knows the difference between by-the-glass and by-the-bottle</li>
                     </ul>
                 </div>
                 <div class="phone">
@@ -333,13 +352,13 @@
             <!-- Bottle -->
             <div class="feature-row reverse">
                 <div class="copy">
-                    <p class="kicker">Scan a bottle</p>
-                    <h3>Know any bottle at a glance</h3>
-                    <p>Point your camera at a label for an instant, plain-language profile of how the wine tastes and what to eat with it.</p>
+                    <p class="kicker" data-i18n="bo.kicker">Scan a bottle</p>
+                    <h3 data-i18n="bo.h">Know any bottle at a glance</h3>
+                    <p data-i18n="bo.p">Point your camera at a label for an instant, plain-language profile of how the wine tastes and what to eat with it.</p>
                     <ul>
-                        <li>Quick tasting snapshot — flavor, body, and feel</li>
-                        <li>Tap for full sommelier notes: nose, palate, finish</li>
-                        <li>Serving temperature, decanting, and cellaring tips</li>
+                        <li data-i18n="bo.li1">Quick tasting snapshot — flavor, body, and feel</li>
+                        <li data-i18n="bo.li2">Tap for full sommelier notes: nose, palate, finish</li>
+                        <li data-i18n="bo.li3">Serving temperature, decanting, and cellaring tips</li>
                     </ul>
                 </div>
                 <div class="phone">
@@ -351,13 +370,13 @@
             <!-- Food pairing -->
             <div class="feature-row">
                 <div class="copy">
-                    <p class="kicker">Food pairing</p>
-                    <h3>Match the wine to your meal</h3>
-                    <p>Photograph the menu, choose your dishes, then scan the wine list. PocSomm ranks every wine by how well it pairs with what you're eating.</p>
+                    <p class="kicker" data-i18n="fp.kicker">Food pairing</p>
+                    <h3 data-i18n="fp.h">Match the wine to your meal</h3>
+                    <p data-i18n="fp.p">Photograph the menu, choose your dishes, then scan the wine list. PocSomm ranks every wine by how well it pairs with what you're eating.</p>
                     <ul>
-                        <li>A clear match percentage for each wine</li>
-                        <li>The reasoning behind every pairing</li>
-                        <li>Works across the whole table's order</li>
+                        <li data-i18n="fp.li1">A clear match percentage for each wine</li>
+                        <li data-i18n="fp.li2">The reasoning behind every pairing</li>
+                        <li data-i18n="fp.li3">Works across the whole table's order</li>
                     </ul>
                 </div>
                 <div class="phone">
@@ -369,13 +388,13 @@
             <!-- Ask PocSomm -->
             <div class="feature-row reverse">
                 <div class="copy">
-                    <p class="kicker">Ask PocSomm</p>
-                    <h3>A sommelier on call</h3>
-                    <p>Tell PocSomm what you&rsquo;re eating and get wine suggestions, or dive into the built-in grape encyclopedia.</p>
+                    <p class="kicker" data-i18n="ask.kicker">Ask PocSomm</p>
+                    <h3 data-i18n="ask.h">A sommelier on call</h3>
+                    <p data-i18n="ask.p">Tell PocSomm what you&rsquo;re eating and get wine suggestions, or dive into the built-in grape encyclopedia.</p>
                     <ul>
-                        <li>Pairing by dish &mdash; &ldquo;We&rsquo;re having rib-eye tonight, what should we pour?&rdquo;</li>
-                        <li>Popular picks plus a few adventurous, off-the-beaten-path ideas</li>
-                        <li>Grape profiles: flavors, key regions, and classic pairings</li>
+                        <li data-i18n="ask.li1">Pairing by dish &mdash; &ldquo;We&rsquo;re having rib-eye tonight, what should we pour?&rdquo;</li>
+                        <li data-i18n="ask.li2">Popular picks plus a few adventurous, off-the-beaten-path ideas</li>
+                        <li data-i18n="ask.li3">Grape profiles: flavors, key regions, and classic pairings</li>
                     </ul>
                 </div>
                 <div class="phone">
@@ -387,14 +406,14 @@
             <!-- Settings -->
             <div class="feature-row">
                 <div class="copy">
-                    <p class="kicker">Made for you</p>
-                    <h3>Tuned to where you&rsquo;re drinking</h3>
-                    <p>Set your language and your local currency &amp; market so every price estimate makes sense in your world &mdash; &ldquo;350&rdquo; means something very different in USD than in SEK.</p>
+                    <p class="kicker" data-i18n="set.kicker">Made for you</p>
+                    <h3 data-i18n="set.h">Tuned to where you&rsquo;re drinking</h3>
+                    <p data-i18n="set.p">Set your language and your local currency &amp; market so every price estimate makes sense in your world &mdash; &ldquo;350&rdquo; means something very different in USD than in SEK.</p>
                     <ul>
-                        <li>11 languages, switchable any time</li>
-                        <li>Currency &amp; market for accurate local retail prices</li>
-                        <li>Dial in your own value thresholds &mdash; what counts as a great deal vs. a steep markup</li>
-                        <li>Pick a 1&ndash;5, 1&ndash;10, or 1&ndash;20 rating scale</li>
+                        <li data-i18n="set.li1">11 languages, switchable any time</li>
+                        <li data-i18n="set.li2">Currency &amp; market for accurate local retail prices</li>
+                        <li data-i18n="set.li3">Dial in your own value thresholds &mdash; what counts as a great deal vs. a steep markup</li>
+                        <li data-i18n="set.li4">Pick a 1&ndash;5, 1&ndash;10, or 1&ndash;20 rating scale</li>
                     </ul>
                 </div>
                 <div class="phone">
@@ -408,128 +427,128 @@
     <!-- ===== Walkthrough ===== -->
     <section id="walkthrough">
         <div class="wrap">
-            <p class="eyebrow">See it in action</p>
-            <h2>Watch PocSomm work</h2>
-            <p class="section-sub">Two of the most-used flows, start to finish.</p>
-            <h3 class="walk-title">Scanning a wine list</h3>
+            <p class="eyebrow" data-i18n="walk.eyebrow">See it in action</p>
+            <h2 data-i18n="walk.h2">Watch PocSomm work</h2>
+            <p class="section-sub" data-i18n="walk.sub">The flows you&rsquo;ll use most, from start to finish.</p>
+            <h3 class="walk-title" data-i18n="walk.t1">Scanning a wine list</h3>
         </div>
         <div class="walk">
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/wl-photo.png" alt="Photographing a restaurant wine list"></div>
-                <figcaption><span class="n">1</span> Snap the wine list</figcaption>
+                <figcaption><span class="n">1</span> <span data-i18n="walk.wl1">Snap the wine list</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/wl-analyze.png" alt="Add pages, then analyze"></div>
-                <figcaption><span class="n">2</span> Add pages, then analyze</figcaption>
+                <figcaption><span class="n">2</span> <span data-i18n="walk.wl2">Add pages, then analyze</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/wl-confirm.png" alt="Confirm scan and credit cost"></div>
-                <figcaption><span class="n">3</span> Confirm &mdash; see the cost</figcaption>
+                <figcaption><span class="n">3</span> <span data-i18n="walk.wl3">Confirm &mdash; see the cost</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/wl-result.png" alt="Wine list results with prices and value labels"></div>
-                <figcaption><span class="n">4</span> Every wine, instantly priced</figcaption>
+                <figcaption><span class="n">4</span> <span data-i18n="walk.wl4">Every wine, instantly priced</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/wl-sorting.png" alt="Sort by value, producer, and more"></div>
-                <figcaption><span class="n">5</span> Sort by value, producer &amp; more</figcaption>
+                <figcaption><span class="n">5</span> <span data-i18n="walk.wl5">Sort by value, producer &amp; more</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/wl-details.png" alt="Full wine details with pricing and sommelier notes"></div>
-                <figcaption><span class="n">6</span> Tap any wine for details</figcaption>
+                <figcaption><span class="n">6</span> <span data-i18n="walk.wl6">Tap any wine for details</span></figcaption>
             </figure>
         </div>
 
         <div class="wrap" style="margin-top:32px;">
-            <h3 class="walk-title">Scanning a bottle</h3>
+            <h3 class="walk-title" data-i18n="walk.t2">Scanning a bottle</h3>
         </div>
         <div class="walk">
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/bottle-photo.png" alt="Pointing the camera at a wine bottle label"></div>
-                <figcaption><span class="n">1</span> Point at the label</figcaption>
+                <figcaption><span class="n">1</span> <span data-i18n="walk.bo1">Point at the label</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/bottle-analyze.png" alt="Add bottles, then analyze"></div>
-                <figcaption><span class="n">2</span> Add bottles, then analyze</figcaption>
+                <figcaption><span class="n">2</span> <span data-i18n="walk.bo2">Add bottles, then analyze</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/bottle-confirm.png" alt="Confirm scan and credit cost"></div>
-                <figcaption><span class="n">3</span> Confirm &mdash; see the cost</figcaption>
+                <figcaption><span class="n">3</span> <span data-i18n="walk.bo3">Confirm &mdash; see the cost</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/bottle-details.png" alt="Instant wine profile with ratings and food pairings"></div>
-                <figcaption><span class="n">4</span> Get an instant profile</figcaption>
+                <figcaption><span class="n">4</span> <span data-i18n="walk.bo4">Get an instant profile</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/bottle-more-info.png" alt="More Info quick tasting take"></div>
-                <figcaption><span class="n">5</span> &ldquo;More Info&rdquo; for a quick take</figcaption>
+                <figcaption><span class="n">5</span> <span data-i18n="walk.bo5">&ldquo;More Info&rdquo; for a quick take</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/bottle-somm-notes.png" alt="Full sommelier notes on demand"></div>
-                <figcaption><span class="n">6</span> Full sommelier notes on demand</figcaption>
+                <figcaption><span class="n">6</span> <span data-i18n="walk.bo6">Full sommelier notes on demand</span></figcaption>
             </figure>
         </div>
 
         <div class="wrap" style="margin-top:32px;">
-            <h3 class="walk-title">Matching food to a wine list</h3>
+            <h3 class="walk-title" data-i18n="walk.t3">Matching food to a wine list</h3>
         </div>
         <div class="walk">
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/fp-info.png" alt="What a food pairing covers"></div>
-                <figcaption><span class="n">1</span> See what's covered</figcaption>
+                <figcaption><span class="n">1</span> <span data-i18n="walk.fp1">See what's covered</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/fp-photo.png" alt="Photographing the food menu"></div>
-                <figcaption><span class="n">2</span> Snap the food menu</figcaption>
+                <figcaption><span class="n">2</span> <span data-i18n="walk.fp2">Snap the food menu</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/fp-select-dishes.png" alt="Selecting the dishes the table wants"></div>
-                <figcaption><span class="n">3</span> Pick your dishes</figcaption>
+                <figcaption><span class="n">3</span> <span data-i18n="walk.fp3">Pick your dishes</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/fp-wl-1.png" alt="Photographing the wine list"></div>
-                <figcaption><span class="n">4</span> Snap the wine list</figcaption>
+                <figcaption><span class="n">4</span> <span data-i18n="walk.fp4">Snap the wine list</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/fp-wl-2.png" alt="Adding more wine list pages"></div>
-                <figcaption><span class="n">5</span> Add more pages if needed</figcaption>
+                <figcaption><span class="n">5</span> <span data-i18n="walk.fp5">Add more pages if needed</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/fp-trivia.png" alt="Matching in progress, with a wine fact"></div>
-                <figcaption><span class="n">6</span> We match them (~20s)</figcaption>
+                <figcaption><span class="n">6</span> <span data-i18n="walk.fp6">We match them (~20s)</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/fp-match.png" alt="Ranked wine matches with percentages"></div>
-                <figcaption><span class="n">7</span> Ranked matches, with a %</figcaption>
+                <figcaption><span class="n">7</span> <span data-i18n="walk.fp7">Ranked matches, with a %</span></figcaption>
             </figure>
             <figure class="walk-step">
                 <div class="phone"><img src="screenshots/fp-match-reason.png" alt="The reasoning behind each pairing"></div>
-                <figcaption><span class="n">8</span> Tap a card for the &ldquo;why&rdquo;</figcaption>
+                <figcaption><span class="n">8</span> <span data-i18n="walk.fp8">Tap a card for the &ldquo;why&rdquo;</span></figcaption>
             </figure>
         </div>
-        <p class="walk-hint">&larr; swipe each row to see the full flow &rarr;</p>
+        <p class="walk-hint" data-i18n="walk.hint">&larr; swipe each row to see the full flow &rarr;</p>
     </section>
 
     <!-- ===== Secondary features ===== -->
     <section>
         <div class="wrap">
-            <p class="eyebrow">And more</p>
-            <h2>Built for real wine moments</h2>
+            <p class="eyebrow" data-i18n="more.eyebrow">And more</p>
+            <h2 data-i18n="more.h2">Built for real wine moments</h2>
             <div class="grid" style="margin-top:36px;">
                 <div class="mini">
                     <div class="ic">&#128247;</div>
-                    <h4>Save &amp; rate</h4>
-                    <p>Every scan is saved to your history. Rate the wines you try and build your own cellar of memories.</p>
+                    <h4 data-i18n="more.m1h">Save &amp; rate</h4>
+                    <p data-i18n="more.m1p">Every scan is saved to your history. Rate the wines you try and build your own cellar of memories.</p>
                 </div>
                 <div class="mini">
                     <div class="ic">&#128176;</div>
-                    <h4>Value finder</h4>
-                    <p>Instantly see which wines on a list are fairly priced — and which carry a steep restaurant markup.</p>
+                    <h4 data-i18n="more.m2h">Value finder</h4>
+                    <p data-i18n="more.m2p">Instantly see which wines on a list are fairly priced — and which carry a steep restaurant markup.</p>
                 </div>
                 <div class="mini">
                     <div class="ic">&#127758;</div>
-                    <h4>11 languages</h4>
-                    <p>PocSomm speaks your language, with wine terms kept in their original form.</p>
+                    <h4 data-i18n="more.m3h">11 languages</h4>
+                    <p data-i18n="more.m3p">PocSomm speaks your language, with wine terms kept in their original form.</p>
                 </div>
             </div>
         </div>
@@ -538,9 +557,9 @@
     <!-- ===== Languages ===== -->
     <section class="alt">
         <div class="wrap">
-            <p class="eyebrow">Worldwide</p>
-            <h2>Available in 11 languages</h2>
-            <p class="section-sub">Wherever you travel, PocSomm travels with you.</p>
+            <p class="eyebrow" data-i18n="langs.eyebrow">Worldwide</p>
+            <h2 data-i18n="langs.h2">Available in 11 languages</h2>
+            <p class="section-sub" data-i18n="langs.sub">Wherever you travel, PocSomm travels with you.</p>
             <div class="langs">
                 <span class="lang"><span class="flag">🇬🇧</span>English</span>
                 <span class="lang"><span class="flag">🇫🇷</span>Fran&ccedil;ais</span>
@@ -560,11 +579,11 @@
     <!-- ===== Pricing ===== -->
     <section id="pricing">
         <div class="wrap">
-            <p class="eyebrow">Simple &amp; fair</p>
-            <h2>How pricing works</h2>
+            <p class="eyebrow" data-i18n="price.eyebrow">Simple &amp; fair</p>
+            <h2 data-i18n="price.h2">How pricing works</h2>
             <div class="callout">
-                <p>PocSomm is <strong>free to download</strong> and comes with credits to get you started. Each scan uses a credit or two depending on its size.</p>
-                <p>Need more? Top up anytime with one-time <strong>credit packs</strong>. No subscription, no account, no surprises — and your remaining credits never expire.</p>
+                <p data-i18n="price.p1">PocSomm is <strong>free to download</strong> and comes with credits to get you started. Each scan uses a credit or two depending on its size.</p>
+                <p data-i18n="price.p2">Need more? Top up anytime with one-time <strong>credit packs</strong>. No subscription, no account, no surprises — and your remaining credits never expire.</p>
             </div>
         </div>
     </section>
@@ -572,12 +591,12 @@
     <!-- ===== Privacy ===== -->
     <section class="alt">
         <div class="wrap">
-            <p class="eyebrow">Your data, your business</p>
-            <h2>Private by design</h2>
+            <p class="eyebrow" data-i18n="priv.eyebrow">Your data, your business</p>
+            <h2 data-i18n="priv.h2">Private by design</h2>
             <div class="callout">
-                <p><strong>No account. No sign-up.</strong> Your scans, ratings, and history live only on your device.</p>
-                <p>When AI reads a photo, only the image is sent to Google's Gemini service to extract the wine details — it is never stored on our servers (we don't run any) and never sold. <strong>No ads, no cross-app tracking.</strong></p>
-                <p><a href="/privacy-policy">Read the full Privacy Policy &rarr;</a></p>
+                <p data-i18n="priv.p1"><strong>No account. No sign-up.</strong> Your scans, ratings, and history live only on your device.</p>
+                <p data-i18n="priv.p2">When AI reads a photo, only the image is sent to Google's Gemini service to extract the wine details — it is never stored on our servers (we don't run any) and never sold. <strong>No ads, no cross-app tracking.</strong></p>
+                <p data-i18n="priv.link"><a href="/privacy-policy">Read the full Privacy Policy &rarr;</a></p>
             </div>
         </div>
     </section>
@@ -585,32 +604,32 @@
     <!-- ===== FAQ ===== -->
     <section id="faq">
         <div class="wrap">
-            <p class="eyebrow">Good to know</p>
-            <h2>Frequently asked questions</h2>
+            <p class="eyebrow" data-i18n="faq.eyebrow">Good to know</p>
+            <h2 data-i18n="faq.h2">Frequently asked questions</h2>
             <div class="faq" style="margin-top:36px;">
                 <details>
-                    <summary>How accurate is PocSomm?</summary>
-                    <p>PocSomm uses advanced AI to read labels and lists and to estimate prices, ratings, and pairings. It's remarkably good &mdash; but AI can make mistakes, so always verify prices and details before buying.</p>
+                    <summary data-i18n="faq.q1">How accurate is PocSomm?</summary>
+                    <p data-i18n="faq.a1">PocSomm uses advanced AI to read labels and lists and to estimate prices, ratings, and pairings. It's remarkably good &mdash; but AI can make mistakes, so always verify prices and details before buying.</p>
                 </details>
                 <details>
-                    <summary>Do I need an internet connection?</summary>
-                    <p>Yes. PocSomm analyzes your photos in the cloud, so you'll need a connection to scan and to ask the sommelier.</p>
+                    <summary data-i18n="faq.q2">Do I need an internet connection?</summary>
+                    <p data-i18n="faq.a2">Yes. PocSomm analyzes your photos in the cloud, so you'll need a connection to scan and to ask the sommelier.</p>
                 </details>
                 <details>
-                    <summary>Is my data private?</summary>
-                    <p>Yes. There's no account, and your scans, ratings, and history stay on your device. Photos are sent only to the AI to read them &mdash; never stored on our servers, never sold, with no ads or tracking.</p>
+                    <summary data-i18n="faq.q3">Is my data private?</summary>
+                    <p data-i18n="faq.a3">Yes. There's no account, and your scans, ratings, and history stay on your device. Photos are sent only to the AI to read them &mdash; never stored on our servers, never sold, with no ads or tracking.</p>
                 </details>
                 <details>
-                    <summary>What does it cost?</summary>
-                    <p>PocSomm is free to download with credits to get you started. When you need more, you can buy one-time credit packs &mdash; there's no subscription.</p>
+                    <summary data-i18n="faq.q4">What does it cost?</summary>
+                    <p data-i18n="faq.a4">PocSomm is free to download with credits to get you started. When you need more, you can buy one-time credit packs &mdash; there's no subscription.</p>
                 </details>
                 <details>
-                    <summary>Which currencies and regions does it work with?</summary>
-                    <p>PocSomm estimates prices in the market you choose and works with wine lists and bottles from all over the world.</p>
+                    <summary data-i18n="faq.q5">Which currencies and regions does it work with?</summary>
+                    <p data-i18n="faq.a5">PocSomm estimates prices in the market you choose and works with wine lists and bottles from all over the world.</p>
                 </details>
                 <details>
-                    <summary>How old do I need to be?</summary>
-                    <p>PocSomm contains information about alcoholic beverages and is intended for adults of legal drinking age (18+).</p>
+                    <summary data-i18n="faq.q6">How old do I need to be?</summary>
+                    <p data-i18n="faq.a6">PocSomm contains information about alcoholic beverages and is intended for adults of legal drinking age (18+).</p>
                 </details>
             </div>
         </div>
@@ -619,16 +638,16 @@
     <!-- ===== About ===== -->
     <section class="alt" id="about">
         <div class="wrap">
-            <p class="eyebrow">Who we are</p>
-            <h2>A husband-and-wife labor of love</h2>
+            <p class="eyebrow" data-i18n="about.eyebrow">Who we are</p>
+            <h2 data-i18n="about.h2">A husband-and-wife labor of love</h2>
             <div class="callout" style="text-align:center;">
                 <div class="about-photo">
                     <img src="about-team.jpg" alt="The couple behind PocSomm"
                          onerror="this.closest('.about-photo').style.display='none'">
                 </div>
-                <p>PocSomm was born from over 30 years of shared passion for wine. Along the way we&rsquo;ve had the pleasure of learning from truly exceptional sommeliers &mdash; some of whom have become dear friends. But we&rsquo;ve also sat at tables where the wine guidance fell short.</p>
-                <p>PocSomm is our way to bridge that gap: not to replace a great sommelier, but to put a knowledgeable partner in your pocket for the moments when there isn&rsquo;t one around.</p>
-                <p style="margin-top:18px;color:var(--burgundy);font-weight:600;">Made with care by Melkar, LLC &mdash; just the two of us.</p>
+                <p data-i18n="about.p1">PocSomm was born from over 30 years of shared passion for wine. Along the way we&rsquo;ve had the pleasure of learning from truly exceptional sommeliers &mdash; some of whom have become dear friends. But we&rsquo;ve also sat at tables where the wine guidance fell short.</p>
+                <p data-i18n="about.p2">PocSomm is our way to bridge that gap: not to replace a great sommelier, but to put a knowledgeable partner in your pocket for the moments when there isn&rsquo;t one around.</p>
+                <p style="margin-top:18px;color:var(--burgundy);font-weight:600;" data-i18n="about.p3">Made with care by Melkar, LLC &mdash; just the two of us.</p>
             </div>
         </div>
     </section>
@@ -636,22 +655,23 @@
     <!-- ===== Responsible / contact ===== -->
     <section id="support">
         <div class="wrap">
-            <h2>Questions or feedback?</h2>
-            <p class="section-sub" style="margin-bottom:20px;">We'd love to hear from you. Reach the team anytime at
+            <h2 data-i18n="sup.h2">Questions or feedback?</h2>
+            <p class="section-sub" style="margin-bottom:20px;" data-i18n="sup.sub">We'd love to hear from you. Reach the team anytime at
                 <a href="mailto:support@pocsomm.com" style="color:var(--burgundy-light);font-weight:600;">support@pocsomm.com</a>.</p>
-            <p class="responsible">Please enjoy wine responsibly. Excessive alcohol consumption is harmful to your health.
+            <p class="responsible" data-i18n="sup.responsible">Please enjoy wine responsibly. Excessive alcohol consumption is harmful to your health.
                 PocSomm is intended for adults of legal drinking age.</p>
         </div>
     </section>
 
     <footer>
         <div class="legal">
-            <a href="/privacy-policy">Privacy Policy</a>
-            <a href="/terms-of-service">Terms of Service</a>
-            <a href="mailto:support@pocsomm.com">Contact</a>
+            <a href="/privacy-policy" data-i18n="foot.privacy">Privacy Policy</a>
+            <a href="/terms-of-service" data-i18n="foot.terms">Terms of Service</a>
+            <a href="mailto:support@pocsomm.com" data-i18n="foot.contact">Contact</a>
         </div>
         <p>&copy; 2026 Melkar, LLC.</p>
     </footer>
 
+    <script src="i18n.js"></script>
 </body>
 </html>
