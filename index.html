@@ -4,196 +4,650 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PocSomm - Your Pocket Sommelier</title>
-    <meta name="description" content="PocSomm puts expert wine knowledge in your pocket. Scan wine lists, discover food pairings, and explore grape varieties with AI-powered analysis.">
+    <meta name="description" content="PocSomm puts expert wine knowledge in your pocket. Scan wine lists, discover food pairings, read tasting notes, and explore grape varieties with AI-powered analysis.">
     <style>
+        :root {
+            --burgundy: #730D26;
+            --burgundy-light: #8F1A33;
+            --gold: #C5A059;
+            --cream: #F7EBDC;
+            --card: #FFFFFF;
+            --ink: #2C2C2C;
+            --muted: #6A6A6A;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #F7EBDC;
-            color: #2C2C2C;
+            background-color: var(--cream);
+            color: var(--ink);
             min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+        .narrow { max-width: 680px; margin: 0 auto; }
+
+        /* ---- Sticky nav ---- */
+        nav.top {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(247, 235, 220, 0.92);
+            backdrop-filter: saturate(180%) blur(12px);
+            border-bottom: 1px solid rgba(115, 13, 38, 0.08);
+        }
+        nav.top .inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 12px 24px;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            gap: 20px;
         }
-
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 80px 24px 48px;
-            max-width: 640px;
-            text-align: center;
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 28px;
-            box-shadow: 0 8px 32px rgba(115, 13, 38, 0.15);
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
+        nav.top .brand {
             font-weight: 700;
-            color: #730D26;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
-        }
-
-        .tagline {
-            font-size: 1.15rem;
-            color: #8F1A33;
-            margin-bottom: 32px;
-            font-weight: 400;
-        }
-
-        .description {
+            color: var(--burgundy);
             font-size: 1.05rem;
-            line-height: 1.7;
-            color: #4A4A4A;
-            margin-bottom: 48px;
+            margin-right: auto;
+            text-decoration: none;
         }
-
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            width: 100%;
-            margin-bottom: 48px;
-        }
-
-        .feature {
-            background: white;
-            border-radius: 16px;
-            padding: 24px 20px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            text-align: left;
-        }
-
-        .feature-icon {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-
-        .feature h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #730D26;
-            margin-bottom: 6px;
-        }
-
-        .feature p {
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .app-store-badge {
-            margin-bottom: 48px;
-        }
-
-        .app-store-badge img {
-            height: 54px;
-        }
-
-        .coming-soon {
-            display: inline-block;
-            background: #730D26;
-            color: #C5A059;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 14px 36px;
-            border-radius: 12px;
-            margin-bottom: 48px;
-            letter-spacing: 0.02em;
-        }
-
-        .legal {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 16px;
-        }
-
-        .legal a {
-            color: #8F1A33;
+        nav.top a.link {
+            color: var(--burgundy-light);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
         }
+        nav.top a.link:hover { text-decoration: underline; }
+        @media (max-width: 720px) { nav.top .inner a.link { display: none; } }
 
-        .legal a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            padding: 24px;
+        /* ---- Hero ---- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 72px 24px 40px;
+            max-width: 680px;
+            margin: 0 auto;
             text-align: center;
-            color: #999;
-            font-size: 0.8rem;
+        }
+        .logo {
+            width: 120px; height: 120px;
+            border-radius: 28px;
+            box-shadow: 0 8px 32px rgba(115, 13, 38, 0.15);
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-size: 2.6rem; font-weight: 700;
+            color: var(--burgundy);
+            margin-bottom: 8px; letter-spacing: -0.02em;
+        }
+        .tagline { font-size: 1.15rem; color: var(--burgundy-light); margin-bottom: 28px; }
+        .description { font-size: 1.05rem; line-height: 1.7; color: #4A4A4A; margin-bottom: 32px; }
+
+        .badge {
+            display: inline-block;
+            background: var(--burgundy);
+            color: var(--gold);
+            font-weight: 600; font-size: 0.95rem;
+            padding: 13px 32px; border-radius: 12px;
+            letter-spacing: 0.01em;
         }
 
-        footer a {
-            color: #8F1A33;
-            text-decoration: none;
+        /* ---- Section ---- */
+        section { padding: 56px 0; }
+        section.alt { background: rgba(115, 13, 38, 0.035); }
+        .eyebrow {
+            text-transform: uppercase; letter-spacing: 0.12em;
+            font-size: 0.78rem; font-weight: 700; color: var(--gold);
+            text-align: center; margin-bottom: 10px;
         }
+        h2 {
+            font-size: 1.9rem; font-weight: 700; color: var(--burgundy);
+            text-align: center; margin-bottom: 12px; letter-spacing: -0.01em;
+        }
+        .section-sub {
+            text-align: center; color: var(--muted);
+            max-width: 560px; margin: 0 auto 40px; font-size: 1.02rem;
+        }
+
+        /* ---- How it works (steps) ---- */
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .step {
+            background: var(--card); border-radius: 18px; padding: 28px 22px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.05); text-align: center;
+        }
+        .step .num {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--burgundy); color: var(--gold);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-weight: 700; margin-bottom: 14px;
+        }
+        .step h3 { color: var(--burgundy); font-size: 1.05rem; margin-bottom: 6px; }
+        .step p { color: var(--muted); font-size: 0.92rem; }
+        @media (max-width: 720px) { .steps { grid-template-columns: 1fr; } }
+
+        /* ---- Feature rows (text + screenshot) ---- */
+        .feature-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            align-items: center; margin-bottom: 56px;
+        }
+        .feature-row:last-child { margin-bottom: 0; }
+        .feature-row.reverse .copy { order: 2; }
+        .feature-row .copy .kicker { color: var(--gold); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+        .feature-row .copy h3 { font-size: 1.45rem; color: var(--burgundy); margin-bottom: 10px; }
+        .feature-row .copy p { color: #4A4A4A; font-size: 1rem; }
+        .feature-row .copy ul { margin: 14px 0 0 0; padding: 0; list-style: none; }
+        .feature-row .copy li { color: #4A4A4A; font-size: 0.95rem; padding-left: 22px; position: relative; margin-bottom: 6px; }
+        .feature-row .copy li::before { content: "\25CF"; color: var(--gold); position: absolute; left: 0; font-size: 0.7rem; top: 4px; }
+
+        /* phone screenshot frame */
+        .phone {
+            justify-self: center;
+            width: 250px; max-width: 80%;
+            border: 8px solid #1c1c1c; border-radius: 38px;
+            background: #1c1c1c; overflow: hidden;
+            box-shadow: 0 14px 40px rgba(115, 13, 38, 0.18);
+        }
+        .phone img { display: block; width: 100%; height: auto; }
+
+        /* ---- Walkthrough strip ---- */
+        .walk {
+            display: flex; gap: 30px; overflow-x: auto;
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+            padding: 8px 24px 24px; scrollbar-width: thin;
+        }
+        .walk-step { flex: 0 0 auto; width: 210px; scroll-snap-align: center; text-align: center; }
+        .walk-step .phone { width: 210px; max-width: 210px; margin: 0 auto 14px; }
+        .walk-step figcaption { font-size: 0.92rem; color: var(--muted); text-align: center; }
+        .walk-step .n {
+            width: 24px; height: 24px; border-radius: 50%;
+            background: var(--burgundy); color: var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: 700;
+            margin: 0 auto 8px;
+        }
+        .walk-hint { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+        /* the swipe hint only makes sense on touch screens (where the strip scrolls) */
+        @media (hover: hover) and (pointer: fine) { .walk-hint { display: none; } }
+        .walk-title { text-align: center; color: var(--burgundy); font-size: 1.2rem; font-weight: 700; margin-top: 8px; }
+        /* placeholder shown until a real screenshot is dropped in */
+        .phone .placeholder {
+            aspect-ratio: 9 / 19.5; display: flex; align-items: center; justify-content: center;
+            background: var(--cream); color: var(--burgundy-light); text-align: center;
+            font-size: 0.8rem; padding: 16px;
+        }
+        @media (max-width: 720px) {
+            .feature-row { grid-template-columns: 1fr; gap: 24px; }
+            .feature-row.reverse .copy { order: 0; }
+        }
+
+        /* ---- Generic card grid (secondary features) ---- */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .mini {
+            background: var(--card); border-radius: 16px; padding: 22px 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .mini .ic { font-size: 1.4rem; margin-bottom: 8px; }
+        .mini h4 { color: var(--burgundy); font-size: 0.98rem; margin-bottom: 4px; }
+        .mini p { color: var(--muted); font-size: 0.88rem; }
+        @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+
+        /* ---- Languages ---- */
+        .langs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 620px; margin: 0 auto; }
+        .lang { background: var(--card); border-radius: 999px; padding: 8px 16px; font-size: 0.9rem; color: var(--burgundy); box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: inline-flex; align-items: center; }
+        .lang .flag { margin-right: 7px; font-size: 1.05rem; line-height: 1; }
+
+        /* ---- Pricing / privacy callout ---- */
+        .callout {
+            background: var(--card); border-radius: 18px; padding: 32px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.05); max-width: 680px; margin: 0 auto;
+        }
+        .callout p { color: #4A4A4A; }
+        .callout p + p { margin-top: 12px; }
+        .callout a { color: var(--burgundy-light); font-weight: 600; }
+        .about-photo { margin: 0 auto 22px; width: 140px; height: 140px; border-radius: 50%; overflow: hidden; box-shadow: 0 6px 20px rgba(115,13,38,0.18); }
+        .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* ---- FAQ ---- */
+        .faq { max-width: 680px; margin: 0 auto; }
+        details {
+            background: var(--card); border-radius: 14px; padding: 4px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04); margin-bottom: 12px;
+        }
+        summary {
+            cursor: pointer; list-style: none; padding: 16px 0;
+            font-weight: 600; color: var(--burgundy); font-size: 1rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: "+"; color: var(--gold); font-size: 1.3rem; font-weight: 700; }
+        details[open] summary::after { content: "\2013"; }
+        details p { color: #4A4A4A; font-size: 0.95rem; padding: 0 0 18px; }
+
+        /* ---- Responsible / footer ---- */
+        .responsible {
+            text-align: center; color: var(--muted); font-size: 0.9rem;
+            max-width: 600px; margin: 0 auto; padding: 16px 0;
+        }
+        .legal { display: flex; gap: 24px; justify-content: center; margin: 8px 0 16px; }
+        .legal a { color: var(--burgundy-light); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .legal a:hover { text-decoration: underline; }
+        footer { padding: 28px 24px 40px; text-align: center; color: #999; font-size: 0.82rem; }
+        footer a { color: var(--burgundy-light); text-decoration: none; }
 
         @media (max-width: 480px) {
-            .hero { padding: 48px 20px 32px; }
-            h1 { font-size: 2rem; }
-            .features { grid-template-columns: 1fr; }
+            .hero { padding: 48px 20px 28px; }
+            h1 { font-size: 2.1rem; }
+            h2 { font-size: 1.6rem; }
             .logo { width: 96px; height: 96px; border-radius: 22px; }
         }
     </style>
 </head>
 <body>
-    <main class="hero">
+
+    <nav class="top">
+        <div class="inner">
+            <a href="#top" class="brand">PocSomm</a>
+            <a href="#how" class="link">How it works</a>
+            <a href="#features" class="link">Features</a>
+            <a href="#pricing" class="link">Pricing</a>
+            <a href="#faq" class="link">FAQ</a>
+            <a href="#about" class="link">About</a>
+        </div>
+    </nav>
+
+    <!-- ===== Hero ===== -->
+    <header class="hero" id="top">
         <img src="logo.png" alt="PocSomm" class="logo">
         <h1>PocSomm</h1>
         <p class="tagline">Your Pocket Sommelier</p>
-
         <p class="description">
             PocSomm puts expert wine knowledge in your pocket. Scan a restaurant wine list to instantly see
             retail prices, critic ratings, and value assessments. Photograph a bottle label for tasting notes.
             Match wines to your dinner with AI-powered food pairing. Explore grape varieties and get
-            personalized recommendations — all from your iPhone.
+            wine suggestions for tonight's meal — all from your iPhone.
         </p>
+        <div class="badge">Now in beta testing &middot; App Store release coming soon</div>
+    </header>
 
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">&#127863;</div>
-                <h3>Scan Wine Lists</h3>
-                <p>Snap a photo of any wine list and get instant pricing insights, ratings, and value scores.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">&#127870;</div>
-                <h3>Food Pairing</h3>
-                <p>Photograph your menu, select dishes, then scan the wine list to find the perfect match.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">&#129346;</div>
-                <h3>Bottle Scanner</h3>
-                <p>Point your camera at any wine bottle label for detailed tasting notes and food suggestions.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">&#127815;</div>
-                <h3>Grape Explorer</h3>
-                <p>Discover grape varieties, their flavor profiles, regions, and ideal food pairings.</p>
+    <!-- ===== How it works ===== -->
+    <section id="how">
+        <div class="wrap">
+            <p class="eyebrow">How it works</p>
+            <h2>From photo to perfect pour in seconds</h2>
+            <p class="section-sub">No typing, no searching. Just point your camera and let PocSomm do the sommelier work.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="num">1</div>
+                    <h3>Snap a photo</h3>
+                    <p>Point your camera at a wine list, a bottle label, or a restaurant menu.</p>
+                </div>
+                <div class="step">
+                    <div class="num">2</div>
+                    <h3>PocSomm reads it</h3>
+                    <p>AI instantly identifies every wine and adds retail prices, value scores, critic ratings, and tasting notes.</p>
+                </div>
+                <div class="step">
+                    <div class="num">3</div>
+                    <h3>Order with confidence</h3>
+                    <p>Spot the best value, find the perfect pairing, and read sommelier notes — right at the table.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="coming-soon">Coming Soon to the App Store</div>
+    <!-- ===== Features (deep dive) ===== -->
+    <section id="features" class="alt">
+        <div class="wrap">
+            <p class="eyebrow">What you can do</p>
+            <h2>Everything a sommelier does, in your pocket</h2>
+            <p class="section-sub" style="margin-bottom:48px;">Four ways to make sense of any wine, anywhere.</p>
 
+            <!-- Wine list -->
+            <div class="feature-row">
+                <div class="copy">
+                    <p class="kicker">Scan a wine list</p>
+                    <h3>See the smart picks before you order</h3>
+                    <p>Snap any restaurant wine list and PocSomm prices every bottle for you.</p>
+                    <ul>
+                        <li>Estimated retail price for each wine</li>
+                        <li>Value labels: Great value, Fair price, or High markup</li>
+                        <li>Critic ratings when available</li>
+                        <li>Knows the difference between by-the-glass and by-the-bottle</li>
+                    </ul>
+                </div>
+                <div class="phone">
+                    <img src="screenshots/wl-result.png" alt="PocSomm wine list scan results with prices and value labels"
+                         onerror="this.parentNode.innerHTML='&lt;div class=&quot;placeholder&quot;&gt;Wine list scan &mdash; results with value labels&lt;/div&gt;'">
+                </div>
+            </div>
+
+            <!-- Bottle -->
+            <div class="feature-row reverse">
+                <div class="copy">
+                    <p class="kicker">Scan a bottle</p>
+                    <h3>Know any bottle at a glance</h3>
+                    <p>Point your camera at a label for an instant, plain-language profile of how the wine tastes and what to eat with it.</p>
+                    <ul>
+                        <li>Quick tasting snapshot — flavor, body, and feel</li>
+                        <li>Tap for full sommelier notes: nose, palate, finish</li>
+                        <li>Serving temperature, decanting, and cellaring tips</li>
+                    </ul>
+                </div>
+                <div class="phone">
+                    <img src="screenshots/bottle-details.png" alt="PocSomm bottle detail with tasting notes"
+                         onerror="this.parentNode.innerHTML='&lt;div class=&quot;placeholder&quot;&gt;Bottle scan &mdash; wine detail with tasting notes&lt;/div&gt;'">
+                </div>
+            </div>
+
+            <!-- Food pairing -->
+            <div class="feature-row">
+                <div class="copy">
+                    <p class="kicker">Food pairing</p>
+                    <h3>Match the wine to your meal</h3>
+                    <p>Photograph the menu, choose your dishes, then scan the wine list. PocSomm ranks every wine by how well it pairs with what you're eating.</p>
+                    <ul>
+                        <li>A clear match percentage for each wine</li>
+                        <li>The reasoning behind every pairing</li>
+                        <li>Works across the whole table's order</li>
+                    </ul>
+                </div>
+                <div class="phone">
+                    <img src="screenshots/fp-match.png" alt="PocSomm food pairing results with match percentages"
+                         onerror="this.parentNode.innerHTML='&lt;div class=&quot;placeholder&quot;&gt;Food pairing &mdash; matched wines with % scores&lt;/div&gt;'">
+                </div>
+            </div>
+
+            <!-- Ask PocSomm -->
+            <div class="feature-row reverse">
+                <div class="copy">
+                    <p class="kicker">Ask PocSomm</p>
+                    <h3>A sommelier on call</h3>
+                    <p>Tell PocSomm what you&rsquo;re eating and get wine suggestions, or dive into the built-in grape encyclopedia.</p>
+                    <ul>
+                        <li>Pairing by dish &mdash; &ldquo;We&rsquo;re having rib-eye tonight, what should we pour?&rdquo;</li>
+                        <li>Popular picks plus a few adventurous, off-the-beaten-path ideas</li>
+                        <li>Grape profiles: flavors, key regions, and classic pairings</li>
+                    </ul>
+                </div>
+                <div class="phone">
+                    <img src="screenshots/sommelier.png" alt="PocSomm Ask PocSomm sommelier answer"
+                         onerror="this.parentNode.innerHTML='&lt;div class=&quot;placeholder&quot;&gt;Ask PocSomm &mdash; sommelier answer / grape detail&lt;/div&gt;'">
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="feature-row">
+                <div class="copy">
+                    <p class="kicker">Made for you</p>
+                    <h3>Tuned to where you&rsquo;re drinking</h3>
+                    <p>Set your language and your local currency &amp; market so every price estimate makes sense in your world &mdash; &ldquo;350&rdquo; means something very different in USD than in SEK.</p>
+                    <ul>
+                        <li>11 languages, switchable any time</li>
+                        <li>Currency &amp; market for accurate local retail prices</li>
+                        <li>Dial in your own value thresholds &mdash; what counts as a great deal vs. a steep markup</li>
+                        <li>Pick a 1&ndash;5, 1&ndash;10, or 1&ndash;20 rating scale</li>
+                    </ul>
+                </div>
+                <div class="phone">
+                    <img src="screenshots/settings.png" alt="PocSomm settings: language, currency and market, value thresholds"
+                         onerror="this.parentNode.innerHTML='&lt;div class=&quot;placeholder&quot;&gt;Settings &mdash; language, currency &amp; value thresholds&lt;/div&gt;'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Walkthrough ===== -->
+    <section id="walkthrough">
+        <div class="wrap">
+            <p class="eyebrow">See it in action</p>
+            <h2>Watch PocSomm work</h2>
+            <p class="section-sub">Two of the most-used flows, start to finish.</p>
+            <h3 class="walk-title">Scanning a wine list</h3>
+        </div>
+        <div class="walk">
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/wl-photo.png" alt="Photographing a restaurant wine list"></div>
+                <figcaption><span class="n">1</span> Snap the wine list</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/wl-analyze.png" alt="Add pages, then analyze"></div>
+                <figcaption><span class="n">2</span> Add pages, then analyze</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/wl-confirm.png" alt="Confirm scan and credit cost"></div>
+                <figcaption><span class="n">3</span> Confirm &mdash; see the cost</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/wl-result.png" alt="Wine list results with prices and value labels"></div>
+                <figcaption><span class="n">4</span> Every wine, instantly priced</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/wl-sorting.png" alt="Sort by value, producer, and more"></div>
+                <figcaption><span class="n">5</span> Sort by value, producer &amp; more</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/wl-details.png" alt="Full wine details with pricing and sommelier notes"></div>
+                <figcaption><span class="n">6</span> Tap any wine for details</figcaption>
+            </figure>
+        </div>
+
+        <div class="wrap" style="margin-top:32px;">
+            <h3 class="walk-title">Scanning a bottle</h3>
+        </div>
+        <div class="walk">
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/bottle-photo.png" alt="Pointing the camera at a wine bottle label"></div>
+                <figcaption><span class="n">1</span> Point at the label</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/bottle-analyze.png" alt="Add bottles, then analyze"></div>
+                <figcaption><span class="n">2</span> Add bottles, then analyze</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/bottle-confirm.png" alt="Confirm scan and credit cost"></div>
+                <figcaption><span class="n">3</span> Confirm &mdash; see the cost</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/bottle-details.png" alt="Instant wine profile with ratings and food pairings"></div>
+                <figcaption><span class="n">4</span> Get an instant profile</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/bottle-more-info.png" alt="More Info quick tasting take"></div>
+                <figcaption><span class="n">5</span> &ldquo;More Info&rdquo; for a quick take</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/bottle-somm-notes.png" alt="Full sommelier notes on demand"></div>
+                <figcaption><span class="n">6</span> Full sommelier notes on demand</figcaption>
+            </figure>
+        </div>
+
+        <div class="wrap" style="margin-top:32px;">
+            <h3 class="walk-title">Matching food to a wine list</h3>
+        </div>
+        <div class="walk">
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/fp-info.png" alt="What a food pairing covers"></div>
+                <figcaption><span class="n">1</span> See what's covered</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/fp-photo.png" alt="Photographing the food menu"></div>
+                <figcaption><span class="n">2</span> Snap the food menu</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/fp-select-dishes.png" alt="Selecting the dishes the table wants"></div>
+                <figcaption><span class="n">3</span> Pick your dishes</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/fp-wl-1.png" alt="Photographing the wine list"></div>
+                <figcaption><span class="n">4</span> Snap the wine list</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/fp-wl-2.png" alt="Adding more wine list pages"></div>
+                <figcaption><span class="n">5</span> Add more pages if needed</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/fp-trivia.png" alt="Matching in progress, with a wine fact"></div>
+                <figcaption><span class="n">6</span> We match them (~20s)</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/fp-match.png" alt="Ranked wine matches with percentages"></div>
+                <figcaption><span class="n">7</span> Ranked matches, with a %</figcaption>
+            </figure>
+            <figure class="walk-step">
+                <div class="phone"><img src="screenshots/fp-match-reason.png" alt="The reasoning behind each pairing"></div>
+                <figcaption><span class="n">8</span> Tap a card for the &ldquo;why&rdquo;</figcaption>
+            </figure>
+        </div>
+        <p class="walk-hint">&larr; swipe each row to see the full flow &rarr;</p>
+    </section>
+
+    <!-- ===== Secondary features ===== -->
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">And more</p>
+            <h2>Built for real wine moments</h2>
+            <div class="grid" style="margin-top:36px;">
+                <div class="mini">
+                    <div class="ic">&#128247;</div>
+                    <h4>Save &amp; rate</h4>
+                    <p>Every scan is saved to your history. Rate the wines you try and build your own cellar of memories.</p>
+                </div>
+                <div class="mini">
+                    <div class="ic">&#128176;</div>
+                    <h4>Value finder</h4>
+                    <p>Instantly see which wines on a list are fairly priced — and which carry a steep restaurant markup.</p>
+                </div>
+                <div class="mini">
+                    <div class="ic">&#127758;</div>
+                    <h4>11 languages</h4>
+                    <p>PocSomm speaks your language, with wine terms kept in their original form.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Languages ===== -->
+    <section class="alt">
+        <div class="wrap">
+            <p class="eyebrow">Worldwide</p>
+            <h2>Available in 11 languages</h2>
+            <p class="section-sub">Wherever you travel, PocSomm travels with you.</p>
+            <div class="langs">
+                <span class="lang"><span class="flag">🇬🇧</span>English</span>
+                <span class="lang"><span class="flag">🇫🇷</span>Fran&ccedil;ais</span>
+                <span class="lang"><span class="flag">🇮🇹</span>Italiano</span>
+                <span class="lang"><span class="flag">🇪🇸</span>Espa&ntilde;ol</span>
+                <span class="lang"><span class="flag">🇩🇪</span>Deutsch</span>
+                <span class="lang"><span class="flag">🇵🇹</span>Portugu&ecirc;s</span>
+                <span class="lang"><span class="flag">🇯🇵</span>&#26085;&#26412;&#35486;</span>
+                <span class="lang"><span class="flag">🇨🇳</span>&#20013;&#25991;</span>
+                <span class="lang"><span class="flag">🇸🇪</span>Svenska</span>
+                <span class="lang"><span class="flag">🇳🇱</span>Nederlands</span>
+                <span class="lang"><span class="flag">🇰🇷</span>&#54620;&#44397;&#50612;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Pricing ===== -->
+    <section id="pricing">
+        <div class="wrap">
+            <p class="eyebrow">Simple &amp; fair</p>
+            <h2>How pricing works</h2>
+            <div class="callout">
+                <p>PocSomm is <strong>free to download</strong> and comes with credits to get you started. Each scan uses a credit or two depending on its size.</p>
+                <p>Need more? Top up anytime with one-time <strong>credit packs</strong>. No subscription, no account, no surprises — and your remaining credits never expire.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Privacy ===== -->
+    <section class="alt">
+        <div class="wrap">
+            <p class="eyebrow">Your data, your business</p>
+            <h2>Private by design</h2>
+            <div class="callout">
+                <p><strong>No account. No sign-up.</strong> Your scans, ratings, and history live only on your device.</p>
+                <p>When AI reads a photo, only the image is sent to Google's Gemini service to extract the wine details — it is never stored on our servers (we don't run any) and never sold. <strong>No ads, no cross-app tracking.</strong></p>
+                <p><a href="/privacy-policy">Read the full Privacy Policy &rarr;</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq">
+        <div class="wrap">
+            <p class="eyebrow">Good to know</p>
+            <h2>Frequently asked questions</h2>
+            <div class="faq" style="margin-top:36px;">
+                <details>
+                    <summary>How accurate is PocSomm?</summary>
+                    <p>PocSomm uses advanced AI to read labels and lists and to estimate prices, ratings, and pairings. It's remarkably good &mdash; but AI can make mistakes, so always verify prices and details before buying.</p>
+                </details>
+                <details>
+                    <summary>Do I need an internet connection?</summary>
+                    <p>Yes. PocSomm analyzes your photos in the cloud, so you'll need a connection to scan and to ask the sommelier.</p>
+                </details>
+                <details>
+                    <summary>Is my data private?</summary>
+                    <p>Yes. There's no account, and your scans, ratings, and history stay on your device. Photos are sent only to the AI to read them &mdash; never stored on our servers, never sold, with no ads or tracking.</p>
+                </details>
+                <details>
+                    <summary>What does it cost?</summary>
+                    <p>PocSomm is free to download with credits to get you started. When you need more, you can buy one-time credit packs &mdash; there's no subscription.</p>
+                </details>
+                <details>
+                    <summary>Which currencies and regions does it work with?</summary>
+                    <p>PocSomm estimates prices in the market you choose and works with wine lists and bottles from all over the world.</p>
+                </details>
+                <details>
+                    <summary>How old do I need to be?</summary>
+                    <p>PocSomm contains information about alcoholic beverages and is intended for adults of legal drinking age (18+).</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="alt" id="about">
+        <div class="wrap">
+            <p class="eyebrow">Who we are</p>
+            <h2>A husband-and-wife labor of love</h2>
+            <div class="callout" style="text-align:center;">
+                <div class="about-photo">
+                    <img src="about-team.jpg" alt="The couple behind PocSomm"
+                         onerror="this.closest('.about-photo').style.display='none'">
+                </div>
+                <p>PocSomm was born from over 30 years of shared passion for wine. Along the way we&rsquo;ve had the pleasure of learning from truly exceptional sommeliers &mdash; some of whom have become dear friends. But we&rsquo;ve also sat at tables where the wine guidance fell short.</p>
+                <p>PocSomm is our way to bridge that gap: not to replace a great sommelier, but to put a knowledgeable partner in your pocket for the moments when there isn&rsquo;t one around.</p>
+                <p style="margin-top:18px;color:var(--burgundy);font-weight:600;">Made with care by Melkar, LLC &mdash; just the two of us.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Responsible / contact ===== -->
+    <section id="support">
+        <div class="wrap">
+            <h2>Questions or feedback?</h2>
+            <p class="section-sub" style="margin-bottom:20px;">We'd love to hear from you. Reach the team anytime at
+                <a href="mailto:support@pocsomm.com" style="color:var(--burgundy-light);font-weight:600;">support@pocsomm.com</a>.</p>
+            <p class="responsible">Please enjoy wine responsibly. Excessive alcohol consumption is harmful to your health.
+                PocSomm is intended for adults of legal drinking age.</p>
+        </div>
+    </section>
+
+    <footer>
         <div class="legal">
             <a href="/privacy-policy">Privacy Policy</a>
             <a href="/terms-of-service">Terms of Service</a>
+            <a href="mailto:support@pocsomm.com">Contact</a>
         </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Melkar, LLC. &middot; <a href="mailto:support@pocsomm.com">Contact</a></p>
+        <p>&copy; 2026 Melkar, LLC.</p>
     </footer>
+
 </body>
 </html>
