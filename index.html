@@ -18,6 +18,10 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* Avoid lonely one/two-word last lines (orphans) and ragged headings */
+        p, li, figcaption { text-wrap: pretty; }
+        h1, h2, h3, .eyebrow, .section-sub, .walk-title { text-wrap: balance; }
+
         html { scroll-behavior: smooth; }
 
         body {
