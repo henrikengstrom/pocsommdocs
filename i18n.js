@@ -178,7 +178,8 @@
 
             "foot.privacy": "Politique de confidentialité",
             "foot.terms": "Conditions d'utilisation",
-            "foot.contact": "Contact"
+            "foot.contact": "Contact",
+            "foot.insta": "Suivez-nous sur Instagram &#64;pocsomm"
         },
 
         /* ============================ ITALIANO ============================ */
@@ -324,7 +325,8 @@
 
             "foot.privacy": "Informativa sulla privacy",
             "foot.terms": "Termini di servizio",
-            "foot.contact": "Contatti"
+            "foot.contact": "Contatti",
+            "foot.insta": "Seguici su Instagram &#64;pocsomm"
         },
 
         /* ============================ ESPAÑOL ============================ */
@@ -470,7 +472,8 @@
 
             "foot.privacy": "Política de privacidad",
             "foot.terms": "Términos del servicio",
-            "foot.contact": "Contacto"
+            "foot.contact": "Contacto",
+            "foot.insta": "Síguenos en Instagram &#64;pocsomm"
         },
 
         /* ============================ 日本語 ============================ */
@@ -616,7 +619,8 @@
 
             "foot.privacy": "プライバシーポリシー",
             "foot.terms": "利用規約",
-            "foot.contact": "お問い合わせ"
+            "foot.contact": "お問い合わせ",
+            "foot.insta": "Instagram &#64;pocsomm をフォロー"
         },
 
         /* ============================ 中文 ============================ */
@@ -762,7 +766,8 @@
 
             "foot.privacy": "隐私政策",
             "foot.terms": "服务条款",
-            "foot.contact": "联系我们"
+            "foot.contact": "联系我们",
+            "foot.insta": "在 Instagram 上关注我们 &#64;pocsomm"
         }
     };
 
