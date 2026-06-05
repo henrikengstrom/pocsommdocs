@@ -254,8 +254,9 @@
         footer { padding: 28px 24px 40px; text-align: center; color: #999; font-size: 0.82rem; }
         footer a { color: var(--burgundy-light); text-decoration: none; }
         footer .social { margin-bottom: 16px; }
-        footer .social a { font-weight: 600; font-size: 0.92rem; }
+        footer .social a { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 0.92rem; }
         footer .social a:hover { text-decoration: underline; }
+        footer .social .ig-icon { width: 18px; height: 18px; flex: 0 0 auto; }
 
         @media (max-width: 480px) {
             .hero { padding: 48px 20px 28px; }
@@ -669,7 +670,14 @@
 
     <footer>
         <p class="social">
-            <a href="https://instagram.com/pocsomm" target="_blank" rel="noopener" data-i18n="foot.insta">Follow us on Instagram &#64;pocsomm</a>
+            <a href="https://instagram.com/pocsomm" target="_blank" rel="noopener" aria-label="PocSomm on Instagram">
+                <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span data-i18n="foot.insta">Follow us on Instagram &#64;pocsomm</span>
+            </a>
         </p>
         <div class="legal">
             <a href="/privacy-policy" data-i18n="foot.privacy">Privacy Policy</a>
