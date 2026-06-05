@@ -138,6 +138,7 @@
             "langs.eyebrow": "Dans le monde entier",
             "langs.h2": "Disponible en 11 langues",
             "langs.sub": "Où que vous voyagiez, PocSomm vous accompagne.",
+            "langs.currency": "Gardez l'application dans votre langue, puis réglez la devise et le marché selon le pays où vous vous trouvez — ainsi chaque estimation de prix s'affiche dans la monnaie locale que vous payez réellement.",
 
             "price.eyebrow": "Simple &amp; honnête",
             "price.h2": "Comment fonctionne la tarification",
@@ -283,6 +284,7 @@
             "langs.eyebrow": "In tutto il mondo",
             "langs.h2": "Disponibile in 11 lingue",
             "langs.sub": "Ovunque tu viaggi, PocSomm viaggia con te.",
+            "langs.currency": "Tieni l'app nella tua lingua, poi imposta la valuta e il mercato in base al paese in cui ti trovi — così ogni stima di prezzo appare nella moneta locale che stai davvero pagando.",
 
             "price.eyebrow": "Semplice &amp; equo",
             "price.h2": "Come funzionano i prezzi",
@@ -428,6 +430,7 @@
             "langs.eyebrow": "En todo el mundo",
             "langs.h2": "Disponible en 11 idiomas",
             "langs.sub": "Donde quiera que viajes, PocSomm viaja contigo.",
+            "langs.currency": "Mantén la app en tu idioma y luego ajusta la moneda y el mercado según el país en el que estés — así cada estimación de precio aparece en la moneda local que realmente pagas.",
 
             "price.eyebrow": "Sencillo y justo",
             "price.h2": "Cómo funcionan los precios",
@@ -573,6 +576,7 @@
             "langs.eyebrow": "世界中で",
             "langs.h2": "11言語に対応",
             "langs.sub": "どこへ旅しても、PocSommはあなたと一緒。",
+            "langs.currency": "アプリは自分の言語のまま、通貨と地域だけ今いる国に合わせて設定できます。だから価格の目安は、実際に支払う現地通貨で表示されます。",
 
             "price.eyebrow": "シンプルで公正",
             "price.h2": "料金の仕組み",
@@ -718,6 +722,7 @@
             "langs.eyebrow": "通行全球",
             "langs.h2": "支持 11 种语言",
             "langs.sub": "无论你走到哪里，PocSomm 都与你同行。",
+            "langs.currency": "应用可以保持你自己的语言，再把货币和市场设置成你所在的国家——这样每个价格估算都以你实际支付的当地货币显示。",
 
             "price.eyebrow": "简单又公道",
             "price.h2": "价格如何计算",
