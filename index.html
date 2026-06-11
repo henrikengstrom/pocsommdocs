@@ -224,8 +224,8 @@
         .callout p { color: #4A4A4A; }
         .callout p + p { margin-top: 12px; }
         .callout a { color: var(--burgundy-light); font-weight: 600; }
-        .about-photo { margin: 0 auto 22px; width: 140px; height: 140px; border-radius: 50%; overflow: hidden; box-shadow: 0 6px 20px rgba(115,13,38,0.18); }
-        .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .about-photo { margin: 0 auto 24px; max-width: 460px; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 28px rgba(115,13,38,0.18); }
+        .about-photo img { width: 100%; height: auto; display: block; }
 
         /* ---- FAQ ---- */
         .faq { max-width: 680px; margin: 0 auto; }
@@ -646,10 +646,11 @@
             <p class="eyebrow" data-i18n="about.eyebrow">Who we are</p>
             <h2 data-i18n="about.h2">A husband-and-wife labor of love</h2>
             <div class="callout" style="text-align:center;">
-                <div class="about-photo">
-                    <img src="about-team.jpg" alt="The couple behind PocSomm"
+                <figure class="about-photo">
+                    <img src="about-team.jpg" alt="Watercolor of the husband-and-wife team behind PocSomm, in a vineyard with glasses of white wine"
+                         loading="lazy" decoding="async"
                          onerror="this.closest('.about-photo').style.display='none'">
-                </div>
+                </figure>
                 <p data-i18n="about.p1">PocSomm was born from over 30 years of shared passion for wine. Along the way we&rsquo;ve had the pleasure of learning from truly exceptional sommeliers &mdash; some of whom have become dear friends. But we&rsquo;ve also sat at tables where the wine guidance fell short.</p>
                 <p data-i18n="about.p2">PocSomm is our way to bridge that gap: not to replace a great sommelier, but to put a knowledgeable partner in your pocket for the moments when there isn&rsquo;t one around.</p>
                 <p style="margin-top:18px;color:var(--burgundy);font-weight:600;" data-i18n="about.p3">Made with care by Melkar, LLC &mdash; just the two of us.</p>
