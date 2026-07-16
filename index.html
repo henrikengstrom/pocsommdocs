@@ -112,6 +112,18 @@
             letter-spacing: 0.01em;
         }
 
+        /* App Store download CTA */
+        .store-cta { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .store-cta .appstore-badge img {
+            height: 54px; width: auto; display: block;
+            transition: transform 0.15s ease;
+        }
+        .store-cta .appstore-badge:hover img { transform: scale(1.04); }
+        .store-cta .android-soon {
+            font-size: 0.88rem; color: var(--burgundy-light); font-weight: 600;
+            margin: 0;
+        }
+
         /* ---- Section ---- */
         section { padding: 56px 0; }
         section.alt { background: rgba(115, 13, 38, 0.035); }
@@ -298,7 +310,12 @@
             Match wines to your dinner with AI-powered food pairing. Explore grape varieties and get
             wine suggestions for tonight's meal — all from your iPhone.
         </p>
-        <div class="badge" data-i18n="hero.badge">Now in beta testing &middot; Coming soon to the App Store &amp; Android</div>
+        <div class="store-cta">
+            <a href="https://apps.apple.com/app/id6760143052" class="appstore-badge" target="_blank" rel="noopener">
+                <img src="app-store-badge.svg" alt="Download on the App Store">
+            </a>
+            <p class="android-soon" data-i18n="hero.androidSoon">Soon available on Android too</p>
+        </div>
     </header>
 
     <!-- ===== How it works ===== -->
