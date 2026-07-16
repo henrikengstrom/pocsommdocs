@@ -45,7 +45,7 @@
 
             "hero.tagline": "Votre sommelier de poche",
             "hero.desc": "PocSomm met le savoir d'un sommelier dans votre poche. Scannez la carte des vins d'un restaurant pour voir instantanément les prix de détail, les notes des critiques et l'évaluation du rapport qualité-prix. Photographiez une étiquette pour obtenir des notes de dégustation. Accordez les vins à votre dîner grâce à l'IA. Explorez les cépages et recevez des suggestions de vin pour le repas du soir — le tout depuis votre iPhone.",
-            "hero.androidSoon": "Bientôt disponible aussi sur Android",
+            "hero.androidSoon": "Bientôt disponible sur Android",
 
             "how.eyebrow": "Comment ça marche",
             "how.h2": "De la photo au verre parfait en quelques secondes",
@@ -192,7 +192,7 @@
 
             "hero.tagline": "Il tuo sommelier tascabile",
             "hero.desc": "PocSomm mette il sapere di un sommelier in tasca. Scansiona la carta dei vini di un ristorante per vedere subito prezzi al dettaglio, voti della critica e valutazioni di convenienza. Fotografa un'etichetta per le note di degustazione. Abbina i vini alla tua cena con l'IA. Esplora i vitigni e ricevi suggerimenti di vino per la cena di stasera — tutto dal tuo iPhone.",
-            "hero.androidSoon": "Presto disponibile anche su Android",
+            "hero.androidSoon": "Presto disponibile su Android",
 
             "how.eyebrow": "Come funziona",
             "how.h2": "Dalla foto al bicchiere perfetto in pochi secondi",
@@ -339,7 +339,7 @@
 
             "hero.tagline": "Tu sumiller de bolsillo",
             "hero.desc": "PocSomm pone el saber de un sumiller en tu bolsillo. Escanea la carta de vinos de un restaurante para ver al instante precios de venta, puntuaciones de la crítica y valoraciones de relación calidad-precio. Fotografía una etiqueta para obtener notas de cata. Marida los vinos con tu cena gracias a la IA. Explora variedades de uva y recibe sugerencias de vino para la cena de hoy — todo desde tu iPhone.",
-            "hero.androidSoon": "Pronto también disponible en Android",
+            "hero.androidSoon": "Pronto disponible en Android",
 
             "how.eyebrow": "Cómo funciona",
             "how.h2": "De la foto a la copa perfecta en segundos",
@@ -486,7 +486,7 @@
 
             "hero.tagline": "ポケットの中のソムリエ",
             "hero.desc": "PocSommは、ソムリエの知識をあなたのポケットに。レストランのワインリストをスキャンすれば、小売価格、評論家の評価、コストパフォーマンスがすぐに分かります。ボトルのラベルを撮影してテイスティングノートを表示。AIによる料理とのペアリングで、ディナーに合うワインを見つけましょう。ブドウ品種を調べ、今夜の食事に合うワインの提案も受けられます — すべてiPhoneひとつで。",
-            "hero.androidSoon": "Androidでも近日公開予定",
+            "hero.androidSoon": "Android版は近日公開予定",
 
             "how.eyebrow": "使い方",
             "how.h2": "写真から完璧な一杯まで、数秒で",
