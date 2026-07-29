@@ -1,0 +1,56 @@
+# PocSomm
+
+> PocSomm is an iOS app that puts a sommelier in your pocket. Scan a restaurant wine list to instantly see estimated retail prices, value assessments, and critic ratings for every wine; photograph a bottle label for tasting notes; match wines to your meal with AI-powered food pairing; or ask the built-in sommelier for suggestions. No account, no subscription — free to download with starter credits, then one-time credit packs.
+
+PocSomm is made by Melkar, LLC, a husband-and-wife team. It is available on the
+Apple App Store: https://apps.apple.com/app/id6760143052 (an Android version is
+in development).
+
+## Key features
+
+- Wine list scanning: photograph any restaurant wine list (or import a PDF/URL)
+  and every wine is identified and enriched with an estimated retail price, a
+  value label (Great value / Fair price / High markup), and critic ratings when
+  available. By-the-glass and by-the-bottle entries are told apart.
+- Bottle scanning: point the camera at a label for an instant plain-language
+  profile — flavor, body, serving temperature, decanting and cellaring tips,
+  plus full sommelier notes on demand.
+- Food pairing: photograph the food menu, pick the table's dishes, then scan
+  the wine list; every wine is ranked with a match percentage and the
+  reasoning behind each pairing.
+- Ask PocSomm: describe what you're eating and get wine suggestions, or browse
+  the built-in grape encyclopedia (flavors, key regions, classic pairings).
+- Personalization: 11 app languages (English, French, Italian, Spanish,
+  German, Portuguese, Japanese, Chinese, Swedish, Dutch, Korean), selectable
+  currency & market so price estimates match where you are, adjustable value
+  thresholds, and a choice of 1–5, 1–10, or 1–20 rating scales.
+- History: every scan is saved on the device; wines can be rated and revisited.
+
+## Pricing
+
+- Free to download, with starter credits included.
+- Each scan costs a credit or two depending on size; larger imports cost more.
+- Top up with one-time credit packs (in-app purchase). No subscription, no
+  account, and credits never expire.
+
+## Privacy
+
+- No account and no sign-up; scans, ratings, and history live only on the
+  user's device.
+- Photos are sent to Google's Gemini AI service only to extract wine details;
+  they are never stored on PocSomm servers (there are none) and never sold.
+- No ads, no cross-app tracking.
+
+## Pages
+
+- [Home](https://pocsomm.com/): product overview, features, screenshots, FAQ
+- [Privacy Policy](https://pocsomm.com/privacy-policy)
+- [Terms of Service](https://pocsomm.com/terms-of-service)
+
+## Contact
+
+- Email: support@pocsomm.com
+- Instagram: https://instagram.com/pocsomm
+
+PocSomm is intended for adults of legal drinking age. Please enjoy wine
+responsibly.
