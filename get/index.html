@@ -32,45 +32,79 @@
         }
         h1 { color: var(--burgundy); font-size: 1.6rem; margin-bottom: 6px; }
         p  { color: #4A4A4A; font-size: 0.98rem; max-width: 420px; }
-        .badge {
-            display: inline-block; margin-top: 24px;
+
+        /* In-app browser instructions (Instagram & friends) */
+        .escape {
+            display: none;
+            background: #fff; border-radius: 18px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+            padding: 24px 22px; margin-top: 24px; max-width: 420px;
         }
+        .escape .step {
+            font-size: 1.05rem; color: #2C2C2C; text-align: left;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .escape .step + .step { margin-top: 14px; }
+        .escape .n {
+            flex: 0 0 auto;
+            width: 26px; height: 26px; border-radius: 50%;
+            background: var(--burgundy); color: var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem; font-weight: 700;
+        }
+        .escape strong { color: var(--burgundy-light); }
+
+        /* Arrow pointing at Instagram's ••• menu, top right */
+        .corner-arrow {
+            display: none;
+            position: fixed; top: 10px; right: 18px;
+            color: var(--burgundy-light);
+            font-weight: 700; font-size: 0.9rem;
+            animation: nudge 1.2s ease-in-out infinite;
+        }
+        .corner-arrow .up { font-size: 1.5rem; display: block; line-height: 1; }
+        @keyframes nudge {
+            0%, 100% { transform: translateY(6px); }
+            50% { transform: translateY(0); }
+        }
+
+        .badge { display: inline-block; margin-top: 24px; }
         .badge img { height: 58px; display: block; }
-        .alt {
-            display: block; margin-top: 14px; font-size: 0.85rem;
-            color: var(--burgundy-light); font-weight: 600;
-        }
-        .hint {
-            margin-top: 28px; font-size: 0.85rem; color: #6A6A6A; max-width: 380px;
-        }
-        .hint strong { color: var(--burgundy-light); }
+
+        .inapp .escape { display: block; }
+        .inapp .corner-arrow { display: block; }
     </style>
 </head>
 <body>
+    <div class="corner-arrow"><span class="up">&#8598;</span>up here</div>
+
     <img src="../logo.png" alt="PocSomm" class="logo">
     <h1 id="headline">Get PocSomm</h1>
     <p id="status">Tap the badge to open PocSomm on the App&nbsp;Store.</p>
+
+    <div class="escape">
+        <div class="step">
+            <span class="n">1</span>
+            <span>Tap the <strong>&bull;&bull;&bull;</strong> menu in the top-right corner and choose <strong>Open in external browser</strong>.</span>
+        </div>
+        <div class="step">
+            <span class="n">2</span>
+            <span>That&rsquo;s it &mdash; the App&nbsp;Store opens by itself.</span>
+        </div>
+    </div>
 
     <a id="storeLink" class="badge" href="https://apps.apple.com/app/id6760143052">
         <img src="../app-store-badge.svg" alt="Download on the App Store">
     </a>
 
-    <a id="webLink" class="alt" href="https://apps.apple.com/app/id6760143052" hidden>
-        Nothing happening? Open the App&nbsp;Store page in this browser instead &rarr;
-    </a>
-
-    <p class="hint" id="hint" hidden>
-        Still stuck? Tap the <strong>&bull;&bull;&bull;</strong> menu in the corner and choose
-        <strong>Open in external browser</strong>, then tap the badge again.
-    </p>
-
     <script>
     (function () {
         var APP_STORE_WEB = "https://apps.apple.com/app/id6760143052";
-        // itms-apps is handed to the OS App Store app. In-app browsers
-        // (Instagram, Facebook, TikTok) block it as a scripted redirect but
-        // allow it from a genuine link tap — so the badge carries the scheme
-        // and we only auto-redirect in real browsers.
+        // Handed to the OS App Store app. Instagram's in-app browser blocks it
+        // (along with every other escape hatch — verified extensively), which
+        // is why in-app mode leads with the "open in external browser" steps:
+        // once the user lands in Safari, this page auto-redirects and the
+        // App Store opens with no further taps.
         var APP_STORE_SCHEME = "itms-apps://apps.apple.com/app/id6760143052";
 
         var ua = navigator.userAgent || "";
@@ -81,18 +115,15 @@
         var headline = document.getElementById("headline");
         var status = document.getElementById("status");
         var storeLink = document.getElementById("storeLink");
-        var webLink = document.getElementById("webLink");
-        var hint = document.getElementById("hint");
 
         if (isIOS) {
-            // A tapped link is a user gesture, which even in-app browsers honor.
+            // A tapped link at least has a chance if Meta ever relents.
             storeLink.href = APP_STORE_SCHEME;
 
             if (isInApp) {
-                // Don't attempt a scripted redirect — it fails silently here.
-                // Lead with the tap, and surface the escape hatches right away.
-                webLink.hidden = false;
-                hint.hidden = false;
+                document.body.className = "inapp";
+                headline.textContent = "One step to the App Store";
+                status.textContent = "Instagram's built-in browser can't open the App Store, so:";
             } else {
                 // Real browser: auto-redirect works, badge stays as backup.
                 headline.textContent = "Opening the App Store…";
