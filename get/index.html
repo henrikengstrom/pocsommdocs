@@ -35,7 +35,11 @@
         .badge {
             display: inline-block; margin-top: 24px;
         }
-        .badge img { height: 54px; display: block; }
+        .badge img { height: 58px; display: block; }
+        .alt {
+            display: block; margin-top: 14px; font-size: 0.85rem;
+            color: var(--burgundy-light); font-weight: 600;
+        }
         .hint {
             margin-top: 28px; font-size: 0.85rem; color: #6A6A6A; max-width: 380px;
         }
@@ -44,45 +48,64 @@
 </head>
 <body>
     <img src="../logo.png" alt="PocSomm" class="logo">
-    <h1>Opening the App Store&hellip;</h1>
-    <p id="status">Taking you to PocSomm on the App&nbsp;Store.</p>
+    <h1 id="headline">Get PocSomm</h1>
+    <p id="status">Tap the badge to open PocSomm on the App&nbsp;Store.</p>
 
     <a id="storeLink" class="badge" href="https://apps.apple.com/app/id6760143052">
         <img src="../app-store-badge.svg" alt="Download on the App Store">
     </a>
 
+    <a id="webLink" class="alt" href="https://apps.apple.com/app/id6760143052" hidden>
+        Nothing happening? Open the App&nbsp;Store page in this browser instead &rarr;
+    </a>
+
     <p class="hint" id="hint" hidden>
-        Didn&rsquo;t open? If you&rsquo;re inside Instagram or another app, tap the
-        <strong>&bull;&bull;&bull;</strong> menu in the corner and choose
-        <strong>Open in external browser</strong>, then tap the badge above.
+        Still stuck? Tap the <strong>&bull;&bull;&bull;</strong> menu in the corner and choose
+        <strong>Open in external browser</strong>, then tap the badge again.
     </p>
 
     <script>
     (function () {
         var APP_STORE_WEB = "https://apps.apple.com/app/id6760143052";
-        // The itms-apps scheme is handed straight to the OS App Store app, which
-        // in-app browsers (Instagram, Facebook, TikTok) allow even when they
-        // swallow normal apps.apple.com universal links.
+        // itms-apps is handed to the OS App Store app. In-app browsers
+        // (Instagram, Facebook, TikTok) block it as a scripted redirect but
+        // allow it from a genuine link tap — so the badge carries the scheme
+        // and we only auto-redirect in real browsers.
         var APP_STORE_SCHEME = "itms-apps://apps.apple.com/app/id6760143052";
 
         var ua = navigator.userAgent || "";
         var isIOS = /iPhone|iPad|iPod/i.test(ua);
         var isAndroid = /Android/i.test(ua);
+        var isInApp = /Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly|Snapchat|Line\//i.test(ua);
 
-        var hint = document.getElementById("hint");
+        var headline = document.getElementById("headline");
         var status = document.getElementById("status");
+        var storeLink = document.getElementById("storeLink");
+        var webLink = document.getElementById("webLink");
+        var hint = document.getElementById("hint");
 
         if (isIOS) {
-            // Attempt the direct App Store handoff.
-            window.location.href = APP_STORE_SCHEME;
-            // If we're still visible after a moment, the handoff was blocked:
-            // fall back to the web App Store page and show manual instructions.
-            setTimeout(function () {
-                if (document.visibilityState === "visible") {
-                    hint.hidden = false;
-                    window.location.href = APP_STORE_WEB;
-                }
-            }, 1600);
+            // A tapped link is a user gesture, which even in-app browsers honor.
+            storeLink.href = APP_STORE_SCHEME;
+
+            if (isInApp) {
+                // Don't attempt a scripted redirect — it fails silently here.
+                // Lead with the tap, and surface the escape hatches right away.
+                webLink.hidden = false;
+                hint.hidden = false;
+            } else {
+                // Real browser: auto-redirect works, badge stays as backup.
+                headline.textContent = "Opening the App Store…";
+                status.textContent = "Taking you to PocSomm on the App Store.";
+                window.location.href = APP_STORE_SCHEME;
+                setTimeout(function () {
+                    if (document.visibilityState === "visible") {
+                        headline.textContent = "Get PocSomm";
+                        status.textContent = "Tap the badge to open PocSomm on the App Store.";
+                        window.location.href = APP_STORE_WEB;
+                    }
+                }, 1600);
+            }
         } else if (isAndroid) {
             // No Android app yet — explain rather than dead-end.
             status.textContent = "PocSomm is currently iPhone-only — an Android version is on its way. The badge below shows the iOS App Store listing.";
