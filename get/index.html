@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get PocSomm</title>
+    <!-- Utility redirect page: not for search engines -->
+    <meta name="robots" content="noindex">
+    <style>
+        :root {
+            --burgundy: #730D26;
+            --burgundy-light: #8F1A33;
+            --gold: #C5A059;
+            --cream: #F7EBDC;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--cream);
+            color: #2C2C2C;
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center;
+            padding: 32px 24px;
+            line-height: 1.6;
+        }
+        .logo {
+            width: 96px; height: 96px; border-radius: 22px;
+            box-shadow: 0 8px 32px rgba(115, 13, 38, 0.15);
+            margin-bottom: 20px;
+        }
+        h1 { color: var(--burgundy); font-size: 1.6rem; margin-bottom: 6px; }
+        p  { color: #4A4A4A; font-size: 0.98rem; max-width: 420px; }
+        .badge {
+            display: inline-block; margin-top: 24px;
+        }
+        .badge img { height: 54px; display: block; }
+        .hint {
+            margin-top: 28px; font-size: 0.85rem; color: #6A6A6A; max-width: 380px;
+        }
+        .hint strong { color: var(--burgundy-light); }
+    </style>
+</head>
+<body>
+    <img src="../logo.png" alt="PocSomm" class="logo">
+    <h1>Opening the App Store&hellip;</h1>
+    <p id="status">Taking you to PocSomm on the App&nbsp;Store.</p>
+
+    <a id="storeLink" class="badge" href="https://apps.apple.com/app/id6760143052">
+        <img src="../app-store-badge.svg" alt="Download on the App Store">
+    </a>
+
+    <p class="hint" id="hint" hidden>
+        Didn&rsquo;t open? If you&rsquo;re inside Instagram or another app, tap the
+        <strong>&bull;&bull;&bull;</strong> menu in the corner and choose
+        <strong>Open in external browser</strong>, then tap the badge above.
+    </p>
+
+    <script>
+    (function () {
+        var APP_STORE_WEB = "https://apps.apple.com/app/id6760143052";
+        // The itms-apps scheme is handed straight to the OS App Store app, which
+        // in-app browsers (Instagram, Facebook, TikTok) allow even when they
+        // swallow normal apps.apple.com universal links.
+        var APP_STORE_SCHEME = "itms-apps://apps.apple.com/app/id6760143052";
+
+        var ua = navigator.userAgent || "";
+        var isIOS = /iPhone|iPad|iPod/i.test(ua);
+        var isAndroid = /Android/i.test(ua);
+
+        var hint = document.getElementById("hint");
+        var status = document.getElementById("status");
+
+        if (isIOS) {
+            // Attempt the direct App Store handoff.
+            window.location.href = APP_STORE_SCHEME;
+            // If we're still visible after a moment, the handoff was blocked:
+            // fall back to the web App Store page and show manual instructions.
+            setTimeout(function () {
+                if (document.visibilityState === "visible") {
+                    hint.hidden = false;
+                    window.location.href = APP_STORE_WEB;
+                }
+            }, 1600);
+        } else if (isAndroid) {
+            // No Android app yet — explain rather than dead-end.
+            status.textContent = "PocSomm is currently iPhone-only — an Android version is on its way. The badge below shows the iOS App Store listing.";
+        } else {
+            // Desktop: just go to the App Store page.
+            window.location.href = APP_STORE_WEB;
+        }
+    })();
+    </script>
+</body>
+</html>
