@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocSomm link lab</title>
+    <meta name="robots" content="noindex">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #F7EBDC; color: #2C2C2C;
+            padding: 28px 20px 48px; line-height: 1.5;
+        }
+        h1 { color: #730D26; font-size: 1.25rem; margin-bottom: 4px; }
+        p.sub { color: #6A6A6A; font-size: 0.88rem; margin-bottom: 20px; }
+        a.try, button.try {
+            display: block; width: 100%; text-align: left;
+            background: #fff; border: 1px solid rgba(115,13,38,0.2);
+            border-radius: 12px; padding: 14px 16px; margin-bottom: 10px;
+            color: #730D26; font-weight: 600; font-size: 0.95rem;
+            text-decoration: none; cursor: pointer;
+            font-family: inherit;
+        }
+        a.try small, button.try small {
+            display: block; color: #6A6A6A; font-weight: 400; font-size: 0.78rem;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <h1>Link lab &#129514;</h1>
+    <p class="sub">Open this page inside Instagram, tap each button top to bottom, and note the <strong>first number that lands in the App&nbsp;Store app</strong>. Come back after each attempt.</p>
+
+    <a class="try" href="itms-apps://apps.apple.com/app/id6760143052">
+        1. itms-apps scheme (current /get behavior)
+        <small>itms-apps://apps.apple.com/app/id6760143052</small>
+    </a>
+
+    <a class="try" href="itms-appss://apps.apple.com/app/id6760143052">
+        2. itms-appss scheme (secure variant)
+        <small>itms-appss://apps.apple.com/app/id6760143052</small>
+    </a>
+
+    <a class="try" href="x-safari-https://apps.apple.com/app/id6760143052">
+        3. Safari escape, straight to the store
+        <small>x-safari-https://apps.apple.com/app/id6760143052</small>
+    </a>
+
+    <a class="try" href="x-safari-https://pocsomm.com/get">
+        4. Safari escape to our /get page
+        <small>x-safari-https://pocsomm.com/get</small>
+    </a>
+
+    <a class="try" href="https://apps.apple.com/app/id6760143052">
+        5. Plain web link (control &mdash; known to fail)
+        <small>https://apps.apple.com/app/id6760143052</small>
+    </a>
+
+    <a class="try" href="https://apps.apple.com/us/app/pocsomm/id6760143052">
+        6. Full canonical US store URL
+        <small>https://apps.apple.com/us/app/pocsomm/id6760143052</small>
+    </a>
+
+    <a class="try" href="https://itunes.apple.com/app/id6760143052">
+        7. Legacy itunes.apple.com domain
+        <small>https://itunes.apple.com/app/id6760143052</small>
+    </a>
+
+    <a class="try" href="refresh.html">
+        8. Page that meta-refreshes into the store
+        <small>refresh.html &rarr; itms-apps&hellip;</small>
+    </a>
+
+    <button class="try" onclick="window.open('itms-apps://apps.apple.com/app/id6760143052')">
+        9. window.open from a tap
+        <small>JS window.open(itms-apps&hellip;)</small>
+    </button>
+
+    <button class="try" onclick="window.location.href='itms-apps://apps.apple.com/app/id6760143052'">
+        10. location change from a tap
+        <small>JS location.href = itms-apps&hellip; (inside tap handler)</small>
+    </button>
+</body>
+</html>
