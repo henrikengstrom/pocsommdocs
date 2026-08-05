@@ -1,15 +1,16 @@
-// Server-side App Store handoff — the mechanism GitHub Pages couldn't do.
-//
-// /go answers the very first navigation with an HTTP 302 to the App Store
-// scheme, handled by the OS before an in-app browser's JS/navigation
-// policies are involved. Strongest remaining candidate for escaping
-// Instagram's in-app browser (all client-side attempts are blocked — see
-// get/test.html). /go-web is the comparison: same server redirect but to
-// the regular https App Store page.
+// /go — the universal "get the app" link, safe to use anywhere (bio links,
+// QR codes, email signatures, social posts):
+//   - iPhone in a real browser → 302 to the App Store scheme (direct open)
+//   - iPhone in an IN-APP browser (Instagram/Facebook/TikTok…) → 302 to the
+//     /get interstitial. Verified 2026-08-05: Instagram blocks App Store
+//     handoffs at EVERY layer — client-side taps/schemes (see get/test.html)
+//     AND server-side 302s on the initial navigation, to both itms-apps://
+//     and apps.apple.com (white screen both ways). The interstitial's
+//     "open in external browser" instructions are the practical optimum.
+//   - Android/desktop → /get (explains iPhone-only resp. forwards to store)
 //
 // Every other request falls through to the static site.
 
-const APP_STORE_WEB = "https://apps.apple.com/app/id6760143052";
 const APP_STORE_SCHEME = "itms-apps://apps.apple.com/app/id6760143052";
 
 function redirect(location) {
@@ -28,16 +29,11 @@ export default {
     const ua = request.headers.get("user-agent") || "";
 
     if (pathname === "/go") {
-      if (/iPhone|iPad|iPod/i.test(ua)) {
+      const isInApp = /Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly|Snapchat|Line\//i.test(ua);
+      if (!isInApp && /iPhone|iPad|iPod/i.test(ua)) {
         return redirect(APP_STORE_SCHEME);
       }
-      // Android / desktop: the interstitial explains iPhone-only status
-      // resp. forwards to the App Store web page.
       return redirect("https://pocsomm.com/get/");
-    }
-
-    if (pathname === "/go-web") {
-      return redirect(APP_STORE_WEB);
     }
 
     return env.ASSETS.fetch(request);
