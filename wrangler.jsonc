@@ -1,0 +1,13 @@
+// Cloudflare Workers config: run worker.js in front of the static site.
+// The name must match the existing Worker ("pocsomm") so git deploys keep
+// updating the same project. Requests matching a static file are served
+// directly; everything else (e.g. /go, /go-web) invokes the worker.
+{
+  "name": "pocsomm",
+  "main": "worker.js",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  }
+}
