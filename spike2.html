@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocSomm — The wine list, decoded</title>
+    <meta name="description" content="Scan a restaurant wine list and see the bottles worth your attention — tasting profiles, critic ratings, pairings, and restaurant pricing in context.">
+    <meta name="robots" content="noindex">
+    <!-- SPIKE 2: editorial/wine-magazine direction. Not linked from the live site. -->
+    <meta property="og:title" content="PocSomm — The wine list, decoded">
+    <meta property="og:description" content="Scan a restaurant wine list and see the bottles worth your attention.">
+    <meta property="og:image" content="https://pocsomm.com/logo.png">
+    <style>
+        :root {
+            --burgundy: #5C0A1E;
+            --burgundy-deep: #46081A;
+            --gold: #C5A059;
+            --cream: #F7F1E6;
+            --paper: #FDFAF4;
+            --ink: #241E1C;
+            --muted: #7A716B;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.65;
+        }
+        .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .wrap { max-width: 1000px; margin: 0 auto; padding: 0 28px; }
+        .narrow { max-width: 660px; margin: 0 auto; }
+
+        .eyebrow {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            text-transform: uppercase; letter-spacing: 0.22em;
+            font-size: 0.72rem; font-weight: 600; color: var(--gold);
+            text-align: center; margin-bottom: 14px;
+        }
+        .rule { width: 56px; height: 1px; background: var(--gold); margin: 26px auto; border: 0; }
+
+        /* ===== Hero: deep burgundy, editorial ===== */
+        .hero {
+            background: linear-gradient(175deg, var(--burgundy) 0%, var(--burgundy-deep) 100%);
+            color: var(--cream);
+            text-align: center;
+            padding: 88px 28px 76px;
+        }
+        .hero .mark { width: 76px; height: 76px; border-radius: 18px; margin-bottom: 30px; }
+        .hero h1 {
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
+            font-weight: 400; letter-spacing: 0.01em; line-height: 1.08;
+            max-width: 780px; margin: 0 auto 22px;
+        }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+        .hero .sub {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.08rem; line-height: 1.7; color: rgba(247,241,230,0.85);
+            max-width: 620px; margin: 0 auto 34px;
+        }
+        .badge-btn img { height: 54px; display: block; margin: 0 auto; }
+        .hero .fineprint {
+            font-family: -apple-system, sans-serif;
+            margin-top: 16px; font-size: 0.84rem; letter-spacing: 0.04em;
+            color: rgba(247,241,230,0.65);
+        }
+        .hero .avail {
+            font-family: -apple-system, sans-serif;
+            margin-top: 6px; font-size: 0.9rem; color: var(--gold); font-weight: 600;
+        }
+
+        section { padding: 76px 0; }
+        section.tinted { background: var(--cream); }
+        h2 {
+            font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+            font-weight: 400; text-align: center; color: var(--burgundy);
+            margin-bottom: 14px; line-height: 1.2;
+        }
+        .lede {
+            font-family: -apple-system, sans-serif;
+            text-align: center; color: var(--muted); font-size: 1.02rem;
+            max-width: 560px; margin: 0 auto;
+        }
+
+        /* ===== Menu-line before/after ===== */
+        .menuline {
+            max-width: 640px; margin: 44px auto 0;
+            background: var(--paper);
+            border: 1px solid rgba(92,10,30,0.14);
+            padding: 36px 40px;
+        }
+        .menuline .caption {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 14px;
+        }
+        .mrow { display: flex; align-items: baseline; gap: 10px; font-size: 1.06rem; }
+        .mrow .dots { flex: 1; border-bottom: 1px dotted rgba(36,30,28,0.4); transform: translateY(-4px); }
+        .annotation { margin-top: 26px; border-top: 1px solid rgba(92,10,30,0.14); padding-top: 22px; }
+        .annotation .caption { color: var(--gold); }
+        .facts {
+            font-family: -apple-system, sans-serif;
+            display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 0.95rem; margin-bottom: 14px;
+        }
+        .facts b { color: var(--burgundy); }
+        .verdict {
+            display: inline-block;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #A4650E; border: 1px solid #D9A648; padding: 4px 12px; border-radius: 3px;
+            margin-bottom: 14px;
+        }
+        .tasting { font-style: italic; color: #4d443f; }
+
+        /* ===== Screenshot showcase ===== */
+        .shot { display: flex; justify-content: center; margin-top: 48px; }
+        .shot img {
+            width: 270px; max-width: 82%;
+            border-radius: 34px;
+            box-shadow: 0 30px 70px rgba(70,8,26,0.28);
+        }
+        .duo { display: flex; gap: 48px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 48px; }
+        .duo .copyblock { max-width: 380px; }
+        .duo .copyblock h3 { font-size: 1.45rem; font-weight: 400; color: var(--burgundy); margin-bottom: 12px; }
+        .duo .copyblock p { font-family: -apple-system, sans-serif; color: #4d443f; font-size: 1rem; }
+        .duo .copyblock p + p { margin-top: 10px; }
+
+        /* ===== Founder pull-quote ===== */
+        .pull {
+            text-align: center; max-width: 700px; margin: 0 auto;
+        }
+        .pull blockquote {
+            font-size: clamp(1.35rem, 3vw, 1.8rem); line-height: 1.45;
+            color: var(--burgundy); font-style: italic;
+        }
+        .pull .attrib {
+            font-family: -apple-system, sans-serif;
+            margin-top: 18px; color: var(--muted); font-size: 0.92rem;
+        }
+
+        /* ===== Situations (typographic, no cards) ===== */
+        .sits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; margin-top: 48px; }
+        @media (max-width: 720px) { .sits { grid-template-columns: 1fr; gap: 32px; } }
+        .sits h4 {
+            font-size: 1.15rem; font-weight: 400; color: var(--burgundy);
+            border-top: 1px solid var(--gold); padding-top: 14px; margin-bottom: 8px;
+        }
+        .sits p { font-family: -apple-system, sans-serif; color: #4d443f; font-size: 0.96rem; }
+
+        /* ===== Trust / pricing ===== */
+        .trust { max-width: 640px; margin: 0 auto; text-align: center; }
+        .trust p { font-family: -apple-system, sans-serif; color: #4d443f; }
+        .trust p + p { margin-top: 14px; }
+        .trust a { color: var(--burgundy); }
+        .trust .big {
+            font-family: Georgia, serif; font-size: 1.25rem; color: var(--burgundy);
+            font-style: normal;
+        }
+
+        /* ===== Final CTA ===== */
+        .final {
+            background: linear-gradient(175deg, var(--burgundy) 0%, var(--burgundy-deep) 100%);
+            color: var(--cream); text-align: center; padding: 80px 28px;
+        }
+        .final h2 { color: var(--cream); }
+        .final .fineprint {
+            font-family: -apple-system, sans-serif;
+            margin-top: 16px; font-size: 0.84rem; color: rgba(247,241,230,0.65);
+        }
+
+        footer {
+            font-family: -apple-system, sans-serif;
+            padding: 30px 24px 44px; text-align: center; color: #a49a92; font-size: 0.82rem;
+            background: var(--burgundy-deep);
+        }
+        footer a { color: rgba(247,241,230,0.75); text-decoration: none; margin: 0 12px; }
+        footer a:hover { text-decoration: underline; }
+        footer p { margin-top: 10px; color: rgba(247,241,230,0.4); }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Hero ===== -->
+    <header class="hero">
+        <img src="logo.png" alt="PocSomm" class="mark">
+        <h1>The wine list, <em>decoded</em>.</h1>
+        <p class="sub">
+            Scan any restaurant wine list and see the bottles worth your attention —
+            tasting profiles, critic ratings, food pairings, and restaurant pricing in context.
+        </p>
+        <a href="https://apps.apple.com/app/id6760143052" class="badge-btn" target="_blank" rel="noopener">
+            <img src="app-store-badge.svg" alt="Download on the App Store">
+        </a>
+        <p class="fineprint">No account &middot; No subscription &middot; No ads &middot; Private by design</p>
+        <p class="avail">Available now for iPhone &middot; Android coming soon</p>
+    </header>
+
+    <!-- ===== Worked example: the menu line, annotated ===== -->
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">Tonight&rsquo;s list</p>
+            <h2>Turn any wine list into a shortlist</h2>
+            <p class="lede">This is all a wine list tells you. And what PocSomm sees in it.</p>
+
+            <div class="menuline">
+                <p class="caption">On the menu</p>
+                <div class="mrow">
+                    <span>Nicolas Joly &lsquo;Clos de la Bergerie&rsquo; 2019</span>
+                    <span class="dots"></span>
+                    <span>198</span>
+                </div>
+                <div class="annotation">
+                    <p class="caption">What PocSomm sees</p>
+                    <div class="facts">
+                        <span>Typical retail <b>~$80</b></span>
+                        <span>Restaurant multiple <b>2.5&times;</b></span>
+                        <span>Savenni&egrave;res-Roche aux Moines, Loire</span>
+                    </div>
+                    <span class="verdict">Fair price</span>
+                    <p class="tasting">A benchmark biodynamic Chenin Blanc &mdash; honeyed orchard fruit, beeswax, and stony depth. At its best with roast poultry or aged comt&eacute;.</p>
+                </div>
+            </div>
+
+            <div class="shot">
+                <img src="screenshots/wl-result.png" alt="PocSomm wine list scan results">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Founder pull-quote ===== -->
+    <section class="tinted">
+        <div class="pull wrap">
+            <blockquote>&ldquo;Not to replace a great sommelier &mdash; but to be a knowledgeable
+            partner when there isn&rsquo;t one around.&rdquo;</blockquote>
+            <p class="attrib">Built independently by two lifelong wine enthusiasts,
+            after 30 years of exploring wine together.</p>
+        </div>
+    </section>
+
+    <!-- ===== Situations ===== -->
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">Where it shines</p>
+            <h2>Three moments, one companion</h2>
+            <div class="sits">
+                <div>
+                    <h4>At the restaurant</h4>
+                    <p>The list arrives. Scan it, see the smart picks, and order with confidence.</p>
+                </div>
+                <div>
+                    <h4>At home</h4>
+                    <p>Scan a bottle for tasting notes and serving advice &mdash; or paste a recipe link and let dinner choose the wine.</p>
+                </div>
+                <div>
+                    <h4>When traveling</h4>
+                    <p>Eleven languages, local-market pricing. Unfamiliar lists, made familiar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Food pairing ===== -->
+    <section class="tinted">
+        <div class="wrap">
+            <p class="eyebrow">Food pairing</p>
+            <h2>Dinner for four. Four dishes. One bottle.</h2>
+            <div class="duo">
+                <div class="copyblock">
+                    <h3>The whole table, considered</h3>
+                    <p>Tell PocSomm what everyone is eating. It weighs the wines actually on the
+                       restaurant&rsquo;s list and ranks the best matches for the meal as a whole &mdash;
+                       with the reasoning in plain language.</p>
+                    <p>Planning ahead? Import the wine list before you arrive &mdash; a PDF, photos,
+                       or a link &mdash; and know the list before you sit down.</p>
+                </div>
+                <img src="screenshots/fp-match.png" alt="PocSomm food pairing results" style="width:250px;max-width:80%;border-radius:32px;box-shadow:0 26px 60px rgba(70,8,26,0.25);">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Trust & pricing ===== -->
+    <section>
+        <div class="trust wrap">
+            <p class="eyebrow">Independent by design</p>
+            <h2>Quietly on your side</h2>
+            <p>No account. No sign-up. No ads. No tracking. Your scans, ratings, and history
+               live only on your device &mdash; we don&rsquo;t run servers. When AI reads a photo, only the
+               image is sent to Google&rsquo;s Gemini service to extract the wine details; it is never stored and never sold.</p>
+            <hr class="rule">
+            <p class="big">Free to download, with starter credits included.</p>
+            <p>A typical wine-list scan uses one credit. Top up with one-time packs whenever
+               you like &mdash; no subscription, and credits never expire.</p>
+            <p><a href="/privacy-policy">Privacy Policy</a></p>
+        </div>
+    </section>
+
+    <!-- ===== Final CTA ===== -->
+    <section class="final">
+        <p class="eyebrow">PocSomm</p>
+        <h2>The wine list is coming.<br>Be ready.</h2>
+        <div style="margin-top:28px;">
+            <a href="https://apps.apple.com/app/id6760143052" class="badge-btn" target="_blank" rel="noopener">
+                <img src="app-store-badge.svg" alt="Download on the App Store">
+            </a>
+        </div>
+        <p class="fineprint">No account &middot; No subscription &middot; No ads &middot; Private by design</p>
+    </section>
+
+    <footer>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="mailto:support@pocsomm.com">Contact</a>
+        <p>&copy; 2026 Melkar, LLC.</p>
+    </footer>
+</body>
+</html>
