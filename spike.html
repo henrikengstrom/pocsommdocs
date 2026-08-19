@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocSomm — Read any wine list like an insider</title>
+    <meta name="description" content="Scan a restaurant wine list and instantly see the bottles worth your attention — tasting profiles, critic ratings, food pairings, and how restaurant prices compare with retail.">
+    <meta name="robots" content="noindex">
+    <!-- SPIKE: repositioned landing page for review. Not linked from the live site. -->
+    <meta property="og:title" content="PocSomm — Read any wine list like an insider">
+    <meta property="og:description" content="Scan a restaurant wine list and instantly see the bottles worth your attention.">
+    <meta property="og:image" content="https://pocsomm.com/logo.png">
+    <meta property="og:url" content="https://pocsomm.com/">
+    <style>
+        :root {
+            --burgundy: #730D26;
+            --burgundy-light: #8F1A33;
+            --gold: #C5A059;
+            --cream: #F7EBDC;
+            --card: #FFFFFF;
+            --ink: #2C2C2C;
+            --muted: #6A6A6A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* Avoid lonely one/two-word last lines (orphans) and ragged headings */
+        p, li, figcaption { text-wrap: pretty; }
+        h1, h2, h3, .eyebrow, .section-sub, .walk-title { text-wrap: balance; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--cream);
+            color: var(--ink);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+        .narrow { max-width: 680px; margin: 0 auto; }
+
+        /* ---- Sticky nav ---- */
+        nav.top {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(247, 235, 220, 0.92);
+            backdrop-filter: saturate(180%) blur(12px);
+            border-bottom: 1px solid rgba(115, 13, 38, 0.08);
+        }
+        nav.top .inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav.top .brand {
+            font-weight: 700;
+            color: var(--burgundy);
+            font-size: 1.05rem;
+            text-decoration: none;
+        }
+        nav.top a.link {
+            color: var(--burgundy-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        nav.top a.link:hover { text-decoration: underline; }
+        @media (max-width: 720px) { nav.top .inner a.link { display: none; } }
+
+        /* language switcher */
+        nav.top select.langswitch {
+            font-family: inherit;
+            font-size: 0.85rem; font-weight: 600;
+            color: var(--burgundy);
+            background: rgba(255,255,255,0.6);
+            border: 1px solid rgba(115, 13, 38, 0.25);
+            border-radius: 9px; padding: 5px 9px; cursor: pointer;
+        }
+        nav.top select.langswitch:hover { border-color: var(--burgundy); }
+
+        /* ---- Hero ---- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 72px 24px 40px;
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .logo {
+            width: 120px; height: 120px;
+            border-radius: 28px;
+            box-shadow: 0 8px 32px rgba(115, 13, 38, 0.15);
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-size: 2.6rem; font-weight: 700;
+            color: var(--burgundy);
+            margin-bottom: 8px; letter-spacing: -0.02em;
+        }
+        .tagline { font-size: 1.15rem; color: var(--burgundy-light); margin-bottom: 28px; }
+        .description { font-size: 1.05rem; line-height: 1.7; color: #4A4A4A; margin-bottom: 32px; }
+
+        .badge {
+            display: inline-block;
+            background: var(--burgundy);
+            color: var(--gold);
+            font-weight: 600; font-size: 0.95rem;
+            padding: 13px 32px; border-radius: 12px;
+            letter-spacing: 0.01em;
+        }
+
+        /* App Store download CTA */
+        .store-cta { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .store-cta .appstore-badge img {
+            height: 54px; width: auto; display: block;
+            transition: transform 0.15s ease;
+        }
+        .store-cta .appstore-badge:hover img { transform: scale(1.04); }
+        .store-cta .android-soon {
+            font-size: 0.88rem; color: var(--burgundy-light); font-weight: 600;
+            margin: 0;
+        }
+
+        /* ---- Section ---- */
+        section { padding: 56px 0; }
+        section.alt { background: rgba(115, 13, 38, 0.035); }
+        .eyebrow {
+            text-transform: uppercase; letter-spacing: 0.12em;
+            font-size: 0.78rem; font-weight: 700; color: var(--gold);
+            text-align: center; margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.9rem; font-weight: 700; color: var(--burgundy);
+            text-align: center; margin-bottom: 12px; letter-spacing: -0.01em;
+        }
+        .section-sub {
+            text-align: center; color: var(--muted);
+            max-width: 560px; margin: 0 auto 40px; font-size: 1.02rem;
+        }
+
+        /* ---- How it works (steps) ---- */
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .step {
+            background: var(--card); border-radius: 18px; padding: 28px 22px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.05); text-align: center;
+        }
+        .step .num {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--burgundy); color: var(--gold);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-weight: 700; margin-bottom: 14px;
+        }
+        .step h3 { color: var(--burgundy); font-size: 1.05rem; margin-bottom: 6px; }
+        .step p { color: var(--muted); font-size: 0.92rem; }
+        @media (max-width: 720px) { .steps { grid-template-columns: 1fr; } }
+
+        /* ---- Feature rows (text + screenshot) ---- */
+        .feature-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            align-items: center; margin-bottom: 56px;
+        }
+        .feature-row:last-child { margin-bottom: 0; }
+        .feature-row.reverse .copy { order: 2; }
+        .feature-row .copy .kicker { color: var(--gold); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+        .feature-row .copy h3 { font-size: 1.45rem; color: var(--burgundy); margin-bottom: 10px; }
+        .feature-row .copy p { color: #4A4A4A; font-size: 1rem; }
+        .feature-row .copy ul { margin: 14px 0 0 0; padding: 0; list-style: none; }
+        .feature-row .copy li { color: #4A4A4A; font-size: 0.95rem; padding-left: 22px; position: relative; margin-bottom: 6px; }
+        .feature-row .copy li::before { content: "\25CF"; color: var(--gold); position: absolute; left: 0; font-size: 0.7rem; top: 4px; }
+
+        /* phone screenshot frame */
+        .phone {
+            justify-self: center;
+            width: 250px; max-width: 80%;
+            border: 8px solid #1c1c1c; border-radius: 38px;
+            background: #1c1c1c; overflow: hidden;
+            box-shadow: 0 14px 40px rgba(115, 13, 38, 0.18);
+        }
+        .phone img { display: block; width: 100%; height: auto; }
+
+        /* ---- Walkthrough strip ---- */
+        .walk {
+            display: flex; gap: 30px; overflow-x: auto;
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+            padding: 8px 24px 24px; scrollbar-width: thin;
+        }
+        .walk-step { flex: 0 0 auto; width: 210px; scroll-snap-align: center; text-align: center; }
+        .walk-step .phone { width: 210px; max-width: 210px; margin: 0 auto 14px; }
+        .walk-step figcaption { font-size: 0.92rem; color: var(--muted); text-align: center; }
+        .walk-step .n {
+            width: 24px; height: 24px; border-radius: 50%;
+            background: var(--burgundy); color: var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: 700;
+            margin: 0 auto 8px;
+        }
+        .walk-hint { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+        /* the swipe hint only makes sense on touch screens (where the strip scrolls) */
+        @media (hover: hover) and (pointer: fine) { .walk-hint { display: none; } }
+        .walk-title { text-align: center; color: var(--burgundy); font-size: 1.2rem; font-weight: 700; margin-top: 8px; }
+        /* placeholder shown until a real screenshot is dropped in */
+        .phone .placeholder {
+            aspect-ratio: 9 / 19.5; display: flex; align-items: center; justify-content: center;
+            background: var(--cream); color: var(--burgundy-light); text-align: center;
+            font-size: 0.8rem; padding: 16px;
+        }
+        @media (max-width: 720px) {
+            .feature-row { grid-template-columns: 1fr; gap: 24px; }
+            .feature-row.reverse .copy { order: 0; }
+        }
+
+        /* ---- Generic card grid (secondary features) ---- */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .mini {
+            background: var(--card); border-radius: 16px; padding: 22px 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .mini .ic { font-size: 1.4rem; margin-bottom: 8px; }
+        .mini h4 { color: var(--burgundy); font-size: 0.98rem; margin-bottom: 4px; }
+        .mini p { color: var(--muted); font-size: 0.88rem; }
+        @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+
+        /* ---- Languages ---- */
+        .langs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 620px; margin: 0 auto; }
+        .lang { background: var(--card); border-radius: 999px; padding: 8px 16px; font-size: 0.9rem; color: var(--burgundy); box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: inline-flex; align-items: center; }
+        .lang .flag { margin-right: 7px; font-size: 1.05rem; line-height: 1; }
+
+        /* ---- Pricing / privacy callout ---- */
+        .callout {
+            background: var(--card); border-radius: 18px; padding: 32px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.05); max-width: 680px; margin: 0 auto;
+        }
+        .callout p { color: #4A4A4A; }
+        .callout p + p { margin-top: 12px; }
+        .callout a { color: var(--burgundy-light); font-weight: 600; }
+        .about-photo { margin: 0 auto 24px; max-width: 460px; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 28px rgba(115,13,38,0.18); }
+        .about-photo img { width: 100%; height: auto; display: block; }
+
+        /* ---- FAQ ---- */
+        .faq { max-width: 680px; margin: 0 auto; }
+        details {
+            background: var(--card); border-radius: 14px; padding: 4px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04); margin-bottom: 12px;
+        }
+        summary {
+            cursor: pointer; list-style: none; padding: 16px 0;
+            font-weight: 600; color: var(--burgundy); font-size: 1rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: "+"; color: var(--gold); font-size: 1.3rem; font-weight: 700; }
+        details[open] summary::after { content: "\2013"; }
+        details p { color: #4A4A4A; font-size: 0.95rem; padding: 0 0 18px; }
+
+        /* ---- Responsible / footer ---- */
+        .responsible {
+            text-align: center; color: var(--muted); font-size: 0.9rem;
+            max-width: 600px; margin: 0 auto; padding: 16px 0;
+        }
+        .legal { display: flex; gap: 24px; justify-content: center; margin: 8px 0 16px; }
+        .legal a { color: var(--burgundy-light); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .legal a:hover { text-decoration: underline; }
+        footer { padding: 28px 24px 40px; text-align: center; color: #999; font-size: 0.82rem; }
+        footer a { color: var(--burgundy-light); text-decoration: none; }
+        footer .social { margin-bottom: 16px; }
+        footer .social a { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 0.92rem; }
+        footer .social a:hover { text-decoration: underline; }
+        footer .social .ig-icon { width: 18px; height: 18px; flex: 0 0 auto; }
+
+        @media (max-width: 480px) {
+            .hero { padding: 48px 20px 28px; }
+            h1 { font-size: 2.1rem; }
+            h2 { font-size: 1.6rem; }
+            .logo { width: 96px; height: 96px; border-radius: 22px; }
+        }
+    </style>
+    <style>
+        /* Spike-only additions */
+        .cta-row { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 8px; }
+        .cta-note { font-size: 0.85rem; color: var(--muted); }
+        .cta-avail { font-size: 0.9rem; color: var(--burgundy-light); font-weight: 600; }
+        .worked {
+            max-width: 560px; margin: 0 auto; background: var(--card);
+            border-radius: 18px; padding: 28px 30px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.05);
+        }
+        .worked .wname { font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; color: var(--ink); font-weight: 700; }
+        .worked .wregion { color: var(--muted); font-size: 0.92rem; margin-bottom: 12px; }
+        .worked .wrow { display: flex; justify-content: space-between; font-size: 0.98rem; padding: 5px 0; border-bottom: 1px solid rgba(115,13,38,0.07); }
+        .worked .wrow span:last-child { font-weight: 600; }
+        .worked .wtag { display: inline-block; margin-top: 12px; background: rgba(230,150,50,0.15); color: #B06A10; font-weight: 700; font-size: 0.85rem; padding: 5px 12px; border-radius: 6px; }
+        .worked .wnote { margin-top: 14px; color: #4A4A4A; font-size: 0.95rem; font-style: italic; }
+        .founder-strip {
+            text-align: center; max-width: 640px; margin: 0 auto;
+        }
+        .founder-strip h3 { font-family: Georgia, serif; color: var(--burgundy); font-size: 1.35rem; margin-bottom: 10px; }
+        .founder-strip p { color: #4A4A4A; }
+        .founder-strip .motto { margin-top: 12px; font-style: italic; color: var(--burgundy-light); }
+        .situations { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        @media (max-width: 720px) { .situations { grid-template-columns: 1fr; } }
+        .sit { background: var(--card); border-radius: 16px; padding: 24px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+        .sit h4 { font-family: Georgia, serif; color: var(--burgundy); font-size: 1.05rem; margin-bottom: 6px; }
+        .sit p { color: var(--muted); font-size: 0.92rem; }
+        .sit svg { width: 26px; height: 26px; stroke: var(--gold); margin-bottom: 10px; }
+        h1.hero-h { font-family: Georgia, 'Times New Roman', serif; font-size: 2.7rem; line-height: 1.15; }
+        h2, h3.walk-title { font-family: Georgia, 'Times New Roman', serif; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Hero ===== -->
+    <header class="hero" id="top" style="max-width:720px;">
+        <img src="logo.png" alt="PocSomm" class="logo">
+        <h1 class="hero-h">Read any wine list like an insider.</h1>
+        <p class="description" style="margin-bottom:20px;">
+            Scan a restaurant wine list and instantly see the bottles worth your attention —
+            tasting profiles, critic ratings, food pairings, and how restaurant prices compare with retail.
+        </p>
+        <div class="cta-row">
+            <a href="https://apps.apple.com/app/id6760143052" class="appstore-badge" target="_blank" rel="noopener">
+                <img src="app-store-badge.svg" alt="Download on the App Store">
+            </a>
+            <p class="cta-note">No account &middot; No subscription &middot; No ads &middot; Private by design</p>
+            <p class="cta-avail">Available now for iPhone &middot; Android coming soon</p>
+        </div>
+    </header>
+
+    <!-- ===== The list, decoded (demo + worked example) ===== -->
+    <section class="alt">
+        <div class="wrap">
+            <p class="eyebrow">Tonight&rsquo;s list. Decoded.</p>
+            <h2>One scan turns the list into a shortlist</h2>
+            <p class="section-sub">Every bottle identified, priced in context, and rated &mdash; in seconds.</p>
+            <div class="feature-row">
+                <div class="copy">
+                    <div class="worked">
+                        <div class="wname">Nicolas Joly &lsquo;Clos de la Bergerie&rsquo;</div>
+                        <div class="wregion">Savenni&egrave;res-Roche aux Moines, Loire, France</div>
+                        <div class="wrow"><span>On the list</span><span>$198</span></div>
+                        <div class="wrow"><span>Typical retail</span><span>~$80</span></div>
+                        <div class="wrow"><span>Restaurant multiple</span><span>2.5&times;</span></div>
+                        <span class="wtag">Fair price</span>
+                        <p class="wnote">A benchmark biodynamic Chenin Blanc &mdash; honeyed orchard fruit, beeswax, and stony depth.</p>
+                    </div>
+                </div>
+                <div class="phone">
+                    <img src="screenshots/wl-result.png" alt="PocSomm wine list scan results with prices and value context">
+                </div>
+            </div>
+            <p class="section-sub" style="margin-top:28px; margin-bottom:0;">
+                PocSomm turns information into a decision &mdash; including bottles you might otherwise pass over.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== Founder credibility (short) ===== -->
+    <section>
+        <div class="founder-strip wrap">
+            <h3>Built by wine lovers, for wine lovers.</h3>
+            <p>After more than 30 years of exploring wine together &mdash; and learning from exceptional
+               sommeliers along the way &mdash; we built the companion we wanted at our own table.</p>
+            <p class="motto">Not to replace a great sommelier &mdash; but to be a knowledgeable partner when there isn&rsquo;t one around.</p>
+        </div>
+    </section>
+
+    <!-- ===== Three situations ===== -->
+    <section class="alt">
+        <div class="wrap">
+            <p class="eyebrow">Where PocSomm shines</p>
+            <h2>Three moments, one companion</h2>
+            <div class="situations" style="margin-top:32px;">
+                <div class="sit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M4 4h16v13H4z"/><path d="M8 21h8M12 17v4"/></svg>
+                    <h4>At the restaurant</h4>
+                    <p>Scan the list, understand it, and order with confidence.</p>
+                </div>
+                <div class="sit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0z"/><path d="M12 13v6M9 21h6"/></svg>
+                    <h4>At home</h4>
+                    <p>Scan a bottle, explore how it tastes, and pair it with dinner &mdash; even from a recipe link.</p>
+                </div>
+                <div class="sit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg>
+                    <h4>When traveling</h4>
+                    <p>Your sommelier travels with you &mdash; 11 languages, local-market pricing, unfamiliar lists made familiar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Food pairing ===== -->
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">Food pairing</p>
+            <h2>Dinner for four. Four different dishes. One bottle.</h2>
+            <p class="section-sub">Tell PocSomm what everyone is eating. It evaluates the wines actually on the
+               restaurant&rsquo;s list and ranks the best matches for the whole table &mdash; with the reasoning spelled out.</p>
+            <div class="feature-row reverse">
+                <div class="copy">
+                    <p class="kicker">Also at home</p>
+                    <h3>From recipe to bottle</h3>
+                    <p>Cooking instead? Paste a recipe link and PocSomm reads the dish and suggests the wine &mdash;
+                       popular picks plus a few adventurous ones.</p>
+                </div>
+                <div class="phone">
+                    <img src="screenshots/fp-match.png" alt="PocSomm food pairing results with match percentages">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Import before you go ===== -->
+    <section class="alt">
+        <div class="wrap">
+            <p class="eyebrow">Plan ahead</p>
+            <h2>Know the list before you arrive</h2>
+            <p class="section-sub">Import a restaurant&rsquo;s wine list ahead of dinner &mdash; a PDF, photos, or a link &mdash;
+               and explore the producers, prices, and bottles worth remembering before you even sit down.</p>
+            <div style="text-align:center; margin-top:24px;">
+                <a href="https://apps.apple.com/app/id6760143052" class="appstore-badge" target="_blank" rel="noopener">
+                    <img src="app-store-badge.svg" alt="Download on the App Store">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Trust: privacy + independence ===== -->
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">Your data, your business</p>
+            <h2>Independent by design</h2>
+            <div class="callout">
+                <p><strong>Built independently by two lifelong wine enthusiasts</strong> &mdash; not an advertising funnel.
+                   No account. No sign-up. No ads. No tracking. Your scans, ratings, and history live only on your device.</p>
+                <p>When AI reads a photo, only the image is sent to Google&rsquo;s Gemini service to extract the wine
+                   details &mdash; it is never stored on our servers (we don&rsquo;t run any) and never sold.</p>
+                <p><a href="/privacy-policy">Read the full Privacy Policy &rarr;</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Pricing ===== -->
+    <section class="alt">
+        <div class="wrap">
+            <p class="eyebrow">Simple &amp; fair</p>
+            <h2>Pay for what you use. Nothing more.</h2>
+            <div class="callout">
+                <p>PocSomm is <strong>free to download</strong>, with credits included to get you started.
+                   A typical wine-list scan uses one credit. Top up with one-time credit packs whenever you like &mdash;
+                   <strong>no subscription, and credits never expire.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Final CTA ===== -->
+    <section>
+        <div class="wrap" style="text-align:center;">
+            <h2>The wine list is coming. Be ready.</h2>
+            <div class="cta-row" style="margin-top:18px;">
+                <a href="https://apps.apple.com/app/id6760143052" class="appstore-badge" target="_blank" rel="noopener">
+                    <img src="app-store-badge.svg" alt="Download on the App Store">
+                </a>
+                <p class="cta-note">No account &middot; No subscription &middot; No ads &middot; Private by design</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="legal">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
+            <a href="mailto:support@pocsomm.com">Contact</a>
+        </div>
+        <p>&copy; 2026 Melkar, LLC.</p>
+    </footer>
+</body>
+</html>
