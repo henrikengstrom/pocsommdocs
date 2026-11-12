@@ -90,7 +90,7 @@
 
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="updated">Last Updated: June 3, 2026</p>
+        <p class="updated">Last Updated: September 25, 2026</p>
 
         <p>Melkar, LLC ("we", "us", "our") operates the PocSomm mobile application ("the App"). This Privacy Policy describes how we collect, use, and protect your information when you use PocSomm.</p>
 
@@ -99,8 +99,15 @@
         <h3>Camera Images</h3>
         <p>When you use PocSomm's scanning features (wine list scanning, bottle scanning, or food menu scanning), the App captures photos using your device's camera. These images are processed to extract wine and food information.</p>
 
-        <h3>How Images Are Processed</h3>
-        <p>Captured images are transmitted to Google's Gemini AI service via Firebase for analysis. Images are sent solely for the purpose of extracting wine and food information. We do not store your images on any server. Images are transmitted directly from your device to Google and are subject to Google's data handling policies.</p>
+        <h3>How Images and Text Are Processed</h3>
+        <p>To analyze a scan, captured images are sent to Google's Gemini API via Firebase for processing. The same applies to wine lists you import (PDF pages, photos, or the text of a web page), dish names and recipe details you use for pairings, and questions you ask PocSomm.</p>
+        <p>This content is sent solely to produce the wine and food information you asked for. We do not store it on any server. It is transmitted directly from your device to Google and is subject to Google's data handling policies.</p>
+
+        <h3>Links You Import</h3>
+        <p>When you paste a link to a restaurant wine list or a recipe, the App downloads that page directly from the website so it can be analyzed. As with any web request, that website receives your device's IP address and a standard request header. PocSomm does not send the link or the page to us.</p>
+
+        <h3>Protecting the Service From Abuse</h3>
+        <p>To make sure requests to the AI service come from the genuine PocSomm app on a genuine Apple device, the App uses Firebase App Check with Apple's App Attest. This sends a cryptographic device attestation to Apple and Google. It contains no personal information and is not used to identify or track you.</p>
 
         <h3>Location Data</h3>
         <p>If you grant permission, PocSomm uses your approximate location (accuracy of roughly 100 meters, not precise GPS) to help you find nearby wine shops. When you choose to search for wine shops, your approximate coordinates are included in an Apple Maps link that opens in the Maps app. PocSomm operates no servers of its own and does not transmit your location to us; wine-shop searches are handled by Apple Maps and are subject to Apple's Privacy Policy. You may set a saved home location to use instead of your current location.</p>
@@ -110,6 +117,8 @@
         <ul>
             <li><strong>Scan history:</strong> Wine and food scan results (stored in app documents)</li>
             <li><strong>Wine ratings:</strong> Your personal wine ratings (stored in app documents)</li>
+            <li><strong>Pairing history:</strong> Your saved food-pairing searches (stored in app documents)</li>
+            <li><strong>Answer cache:</strong> Recent sommelier answers, kept for a limited time so repeat questions are instant (stored in UserDefaults)</li>
             <li><strong>Credit balance:</strong> Your scan credit balance (stored in the iOS Keychain)</li>
             <li><strong>Preferences:</strong> App settings such as language, currency market, and display preferences (stored in UserDefaults)</li>
         </ul>
@@ -127,16 +136,16 @@
         <h2>Third-Party Services</h2>
 
         <h3>AI Provider</h3>
-        <p>When you scan, image data and extracted text are sent to Google's Gemini API for processing. Google's privacy policy applies to this data processing:</p>
+        <p>Images and text you choose to analyze are sent to Google for processing (see above), subject to its privacy policy:</p>
         <ul>
-            <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+            <li><strong>Google (Gemini API via Firebase, and Firebase App Check):</strong> <a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
         </ul>
 
-        <h3>Apple StoreKit</h3>
-        <p>PocSomm uses Apple's StoreKit for in-app purchases. Purchase transactions are handled entirely by Apple and are subject to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+        <h3>Apple StoreKit and App Attest</h3>
+        <p>PocSomm uses Apple's StoreKit for in-app purchases. Purchase transactions are handled entirely by Apple; PocSomm only records on your device which purchases have already been credited. App Attest (see above) is also provided by Apple. Both are subject to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
 
         <h2>Data Retention</h2>
-        <p>All data is stored locally on your device. You can delete your scan history and ratings at any time through the app's Settings. Your scan credit balance is stored in the iOS Keychain and is retained across reinstalls; it contains no personal information and is not transmitted anywhere.</p>
+        <p>All data is stored locally on your device. You can delete your scan history, ratings, and pairing history at any time in the App. Your scan credit balance is stored in the iOS Keychain and is retained across reinstalls; it contains no personal information and is not transmitted anywhere.</p>
 
         <h2>Children's Privacy</h2>
         <p>PocSomm contains information about alcoholic beverages and is intended for users of legal drinking age (18 years or older). We do not knowingly collect information from children.</p>

@@ -37,8 +37,10 @@ in development).
 
 - No account and no sign-up; scans, ratings, and history live only on the
   user's device.
-- Photos are sent to Google's Gemini AI service only to extract wine details;
-  they are never stored on PocSomm servers (there are none) and never sold.
+- What the user asks the AI to analyze (a photo, an imported wine list, the
+  chosen dishes, or a question) is sent to Google's Gemini service only to
+  produce the answer; it is never stored on PocSomm servers (there are none)
+  and never sold.
 - No ads, no cross-app tracking.
 
 ## Pages

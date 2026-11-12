@@ -155,7 +155,7 @@
             "priv.eyebrow": "Vos données vous appartiennent",
             "priv.h2": "Privé par conception",
             "priv.p1": "<strong>Pas de compte. Pas d'inscription.</strong> Vos scans, vos notes et votre historique ne vivent que sur votre appareil.",
-            "priv.p2": "Quand l'IA lit une photo, seule l'image est envoyée au service Gemini de Google pour en extraire les détails du vin — elle n'est jamais stockée sur nos serveurs (nous n'en avons aucun) ni vendue. <strong>Pas de pub, pas de suivi entre applis.</strong>",
+            "priv.p2": "Quand l'IA analyse quelque chose pour vous — une photo, une carte des vins importée, les plats choisis ou une question —, seul ce contenu est envoyé au service Gemini de Google pour produire la réponse. Il n'est jamais stocké sur nos serveurs (nous n'en avons aucun) ni vendu. <strong>Pas de pub, pas de suivi entre applis.</strong>",
             "priv.link": "<a href=\"/privacy-policy\">Lire la politique de confidentialité complète &rarr;</a>",
 
             "faq.eyebrow": "Bon à savoir",
@@ -309,7 +309,7 @@
             "priv.eyebrow": "I tuoi dati sono affar tuo",
             "priv.h2": "Privato per progettazione",
             "priv.p1": "<strong>Nessun account. Nessuna registrazione.</strong> Le tue scansioni, valutazioni e cronologia vivono solo sul tuo dispositivo.",
-            "priv.p2": "Quando l'IA legge una foto, solo l'immagine viene inviata al servizio Gemini di Google per estrarre i dettagli del vino — non viene mai conservata sui nostri server (non ne abbiamo) né venduta. <strong>Niente pubblicità, niente tracciamento tra app.</strong>",
+            "priv.p2": "Quando l'IA analizza qualcosa per te — una foto, una carta dei vini importata, i piatti scelti o una domanda — solo quel contenuto viene inviato al servizio Gemini di Google per produrre la risposta. Non viene mai conservato sui nostri server (non ne abbiamo) né venduto. <strong>Niente pubblicità, niente tracciamento tra app.</strong>",
             "priv.link": "<a href=\"/privacy-policy\">Leggi l'informativa sulla privacy completa &rarr;</a>",
 
             "faq.eyebrow": "Buono a sapersi",
@@ -463,7 +463,7 @@
             "priv.eyebrow": "Tus datos son cosa tuya",
             "priv.h2": "Privado desde el diseño",
             "priv.p1": "<strong>Sin cuenta. Sin registro.</strong> Tus escaneos, valoraciones e historial viven solo en tu dispositivo.",
-            "priv.p2": "Cuando la IA lee una foto, solo se envía la imagen al servicio Gemini de Google para extraer los detalles del vino — nunca se guarda en nuestros servidores (no tenemos ninguno) ni se vende. <strong>Sin anuncios, sin seguimiento entre apps.</strong>",
+            "priv.p2": "Cuando la IA analiza algo por ti —una foto, una carta de vinos importada, los platos elegidos o una pregunta—, solo eso se envía al servicio Gemini de Google para generar la respuesta. Nunca se guarda en nuestros servidores (no tenemos ninguno) ni se vende. <strong>Sin anuncios, sin seguimiento entre apps.</strong>",
             "priv.link": "<a href=\"/privacy-policy\">Lee la política de privacidad completa &rarr;</a>",
 
             "faq.eyebrow": "Bueno saberlo",
@@ -617,7 +617,7 @@
             "priv.eyebrow": "あなたのデータは、あなたのもの",
             "priv.h2": "設計段階からプライベート",
             "priv.p1": "<strong>アカウント不要。登録不要。</strong>スキャン、評価、履歴はあなたの端末の中だけに残ります。",
-            "priv.p2": "AIが写真を読み取る際、画像だけがGoogleのGeminiサービスに送られ、ワインの情報を抽出します。当社のサーバーに保存されることは一切なく（そもそも保有していません）、販売もしません。<strong>広告なし、アプリ間トラッキングなし。</strong>",
+            "priv.p2": "AIが何かを分析する際（写真、取り込んだワインリスト、選んだ料理、質問など）、その内容だけがGoogleのGeminiサービスに送られ、回答の作成に使われます。当社のサーバーに保存されることは一切なく（そもそも保有していません）、販売もしません。<strong>広告なし、アプリ間トラッキングなし。</strong>",
             "priv.link": "<a href=\"/privacy-policy\">プライバシーポリシー全文を読む &rarr;</a>",
 
             "faq.eyebrow": "知っておくと便利",
@@ -771,7 +771,7 @@
             "priv.eyebrow": "你的数据，由你做主",
             "priv.h2": "从设计之初即注重隐私",
             "priv.p1": "<strong>无需账户。无需注册。</strong>你的扫描、评分和历史记录只存在于你的设备上。",
-            "priv.p2": "当 AI 读取照片时，只有图像会被发送到 Google 的 Gemini 服务以提取葡萄酒信息 — 绝不会存储在我们的服务器上（我们根本没有服务器），也绝不会出售。<strong>无广告，无跨应用追踪。</strong>",
+            "priv.p2": "当 AI 为你分析内容时（照片、导入的酒单、所选菜品或你的提问），只有这些内容会被发送到 Google 的 Gemini 服务以生成回答 — 绝不会存储在我们的服务器上（我们根本没有服务器），也绝不会出售。<strong>无广告，无跨应用追踪。</strong>",
             "priv.link": "<a href=\"/privacy-policy\">阅读完整隐私政策 &rarr;</a>",
 
             "faq.eyebrow": "值得了解",
