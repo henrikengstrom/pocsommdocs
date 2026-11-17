@@ -14,23 +14,23 @@
         },
         fr: {
             title: "PocSomm - Votre sommelier de poche",
-            desc: "PocSomm met le savoir d'un sommelier dans votre poche. Scannez une carte des vins, trouvez des accords mets-vins, lisez des notes de dégustation et explorez les cépages grâce à l'analyse par IA."
+            desc: "PocSomm est une application iPhone qui scanne la carte des vins d'un restaurant et affiche pour chaque vin son prix estimé en boutique, un verdict (très bon rapport, prix juste ou marge élevée), les notes des critiques et les accords mets-vins, sans compte ni abonnement."
         },
         it: {
             title: "PocSomm - Il tuo sommelier tascabile",
-            desc: "PocSomm mette il sapere di un sommelier in tasca. Scansiona la carta dei vini, scopri gli abbinamenti, leggi le note di degustazione ed esplora i vitigni con l'analisi basata sull'IA."
+            desc: "PocSomm è un'app per iPhone che scansiona la carta dei vini di un ristorante e mostra per ogni vino il prezzo stimato in enoteca, un giudizio (ottimo rapporto, prezzo equo o ricarico elevato), i punteggi della critica e gli abbinamenti, senza account né abbonamento."
         },
         es: {
             title: "PocSomm - Tu sumiller de bolsillo",
-            desc: "PocSomm pone el saber de un sumiller en tu bolsillo. Escanea cartas de vinos, descubre maridajes, lee notas de cata y explora variedades de uva con análisis basado en IA."
+            desc: "PocSomm es una app para iPhone que escanea la carta de vinos de un restaurante y muestra el precio estimado en tienda de cada vino, una valoración (gran valor, precio justo o alto margen), las puntuaciones de la crítica y los maridajes, sin cuenta ni suscripción."
         },
         ja: {
             title: "PocSomm - ポケットの中のソムリエ",
-            desc: "PocSommは、ソムリエの知識をあなたのポケットに。ワインリストをスキャンして料理との相性を見つけ、テイスティングノートを読み、AI分析でブドウ品種を探求できます。"
+            desc: "PocSommは、レストランのワインリストをスキャンして、各ワインの推定小売価格、お得度の判定（お買い得・適正価格・高マークアップ）、評論家スコア、料理との相性を表示するiPhoneアプリです。アカウントもサブスクリプションも不要です。"
         },
         zh: {
             title: "PocSomm - 口袋里的侍酒师",
-            desc: "PocSomm 将专业的葡萄酒知识装进你的口袋。扫描酒单、发现餐酒搭配、阅读品鉴笔记，并通过 AI 分析探索葡萄品种。"
+            desc: "PocSomm 是一款 iPhone 应用：扫描餐厅酒单，即可看到每款酒的预估零售价、性价比判断（高性价比、合理价格或高加价）、评论家评分和餐酒搭配，无需账户，也无需订阅。"
         }
     };
 
@@ -186,7 +186,13 @@
             "foot.privacy": "Politique de confidentialité",
             "foot.terms": "Conditions d'utilisation",
             "foot.contact": "Contact",
-            "foot.insta": "Suivez-nous sur Instagram &#64;pocsomm"
+            "foot.insta": "Suivez-nous sur Instagram &#64;pocsomm",
+            "foot.calc": "Calculateur de marge sur le vin",
+            "foot.markup": "Quelle marge les restaurants prennent-ils sur le vin ?",
+            "foot.value": "Ce vin est-il un bon rapport qualité-prix ?",
+            "foot.choose": "Comment choisir sur une carte des vins",
+            "foot.best": "Meilleures applis pour cartes des vins",
+            "foot.vivino": "PocSomm ou Vivino"
         },
 
         /* ============================ ITALIANO ============================ */
@@ -219,7 +225,7 @@
             "wl.h": "Vedi le scelte migliori prima di ordinare",
             "wl.p": "Fotografa qualsiasi carta dei vini e PocSomm stima il prezzo di ogni bottiglia per te.",
             "wl.li1": "Prezzo al dettaglio stimato per ogni vino",
-            "wl.li2": "Etichette di valore: Ottimo affare, Prezzo giusto o Ricarico alto",
+            "wl.li2": "Etichette di valore: Ottimo rapporto, Prezzo equo o Ricarico elevato",
             "wl.li3": "Voti della critica quando disponibili",
             "wl.li4": "Distingue il servizio al calice da quello a bottiglia",
 
@@ -340,7 +346,13 @@
             "foot.privacy": "Informativa sulla privacy",
             "foot.terms": "Termini di servizio",
             "foot.contact": "Contatti",
-            "foot.insta": "Seguici su Instagram &#64;pocsomm"
+            "foot.insta": "Seguici su Instagram &#64;pocsomm",
+            "foot.calc": "Calcolatore del ricarico sul vino",
+            "foot.markup": "Quanto ricaricano i ristoranti sul vino?",
+            "foot.value": "Questo vino vale il prezzo?",
+            "foot.choose": "Come scegliere dalla carta dei vini",
+            "foot.best": "Le migliori app per le carte dei vini",
+            "foot.vivino": "PocSomm o Vivino"
         },
 
         /* ============================ ESPAÑOL ============================ */
@@ -373,7 +385,7 @@
             "wl.h": "Ve las mejores opciones antes de pedir",
             "wl.p": "Fotografía cualquier carta de vinos y PocSomm calcula el precio de cada botella por ti.",
             "wl.li1": "Precio de venta estimado para cada vino",
-            "wl.li2": "Etiquetas de valor: Gran valor, Precio justo o Margen alto",
+            "wl.li2": "Etiquetas de valor: Gran valor, Precio justo o Alto margen",
             "wl.li3": "Puntuaciones de la crítica cuando están disponibles",
             "wl.li4": "Distingue el servicio por copa del de botella",
 
@@ -494,7 +506,13 @@
             "foot.privacy": "Política de privacidad",
             "foot.terms": "Términos del servicio",
             "foot.contact": "Contacto",
-            "foot.insta": "Síguenos en Instagram &#64;pocsomm"
+            "foot.insta": "Síguenos en Instagram &#64;pocsomm",
+            "foot.calc": "Calculadora del margen del vino",
+            "foot.markup": "¿Cuánto encarecen el vino los restaurantes?",
+            "foot.value": "¿Este vino tiene buena relación calidad-precio?",
+            "foot.choose": "Cómo elegir en una carta de vinos",
+            "foot.best": "Mejores apps para cartas de vinos",
+            "foot.vivino": "PocSomm o Vivino"
         },
 
         /* ============================ 日本語 ============================ */
@@ -527,7 +545,7 @@
             "wl.h": "注文する前に、賢い選択が見える",
             "wl.p": "どんなレストランのワインリストでも撮影すれば、PocSommが各ボトルの価格を見積もります。",
             "wl.li1": "各ワインの推定小売価格",
-            "wl.li2": "コスパ表示：お買い得、適正価格、または割高",
+            "wl.li2": "コスパ表示：お買い得、適正価格、または高マークアップ",
             "wl.li3": "評論家の評価（入手可能な場合）",
             "wl.li4": "グラス売りとボトル売りの違いも認識",
 
@@ -648,7 +666,13 @@
             "foot.privacy": "プライバシーポリシー",
             "foot.terms": "利用規約",
             "foot.contact": "お問い合わせ",
-            "foot.insta": "Instagram &#64;pocsomm をフォロー"
+            "foot.insta": "Instagram &#64;pocsomm をフォロー",
+            "foot.calc": "ワインの値付け計算ツール",
+            "foot.markup": "レストランはワインにどれだけ上乗せしている？",
+            "foot.value": "このワインはお買い得？",
+            "foot.choose": "ワインリストの選び方",
+            "foot.best": "ワインリスト向けおすすめアプリ",
+            "foot.vivino": "PocSomm と Vivino の比較"
         },
 
         /* ============================ 中文 ============================ */
@@ -681,7 +705,7 @@
             "wl.h": "点单前就看清明智之选",
             "wl.p": "拍下任意餐厅酒单，PocSomm 为你估算每一瓶的价格。",
             "wl.li1": "每款酒的估算零售价",
-            "wl.li2": "性价比标签：超值、价格合理或溢价偏高",
+            "wl.li2": "性价比标签：高性价比、合理价格或高加价",
             "wl.li3": "在可获取时显示评论家评分",
             "wl.li4": "能区分按杯售卖与按瓶售卖",
 
@@ -802,7 +826,13 @@
             "foot.privacy": "隐私政策",
             "foot.terms": "服务条款",
             "foot.contact": "联系我们",
-            "foot.insta": "在 Instagram 上关注我们 &#64;pocsomm"
+            "foot.insta": "在 Instagram 上关注我们 &#64;pocsomm",
+            "foot.calc": "葡萄酒加价计算器",
+            "foot.markup": "餐厅的葡萄酒加价有多高？",
+            "foot.value": "这款酒值这个价吗？",
+            "foot.choose": "如何从酒单中选酒",
+            "foot.best": "最佳酒单扫描应用",
+            "foot.vivino": "PocSomm 与 Vivino 对比"
         }
     };
 
@@ -823,6 +853,14 @@
             document.title = meta.title;
             var md = document.querySelector('meta[name="description"]');
             if (md) { md.setAttribute("content", meta.desc); }
+        }
+
+        // Links to pages that exist in every language (the guides) point at
+        // that language's version: /fr/<slug> etc.
+        var hrefs = document.querySelectorAll("[data-i18n-href]");
+        for (var h = 0; h < hrefs.length; h++) {
+            var base = hrefs[h].getAttribute("data-i18n-href");
+            hrefs[h].setAttribute("href", lang === "en" ? base : "/" + lang + base);
         }
 
         for (var j = 0; j < nodes.length; j++) {

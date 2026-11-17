@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ワインの値付け計算ツール：このレストランのワインは適正価格？ | PocSomm</title>
+    <meta name="description" content="無料のワイン値付け計算ツール。ボトル（またはグラス）のレストラン価格と小売価格を入力すると、マークアップの倍率と、お買い得・適正価格・高マークアップの判定が分かります。">
+    <link rel="canonical" href="https://pocsomm.com/ja/wine-markup-calculator">
+    <!-- HREFLANG:BEGIN -->
+    <link rel="alternate" hreflang="en" href="https://pocsomm.com/wine-markup-calculator">
+    <link rel="alternate" hreflang="fr" href="https://pocsomm.com/fr/wine-markup-calculator">
+    <link rel="alternate" hreflang="it" href="https://pocsomm.com/it/wine-markup-calculator">
+    <link rel="alternate" hreflang="es" href="https://pocsomm.com/es/wine-markup-calculator">
+    <link rel="alternate" hreflang="ja" href="https://pocsomm.com/ja/wine-markup-calculator">
+    <link rel="alternate" hreflang="zh-Hans" href="https://pocsomm.com/zh/wine-markup-calculator">
+    <link rel="alternate" hreflang="x-default" href="https://pocsomm.com/wine-markup-calculator">
+    <!-- HREFLANG:END -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PocSomm">
+    <meta property="og:url" content="https://pocsomm.com/ja/wine-markup-calculator">
+    <meta property="og:title" content="ワインの値付け計算ツール：このレストランのワインは適正価格？">
+    <meta property="og:description" content="メニューの価格と小売価格を入力するだけで、マークアップの倍率とお得度の判定を表示。ボトルにもグラスワインにも、どの通貨にも対応しています。">
+    <meta property="og:image" content="https://pocsomm.com/logo.png">
+    <link rel="stylesheet" href="/guides.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://pocsomm.com/ja/wine-markup-calculator#tool",
+          "name": "ワインの値付け計算ツール",
+          "url": "https://pocsomm.com/ja/wine-markup-calculator",
+          "description": "レストランのワインが小売価格の何倍で売られているかを、ボトルでもグラスでも計算し、お買い得（1.75倍以下）、適正価格（1.75倍〜3倍）、高マークアップ（3倍以上）のいずれかで判定します。",
+          "inLanguage": "ja",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "すべて（ブラウザ上で動作）",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "publisher": { "@id": "https://pocsomm.com/#org" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://pocsomm.com/#org",
+          "name": "Melkar, LLC",
+          "url": "https://pocsomm.com/"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "PocSomm", "item": "https://pocsomm.com/?lang=ja" },
+            { "@type": "ListItem", "position": 2, "name": "ワインの値付け計算ツール", "item": "https://pocsomm.com/ja/wine-markup-calculator" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/?lang=ja"><img src="/logo.png" alt=""></a>
+        <a href="/?lang=ja">PocSomm</a>
+        <span class="spacer"></span>
+        <!-- LANGS:BEGIN --><span class="langs"><a class="lang" href="/wine-markup-calculator" hreflang="en" lang="en">English</a><a class="lang" href="/fr/wine-markup-calculator" hreflang="fr" lang="fr">Français</a><a class="lang" href="/it/wine-markup-calculator" hreflang="it" lang="it">Italiano</a><a class="lang" href="/es/wine-markup-calculator" hreflang="es" lang="es">Español</a><span class="lang current" aria-current="page">日本語</span><a class="lang" href="/zh/wine-markup-calculator" hreflang="zh-Hans" lang="zh-Hans">中文</a></span><!-- LANGS:END -->
+        <a class="get" href="https://apps.apple.com/app/id6760143052" rel="noopener">アプリを入手</a>
+    </nav>
+
+    <main class="container">
+        <p class="crumbs"><a href="/?lang=ja">PocSomm</a> › ワインの値付け計算ツール</p>
+        <h1>ワインの値付け計算ツール</h1>
+        <p class="meta">無料で、どの通貨にも対応。入力した内容がこのページの外に送られることはありません。</p>
+
+        <div class="answer">
+            <p><strong>レストランの価格を、同じボトルをお店で買ったときの価格で割りましょう。</strong>
+            1.75倍以下ならお買い得、1.75倍〜3倍なら適正価格、3倍以上なら高マークアップです。
+            グラスワインの場合は、まずグラスの価格をボトル1本あたりの価格に換算します。</p>
+        </div>
+
+        <section class="card calc" aria-labelledby="calc-title">
+            <h2 id="calc-title" style="margin-top:0;border:0;padding:0;">ワインをチェック</h2>
+            <div class="modes" role="group" aria-label="何をチェックしますか？">
+                <button type="button" data-mode="bottle" aria-pressed="true">ボトル</button>
+                <button type="button" data-mode="glass" aria-pressed="false">グラス</button>
+                <button type="button" data-mode="menu" aria-pressed="false">メニューの価格しか分からない</button>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label for="menu"><span id="menu-label">レストランでの価格（ボトル）</span></label>
+                    <input id="menu" inputmode="decimal" autocomplete="off" placeholder="例：60">
+                </div>
+                <div id="glass-wrap" hidden>
+                    <label for="glass">グラスの量</label>
+                    <select id="glass">
+                        <option value="125">125 ml</option>
+                        <option value="150" selected>150 ml（5 oz）</option>
+                        <option value="175">175 ml</option>
+                        <option value="250">250 ml</option>
+                    </select>
+                </div>
+            </div>
+            <div id="shop-wrap">
+                <label for="shop">同じボトルの小売価格 <span class="hint">（酒販店での価格、同じヴィンテージ、750 ml）</span></label>
+                <input id="shop" inputmode="decimal" autocomplete="off" placeholder="例：25">
+            </div>
+
+            <div class="result" id="result" aria-live="polite">
+                <p>価格を入力すると、マークアップの倍率が表示されます。</p>
+            </div>
+            <p class="share"><a href="#" id="share" hidden>この結果のリンクをコピー</a></p>
+        </section>
+
+        <h2>判定のしくみ</h2>
+        <p>この計算ツールは、レストランでの価格を、同じボトル（同じ生産者、同じヴィンテージ、750 mlサイズ）の小売価格で割って求めます。</p>
+        <ul>
+            <li><strong>1.75倍以下：お買い得。</strong>アメリカのレストランでよくある「小売価格の約2倍」をはっきり下回り、イギリスで最もお得なリスト（約1.8〜2倍）よりもさらに割安です。</li>
+            <li><strong>1.75倍〜3倍：適正価格。</strong>アメリカの一般的なリストから、イギリスの平均である小売価格の約3倍までの範囲です。</li>
+            <li><strong>3倍以上：高マークアップ。</strong>たいていのレストランの値付けを上回ります。</li>
+        </ul>
+        <p>これらの数字の根拠と出典はこちら：<a href="/ja/how-much-do-restaurants-mark-up-wine">レストランはワインにどれだけ上乗せしている？</a></p>
+
+        <h2>正しく比べるためのコツ</h2>
+        <ul>
+            <li><strong>近所のお店のふつうの価格を使いましょう。</strong>ネットで見つかる最安値ではありません。最安値と比べると、どのマークアップも実際より大きく見えてしまいます。</li>
+            <li><strong>グラスワインの場合：</strong>メニューに書かれた1杯の量を選んでください。計算ツールがグラスの価格をボトル1本あたりの価格に換算します（750 mlのボトルで150 mlのグラス5杯分）。アメリカではグラスワインが高マークアップと判定されることがよくあります。「1杯の価格を、レストランがボトル1本を仕入れた値段にする」という慣習が広く使われているためです。</li>
+            <li><strong>スウェーデンでは</strong>Systembolagetの価格と比べるのが自然ですが、Systembolagetの価格はレストラン自身の仕入れ値に近い水準です。Systembolaget価格の3倍のワインは、アメリカの小売価格の3倍よりも割高な値付けだといえます。</li>
+            <li><strong>高価なボトル</strong>は、安いボトルより低い倍率で値付けされるのが一般的です。そのため150ドルのボトルなら、適正価格でも2倍を下回ることがよくあります。</li>
+        </ul>
+
+        <h2>よくある質問</h2>
+        <details>
+            <summary>レストランのワインの、ふつうのマークアップはどのくらい？</summary>
+            <p>アメリカでは小売価格の約2倍（レストランの仕入れ値の3倍）、イギリスでは小売価格の約3倍です。<a href="/ja/how-much-do-restaurants-mark-up-wine">出典と詳細はこちら</a>。</p>
+        </details>
+        <details>
+            <summary>入力した内容は保存されますか？</summary>
+            <p>いいえ。計算はすべてブラウザの中で行われ、どこにも送信されません。結果がリンクになるのは、ご自身でリンクをコピーしたときだけです。</p>
+        </details>
+        <details>
+            <summary>どの通貨に対応していますか？</summary>
+            <p>どの通貨でも使えます。2つの価格を同じ通貨で入力してください。マークアップの倍率は通貨に関係なく同じです。</p>
+        </details>
+
+        <div class="cta">
+            <p><strong>小売価格が分からない？</strong>PocSommなら、ワインリストを写真に撮るだけでリスト全体を読み取り、
+            すべてのボトルの推定小売価格とお得度の判定を、あなたの通貨で表示します。</p>
+            <a href="https://apps.apple.com/app/id6760143052" rel="noopener"><img src="/app-store-badge.svg" alt="App StoreでPocSommをダウンロード"></a>
+        </div>
+    </main>
+
+    <footer>
+        <a href="/?lang=ja">ホーム</a>
+        <a href="/ja/how-much-do-restaurants-mark-up-wine">レストランはワインにどれだけ上乗せしている？</a>
+        <a href="/ja/how-to-tell-if-restaurant-wine-is-good-value">このワインはお買い得？</a>
+        <a href="/ja/how-to-choose-wine-from-a-restaurant-wine-list">ワインリストの選び方</a>
+        <a href="/privacy-policy">プライバシーポリシー</a>
+        <p>&copy; 2026 Melkar, LLC. お酒は楽しく適量で。飲酒可能な法定年齢の方を対象としています。</p>
+    </footer>
+
+    <script>
+    (function () {
+        // Verdict bands (multiple of shop price) and the typical range used to
+        // estimate a shop price from a menu price alone.
+        var BOTTLE_ML = 750, GREAT = 1.75, HIGH = 3, TYPICAL_LOW = 2, TYPICAL_HIGH = 3;
+        var mode = "bottle";
+        var $ = function (id) { return document.getElementById(id); };
+        var fmt = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
+        var fmt1 = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+        // Up to two decimals so 1.75x (great value) and 1.8x (fair price) never look the same.
+        var fmtRatio = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 });
+
+        // Accept "1 200", "1,200", "12,50", "12.50", "$60", "kr 450".
+        function num(id) {
+            var raw = ($(id).value || "").replace(/[^\d.,]/g, "");
+            if (!raw) return NaN;
+            var lastSep = Math.max(raw.lastIndexOf(","), raw.lastIndexOf("."));
+            if (lastSep >= 0 && raw.length - lastSep - 1 <= 2) {
+                raw = raw.slice(0, lastSep).replace(/[.,]/g, "") + "." + raw.slice(lastSep + 1);
+            } else {
+                raw = raw.replace(/[.,]/g, "");
+            }
+            var n = parseFloat(raw);
+            return n > 0 ? n : NaN;
+        }
+
+        function setMode(next) {
+            mode = next;
+            document.querySelectorAll(".modes button").forEach(function (b) {
+                b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
+            });
+            $("glass-wrap").hidden = mode !== "glass";
+            $("shop-wrap").hidden = mode === "menu";
+            $("menu-label").textContent = mode === "glass" ? "レストランでの価格（グラス）" : "レストランでの価格（ボトル）";
+            update();
+        }
+
+        function verdict(ratio) {
+            if (ratio < 1) return ["fair", "小売価格より安い",
+                "めったにないケースです。ヴィンテージ、生産者、ボトルのサイズが本当に同じか確かめてください。"];
+            if (ratio <= GREAT) return ["good", "お買い得", "小売価格の1.75倍以下。レストランでよくある「小売価格の約2倍」を大きく下回っています。"];
+            if (ratio < HIGH) return ["fair", "適正価格", "小売価格の1.75倍〜3倍。レストランとしてはふつうの値付けです。"];
+            return ["high", "高マークアップ", "小売価格の3倍以上。たいていのレストランの値付けを上回っています。リストの近くに、もっとお得なボトルがないか探してみましょう。"];
+        }
+
+        function update() {
+            var menu = num("menu"), shop = num("shop");
+            var glassMl = parseFloat($("glass").value);
+            var out = $("result"), share = $("share");
+            share.hidden = true;
+
+            if (isNaN(menu)) { out.innerHTML = "<p>価格を入力すると、マークアップの倍率が表示されます。</p>"; return; }
+
+            if (mode === "menu") {
+                out.innerHTML =
+                    '<p class="verdict">推定小売価格：' + fmt.format(menu / TYPICAL_HIGH) + "〜" + fmt.format(menu / TYPICAL_LOW) + "</p>" +
+                    "<p>たいていのレストランは小売価格の2〜3倍で値付けしているため、リストで" +
+                    fmt.format(menu) + "のボトルは、お店ではおよそ" + fmt.format(menu / TYPICAL_HIGH) + "〜" + fmt.format(menu / TYPICAL_LOW) +
+                    "で売られていることが多いです。確実に知るには、そのボトルの実際の価格を調べてください。</p>";
+                share.hidden = false;
+                return;
+            }
+
+            var bottleEquivalent = mode === "glass" ? menu * BOTTLE_ML / glassMl : menu;
+            if (isNaN(shop)) {
+                out.innerHTML = mode === "glass"
+                    ? "<p>このグラスは、ボトル1本あたり<strong>" + fmt.format(bottleEquivalent) + "</strong>に相当します（" +
+                      glassMl + " mlのグラス" + fmt1.format(BOTTLE_ML / glassMl) + "杯分）。次に、ボトルの小売価格を入力してください。</p>"
+                    : "<p>次に、同じボトルの小売価格を入力してください。</p>";
+                return;
+            }
+
+            var ratio = bottleEquivalent / shop;
+            var v = verdict(ratio);
+            var extra = bottleEquivalent - shop;
+            var html = '<p class="verdict ' + v[0] + '">' + v[1] + " · 小売価格の" + fmtRatio.format(ratio) + "倍</p>" +
+                "<p>" + v[2] + "</p>";
+            if (mode === "glass") {
+                html += "<p>ボトル1本あたりにすると" + fmt.format(bottleEquivalent) + "（" + glassMl + " mlのグラス" +
+                    fmt1.format(BOTTLE_ML / glassMl) + "杯分）、お店では" + fmt.format(shop) + "です。</p>";
+            } else if (extra > 0) {
+                html += "<p>お店で買うより" + fmt.format(extra) + "高く、小売価格に" +
+                    Math.round((ratio - 1) * 100) + "%上乗せされています。</p>";
+            }
+            out.innerHTML = html;
+            share.hidden = false;
+        }
+
+        // Shareable links: ?mode=glass&menu=14&shop=20&glass=150
+        function shareURL() {
+            var p = new URLSearchParams({ mode: mode, menu: $("menu").value.trim() });
+            if (mode !== "menu" && $("shop").value.trim()) p.set("shop", $("shop").value.trim());
+            if (mode === "glass") p.set("glass", $("glass").value);
+            return location.origin + location.pathname + "?" + p.toString();
+        }
+
+        document.querySelectorAll(".modes button").forEach(function (b) {
+            b.addEventListener("click", function () { setMode(b.dataset.mode); });
+        });
+        ["menu", "shop", "glass"].forEach(function (id) {
+            $(id).addEventListener("input", update);
+        });
+        $("share").addEventListener("click", function (e) {
+            e.preventDefault();
+            var url = shareURL();
+            history.replaceState(null, "", url);
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(function () { $("share").textContent = "リンクをコピーしました"; });
+            }
+        });
+
+        var q = new URLSearchParams(location.search);
+        if (q.get("menu")) $("menu").value = q.get("menu");
+        if (q.get("shop")) $("shop").value = q.get("shop");
+        if (q.get("glass")) $("glass").value = q.get("glass");
+        setMode(["bottle", "glass", "menu"].indexOf(q.get("mode")) >= 0 ? q.get("mode") : "bottle");
+    })();
+    </script>
+</body>
+</html>

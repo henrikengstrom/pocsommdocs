@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora del margen del vino: ¿tiene un precio justo este vino del restaurante? | PocSomm</title>
+    <meta name="description" content="Calculadora gratuita del margen del vino. Introduce el precio en el restaurante y el precio en tienda de una botella (o de una copa) y verás el margen y si es gran valor, precio justo o alto margen.">
+    <link rel="canonical" href="https://pocsomm.com/es/wine-markup-calculator">
+    <!-- HREFLANG:BEGIN -->
+    <link rel="alternate" hreflang="en" href="https://pocsomm.com/wine-markup-calculator">
+    <link rel="alternate" hreflang="fr" href="https://pocsomm.com/fr/wine-markup-calculator">
+    <link rel="alternate" hreflang="it" href="https://pocsomm.com/it/wine-markup-calculator">
+    <link rel="alternate" hreflang="es" href="https://pocsomm.com/es/wine-markup-calculator">
+    <link rel="alternate" hreflang="ja" href="https://pocsomm.com/ja/wine-markup-calculator">
+    <link rel="alternate" hreflang="zh-Hans" href="https://pocsomm.com/zh/wine-markup-calculator">
+    <link rel="alternate" hreflang="x-default" href="https://pocsomm.com/wine-markup-calculator">
+    <!-- HREFLANG:END -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PocSomm">
+    <meta property="og:url" content="https://pocsomm.com/es/wine-markup-calculator">
+    <meta property="og:title" content="Calculadora del margen del vino: ¿tiene un precio justo este vino del restaurante?">
+    <meta property="og:description" content="Introduce el precio de la carta y el precio en tienda para ver el margen y una valoración. Sirve para botellas y para vino por copa, en cualquier moneda.">
+    <meta property="og:image" content="https://pocsomm.com/logo.png">
+    <link rel="stylesheet" href="/guides.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://pocsomm.com/es/wine-markup-calculator#tool",
+          "name": "Calculadora del margen del vino",
+          "url": "https://pocsomm.com/es/wine-markup-calculator",
+          "description": "Calcula el margen de un vino de restaurante sobre su precio en tienda, por botella o por copa, y lo clasifica como gran valor (1,75× o menos), precio justo (de 1,75× a 3×) o alto margen (3× o más).",
+          "inLanguage": "es",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Cualquiera (funciona en el navegador)",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "publisher": { "@id": "https://pocsomm.com/#org" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://pocsomm.com/#org",
+          "name": "Melkar, LLC",
+          "url": "https://pocsomm.com/"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "PocSomm", "item": "https://pocsomm.com/?lang=es" },
+            { "@type": "ListItem", "position": 2, "name": "Calculadora del margen del vino", "item": "https://pocsomm.com/es/wine-markup-calculator" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/?lang=es"><img src="/logo.png" alt=""></a>
+        <a href="/?lang=es">PocSomm</a>
+        <span class="spacer"></span>
+        <!-- LANGS:BEGIN --><span class="langs"><a class="lang" href="/wine-markup-calculator" hreflang="en" lang="en">English</a><a class="lang" href="/fr/wine-markup-calculator" hreflang="fr" lang="fr">Français</a><a class="lang" href="/it/wine-markup-calculator" hreflang="it" lang="it">Italiano</a><span class="lang current" aria-current="page">Español</span><a class="lang" href="/ja/wine-markup-calculator" hreflang="ja" lang="ja">日本語</a><a class="lang" href="/zh/wine-markup-calculator" hreflang="zh-Hans" lang="zh-Hans">中文</a></span><!-- LANGS:END -->
+        <a class="get" href="https://apps.apple.com/app/id6760143052" rel="noopener">Descargar la app</a>
+    </nav>
+
+    <main class="container">
+        <p class="crumbs"><a href="/?lang=es">PocSomm</a> › Calculadora del margen del vino</p>
+        <h1>Calculadora del margen del vino</h1>
+        <p class="meta">Gratis, funciona con cualquier moneda y nada de lo que escribas sale de esta página.</p>
+
+        <div class="answer">
+            <p><strong>Divide el precio del restaurante entre lo que cuesta esa misma botella en una tienda.</strong>
+            Hasta 1,75× es gran valor, de 1,75× a 3× es un precio justo y a partir de 3× es un alto margen.
+            Si es vino por copa, convierte primero el precio de la copa en precio por botella.</p>
+        </div>
+
+        <section class="card calc" aria-labelledby="calc-title">
+            <h2 id="calc-title" style="margin-top:0;border:0;padding:0;">Comprueba un vino</h2>
+            <div class="modes" role="group" aria-label="¿Qué quieres comprobar?">
+                <button type="button" data-mode="bottle" aria-pressed="true">Una botella</button>
+                <button type="button" data-mode="glass" aria-pressed="false">Una copa</button>
+                <button type="button" data-mode="menu" aria-pressed="false">Solo sé el precio de la carta</button>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label for="menu"><span id="menu-label">Precio en el restaurante (botella)</span></label>
+                    <input id="menu" inputmode="decimal" autocomplete="off" placeholder="p. ej., 60">
+                </div>
+                <div id="glass-wrap" hidden>
+                    <label for="glass">Tamaño de la copa</label>
+                    <select id="glass">
+                        <option value="125">125 ml</option>
+                        <option value="150" selected>150 ml (5 oz)</option>
+                        <option value="175">175 ml</option>
+                        <option value="250">250 ml</option>
+                    </select>
+                </div>
+            </div>
+            <div id="shop-wrap">
+                <label for="shop">Precio en tienda de la misma botella <span class="hint">(venta al público, misma añada, 750 ml)</span></label>
+                <input id="shop" inputmode="decimal" autocomplete="off" placeholder="p. ej., 25">
+            </div>
+
+            <div class="result" id="result" aria-live="polite">
+                <p>Introduce los precios para ver el margen.</p>
+            </div>
+            <p class="share"><a href="#" id="share" hidden>Copiar un enlace a este resultado</a></p>
+        </section>
+
+        <h2>Cómo se decide la valoración</h2>
+        <p>La calculadora divide el precio del restaurante entre el precio en tienda de la misma botella (mismo productor, misma añada y formato de 750 ml):</p>
+        <ul>
+            <li><strong>Hasta 1,75×: gran valor.</strong> Claramente por debajo del margen habitual de los restaurantes de EE. UU., que ronda el doble del precio en tienda, y mejor incluso que las cartas británicas más económicas (alrededor de 1,8–2×).</li>
+            <li><strong>De 1,75× a 3×: precio justo.</strong> Va desde una carta típica de EE. UU. hasta la media del Reino Unido, de unas tres veces el precio de venta al público.</li>
+            <li><strong>3× o más: alto margen.</strong> Por encima de lo que cobra la mayoría de los restaurantes.</li>
+        </ul>
+        <p>De dónde salen estas cifras, con fuentes: <a href="/es/how-much-do-restaurants-mark-up-wine">¿Cuánto encarecen el vino los restaurantes?</a></p>
+
+        <h2>Consejos para comparar con honestidad</h2>
+        <ul>
+            <li><strong>Usa un precio normal de una tienda de tu zona</strong>, no el más barato que encuentres en internet. Con el precio online más bajo, cualquier margen parece mayor.</li>
+            <li><strong>Por copa:</strong> elige el tamaño de la copa que indica la carta. La calculadora convierte el precio de la copa en precio por botella (una botella de 750 ml da para cinco copas de 150 ml). En EE. UU., las copas suelen salir como alto margen: una regla muy extendida es cobrar una sola copa a lo que el restaurante pagó por toda la botella.</li>
+            <li><strong>En Suecia</strong>, lo natural es comparar con el precio de Systembolaget, pero ese precio se acerca mucho a lo que pagan los propios restaurantes. Un vino a 3× su precio en Systembolaget lleva un margen más fuerte que uno a 3× el precio de una tienda de EE. UU.</li>
+            <li><strong>Las botellas caras</strong> suelen llevar un multiplicador menor que las baratas, así que un precio justo para una botella de 150 dólares suele quedar por debajo de 2×.</li>
+        </ul>
+
+        <h2>Preguntas frecuentes</h2>
+        <details>
+            <summary>¿Cuál es el margen normal del vino en un restaurante?</summary>
+            <p>Alrededor del doble del precio en tienda en EE. UU. (el triple de lo que pagó el restaurante) y unas tres veces el precio de venta al público en el Reino Unido. <a href="/es/how-much-do-restaurants-mark-up-wine">Fuentes y detalles</a>.</p>
+        </details>
+        <details>
+            <summary>¿La calculadora guarda lo que escribo?</summary>
+            <p>No. Funciona por completo en tu navegador y no envía nada a ningún sitio. Un resultado solo se convierte en enlace si decides copiarlo.</p>
+        </details>
+        <details>
+            <summary>¿Qué moneda usa?</summary>
+            <p>Cualquiera. Introduce los dos precios en la misma moneda; el margen sale igual.</p>
+        </details>
+
+        <div class="cta">
+            <p><strong>¿No sabes el precio en tienda?</strong> PocSomm lee toda la carta de vinos a partir de una foto y
+            muestra el precio estimado en tienda de cada botella y su valoración, en tu moneda.</p>
+            <a href="https://apps.apple.com/app/id6760143052" rel="noopener"><img src="/app-store-badge.svg" alt="Descarga PocSomm en el App Store"></a>
+        </div>
+    </main>
+
+    <footer>
+        <a href="/?lang=es">Inicio</a>
+        <a href="/es/how-much-do-restaurants-mark-up-wine">¿Cuánto encarecen el vino los restaurantes?</a>
+        <a href="/es/how-to-tell-if-restaurant-wine-is-good-value">¿Este vino tiene buena relación calidad-precio?</a>
+        <a href="/es/how-to-choose-wine-from-a-restaurant-wine-list">Cómo elegir en una carta de vinos</a>
+        <a href="/privacy-policy">Privacidad</a>
+        <p>&copy; 2026 Melkar, LLC. Disfruta del vino con responsabilidad; solo para adultos en edad legal para consumir alcohol.</p>
+    </footer>
+
+    <script>
+    (function () {
+        // Verdict bands (multiple of shop price) and the typical range used to
+        // estimate a shop price from a menu price alone.
+        var BOTTLE_ML = 750, GREAT = 1.75, HIGH = 3, TYPICAL_LOW = 2, TYPICAL_HIGH = 3;
+        var mode = "bottle";
+        var $ = function (id) { return document.getElementById(id); };
+        var fmt = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
+        var fmt1 = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+        // Up to two decimals so 1.75x (great value) and 1.8x (fair price) never look the same.
+        var fmtRatio = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 });
+
+        // Accept "1 200", "1,200", "12,50", "12.50", "$60", "kr 450".
+        function num(id) {
+            var raw = ($(id).value || "").replace(/[^\d.,]/g, "");
+            if (!raw) return NaN;
+            var lastSep = Math.max(raw.lastIndexOf(","), raw.lastIndexOf("."));
+            if (lastSep >= 0 && raw.length - lastSep - 1 <= 2) {
+                raw = raw.slice(0, lastSep).replace(/[.,]/g, "") + "." + raw.slice(lastSep + 1);
+            } else {
+                raw = raw.replace(/[.,]/g, "");
+            }
+            var n = parseFloat(raw);
+            return n > 0 ? n : NaN;
+        }
+
+        function setMode(next) {
+            mode = next;
+            document.querySelectorAll(".modes button").forEach(function (b) {
+                b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
+            });
+            $("glass-wrap").hidden = mode !== "glass";
+            $("shop-wrap").hidden = mode === "menu";
+            $("menu-label").textContent = mode === "glass" ? "Precio en el restaurante (copa)" : "Precio en el restaurante (botella)";
+            update();
+        }
+
+        function verdict(ratio) {
+            if (ratio < 1) return ["fair", "Por debajo del precio en tienda",
+                "Poco habitual. Comprueba que la añada, el productor y el tamaño de la botella coinciden de verdad."];
+            if (ratio <= GREAT) return ["good", "Gran valor", "Como mucho 1,75 veces el precio en tienda: muy por debajo del margen habitual de los restaurantes, que ronda el doble del precio en tienda."];
+            if (ratio < HIGH) return ["fair", "Precio justo", "Entre 1,75 y 3 veces el precio en tienda: lo normal en un restaurante."];
+            return ["high", "Alto margen", "Tres veces el precio en tienda o más: por encima de lo que cobra la mayoría de los restaurantes. Busca en la carta una botella cercana con mejor relación calidad-precio."];
+        }
+
+        function update() {
+            var menu = num("menu"), shop = num("shop");
+            var glassMl = parseFloat($("glass").value);
+            var out = $("result"), share = $("share");
+            share.hidden = true;
+
+            if (isNaN(menu)) { out.innerHTML = "<p>Introduce los precios para ver el margen.</p>"; return; }
+
+            if (mode === "menu") {
+                out.innerHTML =
+                    '<p class="verdict">Precio probable en tienda: ' + fmt.format(menu / TYPICAL_HIGH) + "–" + fmt.format(menu / TYPICAL_LOW) + "</p>" +
+                    "<p>La mayoría de los restaurantes cobran entre dos y tres veces el precio en tienda, así que una botella que en la carta cuesta " +
+                    fmt.format(menu) + " suele costar entre " + fmt.format(menu / TYPICAL_HIGH) + " y " + fmt.format(menu / TYPICAL_LOW) +
+                    " en una tienda. Busca esa botella concreta para saberlo con seguridad.</p>";
+                share.hidden = false;
+                return;
+            }
+
+            var bottleEquivalent = mode === "glass" ? menu * BOTTLE_ML / glassMl : menu;
+            if (isNaN(shop)) {
+                out.innerHTML = mode === "glass"
+                    ? "<p>Esa copa equivale a <strong>" + fmt.format(bottleEquivalent) + "</strong> por botella (" +
+                      fmt1.format(BOTTLE_ML / glassMl) + " copas de " + glassMl + " ml). Ahora introduce el precio en tienda de la botella.</p>"
+                    : "<p>Ahora introduce el precio en tienda de la misma botella.</p>";
+                return;
+            }
+
+            var ratio = bottleEquivalent / shop;
+            var v = verdict(ratio);
+            var extra = bottleEquivalent - shop;
+            var html = '<p class="verdict ' + v[0] + '">' + v[1] + " · " + fmtRatio.format(ratio) + "× el precio en tienda</p>" +
+                "<p>" + v[2] + "</p>";
+            if (mode === "glass") {
+                html += "<p>Por botella son " + fmt.format(bottleEquivalent) + " (" + fmt1.format(BOTTLE_ML / glassMl) +
+                    " copas de " + glassMl + " ml), frente a " + fmt.format(shop) + " en una tienda.</p>";
+            } else if (extra > 0) {
+                html += "<p>Pagas " + fmt.format(extra) + " más que en una tienda, un " +
+                    Math.round((ratio - 1) * 100) + " % por encima del precio de venta al público.</p>";
+            }
+            out.innerHTML = html;
+            share.hidden = false;
+        }
+
+        // Shareable links: ?mode=glass&menu=14&shop=20&glass=150
+        function shareURL() {
+            var p = new URLSearchParams({ mode: mode, menu: $("menu").value.trim() });
+            if (mode !== "menu" && $("shop").value.trim()) p.set("shop", $("shop").value.trim());
+            if (mode === "glass") p.set("glass", $("glass").value);
+            return location.origin + location.pathname + "?" + p.toString();
+        }
+
+        document.querySelectorAll(".modes button").forEach(function (b) {
+            b.addEventListener("click", function () { setMode(b.dataset.mode); });
+        });
+        ["menu", "shop", "glass"].forEach(function (id) {
+            $(id).addEventListener("input", update);
+        });
+        $("share").addEventListener("click", function (e) {
+            e.preventDefault();
+            var url = shareURL();
+            history.replaceState(null, "", url);
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(function () { $("share").textContent = "Enlace copiado"; });
+            }
+        });
+
+        var q = new URLSearchParams(location.search);
+        if (q.get("menu")) $("menu").value = q.get("menu");
+        if (q.get("shop")) $("shop").value = q.get("shop");
+        if (q.get("glass")) $("glass").value = q.get("glass");
+        setMode(["bottle", "glass", "menu"].indexOf(q.get("mode")) >= 0 ? q.get("mode") : "bottle");
+    })();
+    </script>
+</body>
+</html>

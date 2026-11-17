@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore del ricarico sul vino: il prezzo al ristorante è giusto? | PocSomm</title>
+    <meta name="description" content="Calcolatore gratuito del ricarico sul vino. Inserisci il prezzo al ristorante e il prezzo in enoteca di una bottiglia (o di un calice) e scopri il ricarico e se è un ottimo rapporto, un prezzo equo o un ricarico elevato.">
+    <link rel="canonical" href="https://pocsomm.com/it/wine-markup-calculator">
+    <!-- HREFLANG:BEGIN -->
+    <link rel="alternate" hreflang="en" href="https://pocsomm.com/wine-markup-calculator">
+    <link rel="alternate" hreflang="fr" href="https://pocsomm.com/fr/wine-markup-calculator">
+    <link rel="alternate" hreflang="it" href="https://pocsomm.com/it/wine-markup-calculator">
+    <link rel="alternate" hreflang="es" href="https://pocsomm.com/es/wine-markup-calculator">
+    <link rel="alternate" hreflang="ja" href="https://pocsomm.com/ja/wine-markup-calculator">
+    <link rel="alternate" hreflang="zh-Hans" href="https://pocsomm.com/zh/wine-markup-calculator">
+    <link rel="alternate" hreflang="x-default" href="https://pocsomm.com/wine-markup-calculator">
+    <!-- HREFLANG:END -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PocSomm">
+    <meta property="og:url" content="https://pocsomm.com/it/wine-markup-calculator">
+    <meta property="og:title" content="Calcolatore del ricarico sul vino: il prezzo al ristorante è giusto?">
+    <meta property="og:description" content="Inserisci il prezzo in carta e il prezzo in enoteca: vedrai il ricarico e un giudizio sul prezzo. Funziona per bottiglie e vini al calice, in qualsiasi valuta.">
+    <meta property="og:image" content="https://pocsomm.com/logo.png">
+    <link rel="stylesheet" href="/guides.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://pocsomm.com/it/wine-markup-calculator#tool",
+          "name": "Calcolatore del ricarico sul vino",
+          "url": "https://pocsomm.com/it/wine-markup-calculator",
+          "description": "Calcola il ricarico di un vino al ristorante rispetto al prezzo in enoteca, per una bottiglia o un calice, e lo classifica come ottimo rapporto (fino a 1,75×), prezzo equo (da 1,75× a 3×) o ricarico elevato (3× o più).",
+          "inLanguage": "it",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Qualsiasi (funziona nel browser)",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "publisher": { "@id": "https://pocsomm.com/#org" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://pocsomm.com/#org",
+          "name": "Melkar, LLC",
+          "url": "https://pocsomm.com/"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "PocSomm", "item": "https://pocsomm.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Calcolatore del ricarico sul vino", "item": "https://pocsomm.com/it/wine-markup-calculator" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/?lang=it"><img src="/logo.png" alt=""></a>
+        <a href="/?lang=it">PocSomm</a>
+        <span class="spacer"></span>
+        <!-- LANGS:BEGIN --><span class="langs"><a class="lang" href="/wine-markup-calculator" hreflang="en" lang="en">English</a><a class="lang" href="/fr/wine-markup-calculator" hreflang="fr" lang="fr">Français</a><span class="lang current" aria-current="page">Italiano</span><a class="lang" href="/es/wine-markup-calculator" hreflang="es" lang="es">Español</a><a class="lang" href="/ja/wine-markup-calculator" hreflang="ja" lang="ja">日本語</a><a class="lang" href="/zh/wine-markup-calculator" hreflang="zh-Hans" lang="zh-Hans">中文</a></span><!-- LANGS:END -->
+        <a class="get" href="https://apps.apple.com/app/id6760143052" rel="noopener">Scarica l'app</a>
+    </nav>
+
+    <main class="container">
+        <p class="crumbs"><a href="/?lang=it">PocSomm</a> › Calcolatore del ricarico sul vino</p>
+        <h1>Calcolatore del ricarico sul vino</h1>
+        <p class="meta">Gratuito, funziona con qualsiasi valuta, e quello che scrivi non lascia mai questa pagina.</p>
+
+        <div class="answer">
+            <p><strong>Dividi il prezzo al ristorante per quanto costa la stessa bottiglia in enoteca.</strong>
+            Fino a 1,75× è un ottimo rapporto, da 1,75× a 3× è un prezzo equo, da 3× in su è un ricarico elevato.
+            Per il vino al calice, prima converti il prezzo del calice in un prezzo a bottiglia.</p>
+        </div>
+
+        <section class="card calc" aria-labelledby="calc-title">
+            <h2 id="calc-title" style="margin-top:0;border:0;padding:0;">Verifica un vino</h2>
+            <div class="modes" role="group" aria-label="Cosa vuoi verificare?">
+                <button type="button" data-mode="bottle" aria-pressed="true">Una bottiglia</button>
+                <button type="button" data-mode="glass" aria-pressed="false">Un calice</button>
+                <button type="button" data-mode="menu" aria-pressed="false">Conosco solo il prezzo in carta</button>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label for="menu"><span id="menu-label">Prezzo al ristorante (bottiglia)</span></label>
+                    <input id="menu" inputmode="decimal" autocomplete="off" placeholder="es. 60">
+                </div>
+                <div id="glass-wrap" hidden>
+                    <label for="glass">Dimensione del calice</label>
+                    <select id="glass">
+                        <option value="125">125 ml</option>
+                        <option value="150" selected>150 ml (5 oz)</option>
+                        <option value="175">175 ml</option>
+                        <option value="250">250 ml</option>
+                    </select>
+                </div>
+            </div>
+            <div id="shop-wrap">
+                <label for="shop">Prezzo in enoteca della stessa bottiglia <span class="hint">(al dettaglio, stessa annata, 750 ml)</span></label>
+                <input id="shop" inputmode="decimal" autocomplete="off" placeholder="es. 25">
+            </div>
+
+            <div class="result" id="result" aria-live="polite">
+                <p>Inserisci i prezzi per vedere il ricarico.</p>
+            </div>
+            <p class="share"><a href="#" id="share" hidden>Copia il link a questo risultato</a></p>
+        </section>
+
+        <h2>Come funziona il giudizio</h2>
+        <p>Il calcolatore divide il prezzo al ristorante per il prezzo in enoteca della stessa bottiglia (stesso produttore, stessa annata, formato da 750 ml):</p>
+        <ul>
+            <li><strong>Fino a 1,75×: ottimo rapporto.</strong> Ben sotto il ricarico abituale dei ristoranti americani, circa il doppio del prezzo in enoteca, e meglio persino delle carte più convenienti del Regno Unito (circa 1,8–2×).</li>
+            <li><strong>Da 1,75× a 3×: prezzo equo.</strong> Va da una carta tipica negli Stati Uniti alla media britannica, circa tre volte il prezzo al dettaglio.</li>
+            <li><strong>3× o più: ricarico elevato.</strong> Più di quanto chiede la maggior parte dei ristoranti.</li>
+        </ul>
+        <p>Da dove vengono questi numeri, con le fonti: <a href="/it/how-much-do-restaurants-mark-up-wine">Quanto ricaricano i ristoranti sul vino?</a></p>
+
+        <h2>Consigli per un confronto onesto</h2>
+        <ul>
+            <li><strong>Usa il prezzo di una normale enoteca della tua zona</strong>, non il prezzo più basso che trovi online. Il prezzo online più basso fa sembrare più alto qualsiasi ricarico.</li>
+            <li><strong>Al calice:</strong> scegli la dimensione del calice indicata in carta. Il calcolatore converte il prezzo del calice in un prezzo a bottiglia (una bottiglia da 750 ml contiene cinque calici da 150 ml). Negli Stati Uniti i calici risultano spesso a ricarico elevato: una regola diffusa fa pagare un calice quanto il ristorante ha pagato l'intera bottiglia.</li>
+            <li><strong>In Svezia</strong> il confronto naturale è con il prezzo di Systembolaget, ma quel prezzo è vicino a quanto pagano gli stessi ristoranti. Un vino a 3 volte il prezzo di Systembolaget ha un ricarico più pesante di uno a 3 volte il prezzo di un'enoteca americana.</li>
+            <li><strong>Sulle bottiglie costose</strong> di solito il moltiplicatore è più basso che su quelle economiche: per una bottiglia da 150 dollari, un prezzo equo spesso resta sotto 2×.</li>
+        </ul>
+
+        <h2>Domande frequenti</h2>
+        <details>
+            <summary>Qual è un ricarico normale sul vino al ristorante?</summary>
+            <p>Negli Stati Uniti circa il doppio del prezzo in enoteca (tre volte quanto l'ha pagato il ristorante), nel Regno Unito circa tre volte il prezzo al dettaglio. <a href="/it/how-much-do-restaurants-mark-up-wine">Fonti e dettagli</a>.</p>
+        </details>
+        <details>
+            <summary>Il calcolatore salva quello che scrivo?</summary>
+            <p>No. Funziona interamente nel tuo browser e non invia nulla a nessuno. Un risultato diventa un link solo se decidi di copiarlo.</p>
+        </details>
+        <details>
+            <summary>Che valuta usa?</summary>
+            <p>Qualsiasi. Inserisci i due prezzi nella stessa valuta: il ricarico non cambia.</p>
+        </details>
+
+        <div class="cta">
+            <p><strong>Non sai il prezzo in enoteca?</strong> PocSomm legge tutta la carta dei vini da una foto e
+            mostra per ogni bottiglia il prezzo stimato in enoteca e il giudizio sul prezzo, nella tua valuta.</p>
+            <a href="https://apps.apple.com/app/id6760143052" rel="noopener"><img src="/app-store-badge.svg" alt="Scarica PocSomm sull'App Store"></a>
+        </div>
+    </main>
+
+    <footer>
+        <a href="/?lang=it">Home</a>
+        <a href="/it/how-much-do-restaurants-mark-up-wine">Quanto ricaricano i ristoranti sul vino?</a>
+        <a href="/it/how-to-tell-if-restaurant-wine-is-good-value">Questo vino vale il prezzo?</a>
+        <a href="/it/how-to-choose-wine-from-a-restaurant-wine-list">Come scegliere dalla carta dei vini</a>
+        <a href="/privacy-policy">Privacy</a>
+        <p>&copy; 2026 Melkar, LLC. Bevi con responsabilità; riservato agli adulti in età legale per il consumo di alcol.</p>
+    </footer>
+
+    <script>
+    (function () {
+        // Verdict bands (multiple of shop price) and the typical range used to
+        // estimate a shop price from a menu price alone.
+        var BOTTLE_ML = 750, GREAT = 1.75, HIGH = 3, TYPICAL_LOW = 2, TYPICAL_HIGH = 3;
+        var mode = "bottle";
+        var $ = function (id) { return document.getElementById(id); };
+        var fmt = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
+        var fmt1 = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+        // Up to two decimals so 1.75x (great value) and 1.8x (fair price) never look the same.
+        var fmtRatio = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 });
+
+        // Accept "1 200", "1,200", "12,50", "12.50", "$60", "kr 450".
+        function num(id) {
+            var raw = ($(id).value || "").replace(/[^\d.,]/g, "");
+            if (!raw) return NaN;
+            var lastSep = Math.max(raw.lastIndexOf(","), raw.lastIndexOf("."));
+            if (lastSep >= 0 && raw.length - lastSep - 1 <= 2) {
+                raw = raw.slice(0, lastSep).replace(/[.,]/g, "") + "." + raw.slice(lastSep + 1);
+            } else {
+                raw = raw.replace(/[.,]/g, "");
+            }
+            var n = parseFloat(raw);
+            return n > 0 ? n : NaN;
+        }
+
+        function setMode(next) {
+            mode = next;
+            document.querySelectorAll(".modes button").forEach(function (b) {
+                b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
+            });
+            $("glass-wrap").hidden = mode !== "glass";
+            $("shop-wrap").hidden = mode === "menu";
+            $("menu-label").textContent = mode === "glass" ? "Prezzo al ristorante (calice)" : "Prezzo al ristorante (bottiglia)";
+            update();
+        }
+
+        function verdict(ratio) {
+            if (ratio < 1) return ["fair", "Sotto il prezzo in enoteca",
+                "Insolito. Controlla che annata, produttore e formato corrispondano davvero."];
+            if (ratio <= GREAT) return ["good", "Ottimo rapporto", "Al massimo 1,75 volte il prezzo in enoteca: ben sotto il ricarico abituale dei ristoranti, che è circa il doppio del prezzo in enoteca."];
+            if (ratio < HIGH) return ["fair", "Prezzo equo", "Tra 1,75 e 3 volte il prezzo in enoteca: normale per un ristorante."];
+            return ["high", "Ricarico elevato", "Tre volte il prezzo in enoteca o più: oltre quanto chiede la maggior parte dei ristoranti. Cerca in carta una bottiglia simile con un rapporto migliore."];
+        }
+
+        function update() {
+            var menu = num("menu"), shop = num("shop");
+            var glassMl = parseFloat($("glass").value);
+            var out = $("result"), share = $("share");
+            share.hidden = true;
+
+            if (isNaN(menu)) { out.innerHTML = "<p>Inserisci i prezzi per vedere il ricarico.</p>"; return; }
+
+            if (mode === "menu") {
+                out.innerHTML =
+                    '<p class="verdict">Prezzo probabile in enoteca: ' + fmt.format(menu / TYPICAL_HIGH) + "–" + fmt.format(menu / TYPICAL_LOW) + "</p>" +
+                    "<p>La maggior parte dei ristoranti chiede da due a tre volte il prezzo in enoteca, quindi una bottiglia a " +
+                    fmt.format(menu) + " in carta di solito costa in enoteca tra " + fmt.format(menu / TYPICAL_HIGH) + " e " + fmt.format(menu / TYPICAL_LOW) +
+                    " circa. Per saperlo con certezza, cerca il prezzo di quella bottiglia.</p>";
+                share.hidden = false;
+                return;
+            }
+
+            var bottleEquivalent = mode === "glass" ? menu * BOTTLE_ML / glassMl : menu;
+            if (isNaN(shop)) {
+                out.innerHTML = mode === "glass"
+                    ? "<p>Quel calice equivale a <strong>" + fmt.format(bottleEquivalent) + "</strong> a bottiglia (" +
+                      fmt1.format(BOTTLE_ML / glassMl) + " calici da " + glassMl + " ml). Ora inserisci il prezzo in enoteca della bottiglia.</p>"
+                    : "<p>Ora inserisci il prezzo in enoteca della stessa bottiglia.</p>";
+                return;
+            }
+
+            var ratio = bottleEquivalent / shop;
+            var v = verdict(ratio);
+            var extra = bottleEquivalent - shop;
+            var html = '<p class="verdict ' + v[0] + '">' + v[1] + " · " + fmtRatio.format(ratio) + "× il prezzo in enoteca</p>" +
+                "<p>" + v[2] + "</p>";
+            if (mode === "glass") {
+                html += "<p>A bottiglia fanno " + fmt.format(bottleEquivalent) + " (" + fmt1.format(BOTTLE_ML / glassMl) +
+                    " calici da " + glassMl + " ml), contro " + fmt.format(shop) + " in enoteca.</p>";
+            } else if (extra > 0) {
+                html += "<p>Paghi " + fmt.format(extra) + " in più che in enoteca, cioè il " +
+                    Math.round((ratio - 1) * 100) + "% in più del prezzo al dettaglio.</p>";
+            }
+            out.innerHTML = html;
+            share.hidden = false;
+        }
+
+        // Shareable links: ?mode=glass&menu=14&shop=20&glass=150
+        function shareURL() {
+            var p = new URLSearchParams({ mode: mode, menu: $("menu").value.trim() });
+            if (mode !== "menu" && $("shop").value.trim()) p.set("shop", $("shop").value.trim());
+            if (mode === "glass") p.set("glass", $("glass").value);
+            return location.origin + location.pathname + "?" + p.toString();
+        }
+
+        document.querySelectorAll(".modes button").forEach(function (b) {
+            b.addEventListener("click", function () { setMode(b.dataset.mode); });
+        });
+        ["menu", "shop", "glass"].forEach(function (id) {
+            $(id).addEventListener("input", update);
+        });
+        $("share").addEventListener("click", function (e) {
+            e.preventDefault();
+            var url = shareURL();
+            history.replaceState(null, "", url);
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(function () { $("share").textContent = "Link copiato"; });
+            }
+        });
+
+        var q = new URLSearchParams(location.search);
+        if (q.get("menu")) $("menu").value = q.get("menu");
+        if (q.get("shop")) $("shop").value = q.get("shop");
+        if (q.get("glass")) $("glass").value = q.get("glass");
+        setMode(["bottle", "glass", "menu"].indexOf(q.get("mode")) >= 0 ? q.get("mode") : "bottle");
+    })();
+    </script>
+</body>
+</html>

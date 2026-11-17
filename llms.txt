@@ -55,6 +55,7 @@ in development).
 - [How to choose wine from a restaurant wine list](https://pocsomm.com/how-to-choose-wine-from-a-restaurant-wine-list): budget, glass or bottle, food matching, value and how to talk to the sommelier
 - [Best apps to scan a restaurant wine list (2026)](https://pocsomm.com/best-apps-to-scan-a-restaurant-wine-list): comparison of Noir, PocSomm, CellarTracker, Vivino, Sommo, Vinea, Tastello, Cellar Wine Scanner and Wine-Searcher; written by PocSomm's makers, competitor facts from each app's own listing, checked 17 Nov 2026
 - [PocSomm vs Vivino](https://pocsomm.com/pocsomm-vs-vivino): ratings and marketplace (Vivino, list scanning needs Premium) vs price fairness and food pairing with no subscription (PocSomm)
+- Every guide above is also available in French, Italian, Spanish, Japanese and Chinese: same path under /fr/, /it/, /es/, /ja/ or /zh/ (e.g. https://pocsomm.com/fr/wine-markup-calculator).
 - [Privacy Policy](https://pocsomm.com/privacy-policy)
 - [Terms of Service](https://pocsomm.com/terms-of-service)
 

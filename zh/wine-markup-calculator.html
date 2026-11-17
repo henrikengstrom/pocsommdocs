@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>葡萄酒加价计算器：这瓶餐厅葡萄酒定价合理吗？| PocSomm</title>
+    <meta name="description" content="免费的葡萄酒加价计算器。输入一瓶酒（或一杯酒）的餐厅价格和零售价，即可看到加价倍数，以及它属于高性价比、合理价格还是高加价。">
+    <link rel="canonical" href="https://pocsomm.com/zh/wine-markup-calculator">
+    <!-- HREFLANG:BEGIN -->
+    <link rel="alternate" hreflang="en" href="https://pocsomm.com/wine-markup-calculator">
+    <link rel="alternate" hreflang="fr" href="https://pocsomm.com/fr/wine-markup-calculator">
+    <link rel="alternate" hreflang="it" href="https://pocsomm.com/it/wine-markup-calculator">
+    <link rel="alternate" hreflang="es" href="https://pocsomm.com/es/wine-markup-calculator">
+    <link rel="alternate" hreflang="ja" href="https://pocsomm.com/ja/wine-markup-calculator">
+    <link rel="alternate" hreflang="zh-Hans" href="https://pocsomm.com/zh/wine-markup-calculator">
+    <link rel="alternate" hreflang="x-default" href="https://pocsomm.com/wine-markup-calculator">
+    <!-- HREFLANG:END -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PocSomm">
+    <meta property="og:url" content="https://pocsomm.com/zh/wine-markup-calculator">
+    <meta property="og:title" content="葡萄酒加价计算器：这瓶餐厅葡萄酒定价合理吗？">
+    <meta property="og:description" content="输入酒单价格和零售价，即可看到加价倍数和性价比判断。整瓶和按杯都适用，支持任何货币。">
+    <meta property="og:image" content="https://pocsomm.com/logo.png">
+    <link rel="stylesheet" href="/guides.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://pocsomm.com/zh/wine-markup-calculator#tool",
+          "name": "葡萄酒加价计算器",
+          "url": "https://pocsomm.com/zh/wine-markup-calculator",
+          "description": "计算餐厅葡萄酒（整瓶或单杯）相对零售价的加价倍数，并判定为高性价比（1.75 倍或以下）、合理价格（1.75 倍到 3 倍）或高加价（3 倍或以上）。",
+          "inLanguage": "zh-Hans",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "任意（在浏览器中运行）",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "publisher": { "@id": "https://pocsomm.com/#org" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://pocsomm.com/#org",
+          "name": "Melkar, LLC",
+          "url": "https://pocsomm.com/"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "PocSomm", "item": "https://pocsomm.com/" },
+            { "@type": "ListItem", "position": 2, "name": "葡萄酒加价计算器", "item": "https://pocsomm.com/zh/wine-markup-calculator" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/?lang=zh"><img src="/logo.png" alt=""></a>
+        <a href="/?lang=zh">PocSomm</a>
+        <span class="spacer"></span>
+        <!-- LANGS:BEGIN --><span class="langs"><a class="lang" href="/wine-markup-calculator" hreflang="en" lang="en">English</a><a class="lang" href="/fr/wine-markup-calculator" hreflang="fr" lang="fr">Français</a><a class="lang" href="/it/wine-markup-calculator" hreflang="it" lang="it">Italiano</a><a class="lang" href="/es/wine-markup-calculator" hreflang="es" lang="es">Español</a><a class="lang" href="/ja/wine-markup-calculator" hreflang="ja" lang="ja">日本語</a><span class="lang current" aria-current="page">中文</span></span><!-- LANGS:END -->
+        <a class="get" href="https://apps.apple.com/app/id6760143052" rel="noopener">获取应用</a>
+    </nav>
+
+    <main class="container">
+        <p class="crumbs"><a href="/?lang=zh">PocSomm</a> › 葡萄酒加价计算器</p>
+        <h1>葡萄酒加价计算器</h1>
+        <p class="meta">免费使用，支持任何货币，你输入的内容不会离开本页面。</p>
+
+        <div class="answer">
+            <p><strong>用餐厅价格除以同一瓶酒在商店里的售价。</strong>
+            1.75 倍或以下是高性价比，1.75 倍到 3 倍是合理价格，3 倍或以上就是高加价。
+            如果是按杯点的酒，先把每杯的价格换算成整瓶的价格。</p>
+        </div>
+
+        <section class="card calc" aria-labelledby="calc-title">
+            <h2 id="calc-title" style="margin-top:0;border:0;padding:0;">查一款酒</h2>
+            <div class="modes" role="group" aria-label="你要查的是什么？">
+                <button type="button" data-mode="bottle" aria-pressed="true">一瓶</button>
+                <button type="button" data-mode="glass" aria-pressed="false">一杯</button>
+                <button type="button" data-mode="menu" aria-pressed="false">我只知道酒单上的价格</button>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label for="menu"><span id="menu-label">餐厅价格（整瓶）</span></label>
+                    <input id="menu" inputmode="decimal" autocomplete="off" placeholder="例如 60">
+                </div>
+                <div id="glass-wrap" hidden>
+                    <label for="glass">每杯容量</label>
+                    <select id="glass">
+                        <option value="125">125 ml</option>
+                        <option value="150" selected>150 ml（5 盎司）</option>
+                        <option value="175">175 ml</option>
+                        <option value="250">250 ml</option>
+                    </select>
+                </div>
+            </div>
+            <div id="shop-wrap">
+                <label for="shop">同一瓶酒的零售价 <span class="hint">（商店售价，同一年份，750 ml）</span></label>
+                <input id="shop" inputmode="decimal" autocomplete="off" placeholder="例如 25">
+            </div>
+
+            <div class="result" id="result" aria-live="polite">
+                <p>输入价格，即可看到加价倍数。</p>
+            </div>
+            <p class="share"><a href="#" id="share" hidden>复制此结果的链接</a></p>
+        </section>
+
+        <h2>判定标准</h2>
+        <p>计算器用餐厅价格除以同一瓶酒（同一酒庄、同一年份、750 ml）的零售价：</p>
+        <ul>
+            <li><strong>1.75 倍或以下：高性价比。</strong>明显低于美国餐厅通常约为零售价两倍的加价，甚至比英国最划算的酒单（约 1.8–2 倍）还要低。</li>
+            <li><strong>1.75 倍到 3 倍：合理价格。</strong>从美国常见酒单的水平，到英国约为零售价三倍的平均水平。</li>
+            <li><strong>3 倍或以上：高加价。</strong>高于大多数餐厅的收费。</li>
+        </ul>
+        <p>这些数字从何而来、出处是什么，请看：<a href="/zh/how-much-do-restaurants-mark-up-wine">餐厅的葡萄酒加价有多高？</a></p>
+
+        <h2>怎样比才公道</h2>
+        <ul>
+            <li><strong>用本地商店的正常售价来比</strong>，而不是网上能找到的最低价。拿网上最低价来比，任何加价都会显得更高。</li>
+            <li><strong>按杯点酒：</strong>从酒单上选好每杯的分量。计算器会把每杯价格换算成整瓶价格（一瓶 750 ml 能倒五杯 150 ml）。在美国，按杯卖的酒常常算作高加价：一条常见的定价规则是，一杯酒的价格等于餐厅买进整瓶酒的成本。</li>
+            <li><strong>在瑞典</strong>，拿 Systembolaget 的价格来比是最顺手的办法，但 Systembolaget 的价格和餐厅自己的进货价很接近。所以一款酒卖到 Systembolaget 价格的 3 倍，比卖到美国零售价的 3 倍加价更狠。</li>
+            <li><strong>贵的酒</strong>加价倍数通常比便宜的酒低，所以一瓶 150 美元的酒，合理的价格往往不到 2 倍。</li>
+        </ul>
+
+        <h2>常见问题</h2>
+        <details>
+            <summary>餐厅葡萄酒的正常加价是多少？</summary>
+            <p>在美国，大约是零售价的两倍（即餐厅进价的三倍）；在英国，大约是零售价的三倍。<a href="/zh/how-much-do-restaurants-mark-up-wine">来源与详情</a>。</p>
+        </details>
+        <details>
+            <summary>计算器会保存我输入的内容吗？</summary>
+            <p>不会。它完全在你的浏览器里运行，不会向任何地方发送数据。只有在你选择复制链接时，结果才会变成一个链接。</p>
+        </details>
+        <details>
+            <summary>用的是哪种货币？</summary>
+            <p>哪种都行。两个价格用同一种货币输入即可，加价倍数都一样。</p>
+        </details>
+
+        <div class="cta">
+            <p><strong>不知道零售价？</strong>拍一张酒单的照片，PocSomm 就能读出整份酒单，
+            用你的货币显示每瓶酒的预估零售价和性价比判断。</p>
+            <a href="https://apps.apple.com/app/id6760143052" rel="noopener"><img src="/app-store-badge.svg" alt="在 App Store 下载 PocSomm"></a>
+        </div>
+    </main>
+
+    <footer>
+        <a href="/?lang=zh">首页</a>
+        <a href="/zh/how-much-do-restaurants-mark-up-wine">餐厅的葡萄酒加价有多高？</a>
+        <a href="/zh/how-to-tell-if-restaurant-wine-is-good-value">这款酒值这个价吗？</a>
+        <a href="/zh/how-to-choose-wine-from-a-restaurant-wine-list">如何从酒单中选酒</a>
+        <a href="/privacy-policy">隐私政策</a>
+        <p>&copy; 2026 Melkar, LLC. 请理性饮酒；仅限达到法定饮酒年龄的成年人。</p>
+    </footer>
+
+    <script>
+    (function () {
+        // Verdict bands (multiple of shop price) and the typical range used to
+        // estimate a shop price from a menu price alone.
+        var BOTTLE_ML = 750, GREAT = 1.75, HIGH = 3, TYPICAL_LOW = 2, TYPICAL_HIGH = 3;
+        var mode = "bottle";
+        var $ = function (id) { return document.getElementById(id); };
+        var fmt = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
+        var fmt1 = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+        // Up to two decimals so 1.75x (great value) and 1.8x (fair price) never look the same.
+        var fmtRatio = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 });
+
+        // Accept "1 200", "1,200", "12,50", "12.50", "$60", "kr 450".
+        function num(id) {
+            var raw = ($(id).value || "").replace(/[^\d.,]/g, "");
+            if (!raw) return NaN;
+            var lastSep = Math.max(raw.lastIndexOf(","), raw.lastIndexOf("."));
+            if (lastSep >= 0 && raw.length - lastSep - 1 <= 2) {
+                raw = raw.slice(0, lastSep).replace(/[.,]/g, "") + "." + raw.slice(lastSep + 1);
+            } else {
+                raw = raw.replace(/[.,]/g, "");
+            }
+            var n = parseFloat(raw);
+            return n > 0 ? n : NaN;
+        }
+
+        function setMode(next) {
+            mode = next;
+            document.querySelectorAll(".modes button").forEach(function (b) {
+                b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
+            });
+            $("glass-wrap").hidden = mode !== "glass";
+            $("shop-wrap").hidden = mode === "menu";
+            $("menu-label").textContent = mode === "glass" ? "餐厅价格（每杯）" : "餐厅价格（整瓶）";
+            update();
+        }
+
+        function verdict(ratio) {
+            if (ratio < 1) return ["fair", "低于零售价",
+                "这种情况很少见。请确认年份、酒庄和瓶子容量是否真的一致。"];
+            if (ratio <= GREAT) return ["good", "高性价比", "最多为零售价的 1.75 倍：远低于餐厅通常约为零售价两倍的加价。"];
+            if (ratio < HIGH) return ["fair", "合理价格", "介于零售价的 1.75 倍到 3 倍之间：对餐厅来说属于正常水平。"];
+            return ["high", "高加价", "达到零售价的三倍或更高：高于大多数餐厅的收费。不妨在酒单上看看附近有没有更划算的酒。"];
+        }
+
+        function update() {
+            var menu = num("menu"), shop = num("shop");
+            var glassMl = parseFloat($("glass").value);
+            var out = $("result"), share = $("share");
+            share.hidden = true;
+
+            if (isNaN(menu)) { out.innerHTML = "<p>输入价格，即可看到加价倍数。</p>"; return; }
+
+            if (mode === "menu") {
+                out.innerHTML =
+                    '<p class="verdict">估计零售价：' + fmt.format(menu / TYPICAL_HIGH) + "–" + fmt.format(menu / TYPICAL_LOW) + "</p>" +
+                    "<p>大多数餐厅的售价是零售价的两到三倍，所以酒单上标价 " +
+                    fmt.format(menu) + " 的一瓶酒，在商店里通常只要 " + fmt.format(menu / TYPICAL_HIGH) + " 到 " + fmt.format(menu / TYPICAL_LOW) +
+                    " 左右。想确切知道，请查一查这瓶酒的实际售价。</p>";
+                share.hidden = false;
+                return;
+            }
+
+            var bottleEquivalent = mode === "glass" ? menu * BOTTLE_ML / glassMl : menu;
+            if (isNaN(shop)) {
+                out.innerHTML = mode === "glass"
+                    ? "<p>这杯酒折合每瓶 <strong>" + fmt.format(bottleEquivalent) + "</strong>（每杯 " + glassMl + " ml，共 " +
+                      fmt1.format(BOTTLE_ML / glassMl) + " 杯）。现在请输入这瓶酒的零售价。</p>"
+                    : "<p>现在请输入同一瓶酒的零售价。</p>";
+                return;
+            }
+
+            var ratio = bottleEquivalent / shop;
+            var v = verdict(ratio);
+            var extra = bottleEquivalent - shop;
+            var html = '<p class="verdict ' + v[0] + '">' + v[1] + " · 零售价的 " + fmtRatio.format(ratio) + " 倍</p>" +
+                "<p>" + v[2] + "</p>";
+            if (mode === "glass") {
+                html += "<p>折合每瓶 " + fmt.format(bottleEquivalent) + "（每杯 " + glassMl + " ml，共 " + fmt1.format(BOTTLE_ML / glassMl) +
+                    " 杯），而商店售价是 " + fmt.format(shop) + "。</p>";
+            } else if (extra > 0) {
+                html += "<p>你比在商店多付 " + fmt.format(extra) + "，相当于在零售价上加了 " +
+                    Math.round((ratio - 1) * 100) + "%。</p>";
+            }
+            out.innerHTML = html;
+            share.hidden = false;
+        }
+
+        // Shareable links: ?mode=glass&menu=14&shop=20&glass=150
+        function shareURL() {
+            var p = new URLSearchParams({ mode: mode, menu: $("menu").value.trim() });
+            if (mode !== "menu" && $("shop").value.trim()) p.set("shop", $("shop").value.trim());
+            if (mode === "glass") p.set("glass", $("glass").value);
+            return location.origin + location.pathname + "?" + p.toString();
+        }
+
+        document.querySelectorAll(".modes button").forEach(function (b) {
+            b.addEventListener("click", function () { setMode(b.dataset.mode); });
+        });
+        ["menu", "shop", "glass"].forEach(function (id) {
+            $(id).addEventListener("input", update);
+        });
+        $("share").addEventListener("click", function (e) {
+            e.preventDefault();
+            var url = shareURL();
+            history.replaceState(null, "", url);
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(function () { $("share").textContent = "链接已复制"; });
+            }
+        });
+
+        var q = new URLSearchParams(location.search);
+        if (q.get("menu")) $("menu").value = q.get("menu");
+        if (q.get("shop")) $("shop").value = q.get("shop");
+        if (q.get("glass")) $("glass").value = q.get("glass");
+        setMode(["bottle", "glass", "menu"].indexOf(q.get("mode")) >= 0 ? q.get("mode") : "bottle");
+    })();
+    </script>
+</body>
+</html>
