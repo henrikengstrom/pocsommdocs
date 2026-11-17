@@ -53,6 +53,8 @@ in development).
 - [How much do restaurants mark up wine?](https://pocsomm.com/how-much-do-restaurants-mark-up-wine): sourced guide to typical restaurant wine markups, by the glass and by the bottle
 - [How to tell if a wine on a restaurant list is good value](https://pocsomm.com/how-to-tell-if-restaurant-wine-is-good-value): step-by-step method (list price divided by local shop price), with how cheap bottles, glasses and country change the picture
 - [How to choose wine from a restaurant wine list](https://pocsomm.com/how-to-choose-wine-from-a-restaurant-wine-list): budget, glass or bottle, food matching, value and how to talk to the sommelier
+- [Best apps to scan a restaurant wine list (2026)](https://pocsomm.com/best-apps-to-scan-a-restaurant-wine-list): comparison of Noir, PocSomm, CellarTracker, Vivino, Sommo, Vinea, Tastello, Cellar Wine Scanner and Wine-Searcher; written by PocSomm's makers, competitor facts from each app's own listing, checked 17 Nov 2026
+- [PocSomm vs Vivino](https://pocsomm.com/pocsomm-vs-vivino): ratings and marketplace (Vivino, list scanning needs Premium) vs price fairness and food pairing with no subscription (PocSomm)
 - [Privacy Policy](https://pocsomm.com/privacy-policy)
 - [Terms of Service](https://pocsomm.com/terms-of-service)
 
