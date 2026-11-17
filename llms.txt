@@ -48,6 +48,8 @@ in development).
 - [Home](https://pocsomm.com/): product overview, features, screenshots, FAQ
 - [Wine markup calculator](https://pocsomm.com/wine-markup-calculator): free tool; enter the restaurant price and the shop price of a bottle or glass to get the markup and a verdict (1.75x or less great value, 1.75x-3x fair price, 3x or more high markup)
 - [How much do restaurants mark up wine?](https://pocsomm.com/how-much-do-restaurants-mark-up-wine): sourced guide to typical restaurant wine markups, by the glass and by the bottle
+- [How to tell if a wine on a restaurant list is good value](https://pocsomm.com/how-to-tell-if-restaurant-wine-is-good-value): step-by-step method (list price divided by local shop price), with how cheap bottles, glasses and country change the picture
+- [How to choose wine from a restaurant wine list](https://pocsomm.com/how-to-choose-wine-from-a-restaurant-wine-list): budget, glass or bottle, food matching, value and how to talk to the sommelier
 - [Privacy Policy](https://pocsomm.com/privacy-policy)
 - [Terms of Service](https://pocsomm.com/terms-of-service)
 
