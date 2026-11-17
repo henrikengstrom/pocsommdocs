@@ -1,0 +1,108 @@
+/* Shared styles for PocSomm's guide pages and tools (answer pages,
+   comparisons, the markup calculator). Same palette as the home page. */
+:root {
+    --burgundy: #730D26;
+    --burgundy-light: #8F1A33;
+    --gold: #C5A059;
+    --cream: #F7EBDC;
+    --card: #FFFFFF;
+    --ink: #2C2C2C;
+    --body: #4A4A4A;
+    --muted: #6A6A6A;
+    --line: rgba(115, 13, 38, 0.12);
+    --good: #2E6B3A;
+    --fair: #8A6A1F;
+    --high: #9B1C1C;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+p, li { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+}
+.nav {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--line);
+}
+.nav img { width: 34px; height: 34px; border-radius: 8px; }
+.nav a { color: var(--burgundy); text-decoration: none; font-weight: 600; }
+.nav .spacer { flex: 1; }
+.nav .get { font-size: 0.95rem; }
+.container { max-width: 720px; margin: 0 auto; padding: 40px 24px 72px; }
+.crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 10px; }
+.crumbs a { color: var(--muted); }
+h1 { font-size: 2rem; line-height: 1.25; color: var(--burgundy); letter-spacing: -0.02em; margin-bottom: 10px; }
+.meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 28px; }
+h2 {
+    font-size: 1.3rem; color: var(--burgundy);
+    margin: 36px 0 12px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+}
+h3 { font-size: 1.05rem; color: var(--burgundy-light); margin: 22px 0 8px; }
+p { margin-bottom: 14px; color: var(--body); }
+ul, ol { margin: 0 0 14px 24px; color: var(--body); }
+li { margin-bottom: 6px; }
+a { color: var(--burgundy-light); }
+strong { color: var(--ink); }
+.answer {
+    background: var(--card); border-left: 4px solid var(--gold);
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+.answer p:last-child { margin-bottom: 0; }
+.card {
+    background: var(--card); border-radius: 16px; padding: 22px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin: 16px 0;
+}
+table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 0.95rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--burgundy); font-weight: 600; }
+.table-scroll { overflow-x: auto; }
+details { background: var(--card); border-radius: 12px; padding: 14px 18px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+details p { margin: 10px 0 0; }
+.sources { font-size: 0.9rem; }
+.sources li { margin-bottom: 8px; }
+.cta {
+    background: var(--burgundy); color: #fff; border-radius: 16px;
+    padding: 22px; margin: 36px 0 8px; text-align: center;
+}
+.cta p { color: #f3e6e9; margin-bottom: 14px; }
+.cta strong { color: #fff; }
+.cta img { height: 44px; }
+footer { text-align: center; padding: 24px; color: var(--muted); font-size: 0.8rem; }
+footer a { color: var(--burgundy-light); text-decoration: none; margin: 0 8px; }
+
+/* Calculator */
+.calc label { display: block; font-weight: 600; margin: 14px 0 6px; color: var(--ink); }
+.calc .hint { font-weight: 400; color: var(--muted); font-size: 0.85rem; }
+.calc input, .calc select {
+    width: 100%; font: inherit; font-size: 1.1rem;
+    padding: 10px 12px; border: 1px solid rgba(0,0,0,0.18); border-radius: 10px;
+    background: #fff; color: var(--ink);
+}
+.calc .row { display: flex; gap: 12px; }
+.calc .row > div { flex: 1; min-width: 0; }
+.calc .modes { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.calc .modes button {
+    font: inherit; font-size: 0.9rem; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--burgundy); background: transparent; color: var(--burgundy); cursor: pointer;
+}
+.calc .modes button[aria-pressed="true"] { background: var(--burgundy); color: #fff; }
+.result { margin-top: 18px; padding: 16px 18px; border-radius: 12px; background: #FBF5EE; }
+.result .verdict { font-size: 1.35rem; font-weight: 700; }
+.result .verdict.good { color: var(--good); }
+.result .verdict.fair { color: var(--fair); }
+.result .verdict.high { color: var(--high); }
+.result p { margin: 6px 0 0; }
+.share { font-size: 0.85rem; margin-top: 10px; }
+
+@media (max-width: 480px) {
+    .container { padding: 28px 16px 48px; }
+    h1 { font-size: 1.6rem; }
+    .calc .row { flex-direction: column; gap: 0; }
+}

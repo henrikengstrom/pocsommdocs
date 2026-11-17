@@ -10,7 +10,7 @@
     var META = {
         en: {
             title: "PocSomm - Your Pocket Sommelier",
-            desc: "PocSomm puts expert wine knowledge in your pocket. Scan wine lists, discover food pairings, read tasting notes, and explore grape varieties with AI-powered analysis."
+            desc: "PocSomm is an iPhone app that scans a restaurant wine list and shows every wine's estimated retail price, a value verdict (great value, fair price or high markup), critic ratings and food pairings, with no account and no subscription."
         },
         fr: {
             title: "PocSomm - Votre sommelier de poche",

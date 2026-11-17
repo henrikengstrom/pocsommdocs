@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Markup Calculator: Is This Restaurant Wine Fairly Priced? | PocSomm</title>
+    <meta name="description" content="Free wine markup calculator. Enter the restaurant price and the shop price of a bottle (or a glass) to see the markup and whether it is great value, a fair price or a high markup.">
+    <link rel="canonical" href="https://pocsomm.com/wine-markup-calculator">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PocSomm">
+    <meta property="og:url" content="https://pocsomm.com/wine-markup-calculator">
+    <meta property="og:title" content="Wine Markup Calculator: Is This Restaurant Wine Fairly Priced?">
+    <meta property="og:description" content="Enter the menu price and the shop price to see the markup and a value verdict. Works for bottles and wine by the glass, in any currency.">
+    <meta property="og:image" content="https://pocsomm.com/logo.png">
+    <link rel="stylesheet" href="/guides.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://pocsomm.com/wine-markup-calculator#tool",
+          "name": "Wine Markup Calculator",
+          "url": "https://pocsomm.com/wine-markup-calculator",
+          "description": "Calculates a restaurant wine's markup over its shop price, for a bottle or a glass, and labels it great value (2x or less), fair price (2x to 3x) or high markup (3x or more).",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any (runs in the browser)",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "publisher": { "@id": "https://pocsomm.com/#org" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://pocsomm.com/#org",
+          "name": "Melkar, LLC",
+          "url": "https://pocsomm.com/"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "PocSomm", "item": "https://pocsomm.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Wine Markup Calculator", "item": "https://pocsomm.com/wine-markup-calculator" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/"><img src="/logo.png" alt=""></a>
+        <a href="/">PocSomm</a>
+        <span class="spacer"></span>
+        <a class="get" href="https://apps.apple.com/app/id6760143052" rel="noopener">Get the app</a>
+    </nav>
+
+    <main class="container">
+        <p class="crumbs"><a href="/">PocSomm</a> › Wine markup calculator</p>
+        <h1>Wine markup calculator</h1>
+        <p class="meta">Free, works in any currency, nothing you type leaves this page.</p>
+
+        <div class="answer">
+            <p><strong>Divide the restaurant price by what the same bottle costs in a shop.</strong>
+            2× or less is great value, 2× to 3× is a fair price, and 3× or more is a high markup.
+            For wine by the glass, first convert the glass price to a bottle price.</p>
+        </div>
+
+        <section class="card calc" aria-labelledby="calc-title">
+            <h2 id="calc-title" style="margin-top:0;border:0;padding:0;">Check a wine</h2>
+            <div class="modes" role="group" aria-label="What are you checking?">
+                <button type="button" data-mode="bottle" aria-pressed="true">A bottle</button>
+                <button type="button" data-mode="glass" aria-pressed="false">A glass</button>
+                <button type="button" data-mode="menu" aria-pressed="false">I only know the menu price</button>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label for="menu"><span id="menu-label">Restaurant price (bottle)</span></label>
+                    <input id="menu" inputmode="decimal" autocomplete="off" placeholder="e.g. 60">
+                </div>
+                <div id="glass-wrap" hidden>
+                    <label for="glass">Glass size</label>
+                    <select id="glass">
+                        <option value="125">125 ml</option>
+                        <option value="150" selected>150 ml (5 oz)</option>
+                        <option value="175">175 ml</option>
+                        <option value="250">250 ml</option>
+                    </select>
+                </div>
+            </div>
+            <div id="shop-wrap">
+                <label for="shop">Shop price of the same bottle <span class="hint">(retail, same vintage, 750 ml)</span></label>
+                <input id="shop" inputmode="decimal" autocomplete="off" placeholder="e.g. 25">
+            </div>
+
+            <div class="result" id="result" aria-live="polite">
+                <p>Enter the prices to see the markup.</p>
+            </div>
+            <p class="share"><a href="#" id="share" hidden>Copy a link to this result</a></p>
+        </section>
+
+        <h2>How the verdict works</h2>
+        <p>The calculator divides the restaurant price by the shop price of the same bottle (same producer, vintage and 750 ml size). These are the same bands the PocSomm app uses by default:</p>
+        <ul>
+            <li><strong>2× or less: great value.</strong> At or below the usual US restaurant markup of about twice the shop price.</li>
+            <li><strong>2× to 3×: fair price.</strong> The span from a typical US list to the UK average of about three times retail.</li>
+            <li><strong>3× or more: high markup.</strong> Above what most restaurants charge.</li>
+        </ul>
+        <p>Where those numbers come from, with sources: <a href="/how-much-do-restaurants-mark-up-wine">How much do restaurants mark up wine?</a></p>
+
+        <h2>Tips for an honest comparison</h2>
+        <ul>
+            <li><strong>Use a normal local shop price</strong>, not the cheapest price you can find online. The cheapest online price makes every markup look bigger.</li>
+            <li><strong>By the glass:</strong> pick the pour size from the menu. The calculator converts the glass price to a bottle price (a 750 ml bottle holds five 150 ml glasses). In the US, glasses often come out as a high markup: a common rule prices one glass at what the restaurant paid for the whole bottle.</li>
+            <li><strong>In Sweden</strong>, comparing with the Systembolaget price is the natural check, but Systembolaget's price is close to what restaurants themselves pay. A wine at 3× its Systembolaget price is a steeper markup than 3× a US shop price.</li>
+            <li><strong>Expensive bottles</strong> usually get a lower multiple than cheap ones, so a fair price on a 150-dollar bottle often sits below 2×.</li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <details>
+            <summary>What is a normal markup on restaurant wine?</summary>
+            <p>About twice the shop price in the US (three times what the restaurant paid) and about three times retail in the UK. <a href="/how-much-do-restaurants-mark-up-wine">Sources and details</a>.</p>
+        </details>
+        <details>
+            <summary>Does the calculator store what I type?</summary>
+            <p>No. It runs entirely in your browser and sends nothing anywhere. A result only becomes a link if you choose to copy one.</p>
+        </details>
+        <details>
+            <summary>Which currency does it use?</summary>
+            <p>Any. Enter both prices in the same currency; the markup is the same either way.</p>
+        </details>
+
+        <div class="cta">
+            <p><strong>Don't know the shop price?</strong> PocSomm reads the whole wine list from a photo and
+            shows every bottle's estimated retail price and value verdict, in your currency.</p>
+            <a href="https://apps.apple.com/app/id6760143052" rel="noopener"><img src="/app-store-badge.svg" alt="Download PocSomm on the App Store"></a>
+        </div>
+    </main>
+
+    <footer>
+        <a href="/">Home</a>
+        <a href="/how-much-do-restaurants-mark-up-wine">How much do restaurants mark up wine?</a>
+        <a href="/privacy-policy">Privacy</a>
+        <p>&copy; 2026 Melkar, LLC. Please enjoy wine responsibly; for adults of legal drinking age.</p>
+    </footer>
+
+    <script>
+    (function () {
+        var BOTTLE_ML = 750, GREAT = 2, HIGH = 3;
+        var mode = "bottle";
+        var $ = function (id) { return document.getElementById(id); };
+        var fmt = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
+        var fmt1 = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+        // Accept "1 200", "1,200", "12,50", "12.50", "$60", "kr 450".
+        function num(id) {
+            var raw = ($(id).value || "").replace(/[^\d.,]/g, "");
+            if (!raw) return NaN;
+            var lastSep = Math.max(raw.lastIndexOf(","), raw.lastIndexOf("."));
+            if (lastSep >= 0 && raw.length - lastSep - 1 <= 2) {
+                raw = raw.slice(0, lastSep).replace(/[.,]/g, "") + "." + raw.slice(lastSep + 1);
+            } else {
+                raw = raw.replace(/[.,]/g, "");
+            }
+            var n = parseFloat(raw);
+            return n > 0 ? n : NaN;
+        }
+
+        function setMode(next) {
+            mode = next;
+            document.querySelectorAll(".modes button").forEach(function (b) {
+                b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
+            });
+            $("glass-wrap").hidden = mode !== "glass";
+            $("shop-wrap").hidden = mode === "menu";
+            $("menu-label").textContent = mode === "glass" ? "Restaurant price (glass)" : "Restaurant price (bottle)";
+            update();
+        }
+
+        function verdict(ratio) {
+            if (ratio < 1) return ["fair", "Below the shop price",
+                "Unusual. Check that the vintage, producer and bottle size really match."];
+            if (ratio <= GREAT) return ["good", "Great value", "At most twice the shop price: at or below the usual restaurant markup."];
+            if (ratio < HIGH) return ["fair", "Fair price", "Between two and three times the shop price: normal for a restaurant."];
+            return ["high", "High markup", "Three times the shop price or more: above what most restaurants charge. Look for a better-value bottle nearby on the list."];
+        }
+
+        function update() {
+            var menu = num("menu"), shop = num("shop");
+            var glassMl = parseFloat($("glass").value);
+            var out = $("result"), share = $("share");
+            share.hidden = true;
+
+            if (isNaN(menu)) { out.innerHTML = "<p>Enter the prices to see the markup.</p>"; return; }
+
+            if (mode === "menu") {
+                out.innerHTML =
+                    '<p class="verdict">Likely shop price: ' + fmt.format(menu / HIGH) + "–" + fmt.format(menu / GREAT) + "</p>" +
+                    "<p>Most restaurants charge two to three times the shop price, so a bottle listed at " +
+                    fmt.format(menu) + " usually costs about " + fmt.format(menu / HIGH) + " to " + fmt.format(menu / GREAT) +
+                    " in a shop. Look up the actual bottle to know for sure.</p>";
+                share.hidden = false;
+                return;
+            }
+
+            var bottleEquivalent = mode === "glass" ? menu * BOTTLE_ML / glassMl : menu;
+            if (isNaN(shop)) {
+                out.innerHTML = mode === "glass"
+                    ? "<p>That glass works out to <strong>" + fmt.format(bottleEquivalent) + "</strong> per bottle (" +
+                      fmt1.format(BOTTLE_ML / glassMl) + " glasses of " + glassMl + " ml). Now enter the shop price of the bottle.</p>"
+                    : "<p>Now enter the shop price of the same bottle.</p>";
+                return;
+            }
+
+            var ratio = bottleEquivalent / shop;
+            var v = verdict(ratio);
+            var extra = bottleEquivalent - shop;
+            var html = '<p class="verdict ' + v[0] + '">' + v[1] + " · " + fmt1.format(ratio) + "× the shop price</p>" +
+                "<p>" + v[2] + "</p>";
+            if (mode === "glass") {
+                html += "<p>Per bottle that's " + fmt.format(bottleEquivalent) + " (" + fmt1.format(BOTTLE_ML / glassMl) +
+                    " glasses of " + glassMl + " ml), versus " + fmt.format(shop) + " in a shop.</p>";
+            } else if (extra > 0) {
+                html += "<p>You pay " + fmt.format(extra) + " more than in a shop, " +
+                    Math.round((ratio - 1) * 100) + "% on top of the retail price.</p>";
+            }
+            out.innerHTML = html;
+            share.hidden = false;
+        }
+
+        // Shareable links: ?mode=glass&menu=14&shop=20&glass=150
+        function shareURL() {
+            var p = new URLSearchParams({ mode: mode, menu: $("menu").value.trim() });
+            if (mode !== "menu" && $("shop").value.trim()) p.set("shop", $("shop").value.trim());
+            if (mode === "glass") p.set("glass", $("glass").value);
+            return location.origin + location.pathname + "?" + p.toString();
+        }
+
+        document.querySelectorAll(".modes button").forEach(function (b) {
+            b.addEventListener("click", function () { setMode(b.dataset.mode); });
+        });
+        ["menu", "shop", "glass"].forEach(function (id) {
+            $(id).addEventListener("input", update);
+        });
+        $("share").addEventListener("click", function (e) {
+            e.preventDefault();
+            var url = shareURL();
+            history.replaceState(null, "", url);
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(function () { $("share").textContent = "Link copied"; });
+            }
+        });
+
+        var q = new URLSearchParams(location.search);
+        if (q.get("menu")) $("menu").value = q.get("menu");
+        if (q.get("shop")) $("shop").value = q.get("shop");
+        if (q.get("glass")) $("glass").value = q.get("glass");
+        setMode(["bottle", "glass", "menu"].indexOf(q.get("mode")) >= 0 ? q.get("mode") : "bottle");
+    })();
+    </script>
+</body>
+</html>
