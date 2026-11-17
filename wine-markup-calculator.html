@@ -22,7 +22,7 @@
           "@id": "https://pocsomm.com/wine-markup-calculator#tool",
           "name": "Wine Markup Calculator",
           "url": "https://pocsomm.com/wine-markup-calculator",
-          "description": "Calculates a restaurant wine's markup over its shop price, for a bottle or a glass, and labels it great value (2x or less), fair price (2x to 3x) or high markup (3x or more).",
+          "description": "Calculates a restaurant wine's markup over its shop price, for a bottle or a glass, and labels it great value (1.75x or less), fair price (1.75x to 3x) or high markup (3x or more).",
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Any (runs in the browser)",
           "isAccessibleForFree": true,
@@ -61,7 +61,7 @@
 
         <div class="answer">
             <p><strong>Divide the restaurant price by what the same bottle costs in a shop.</strong>
-            2× or less is great value, 2× to 3× is a fair price, and 3× or more is a high markup.
+            1.75× or less is great value, 1.75× to 3× is a fair price, and 3× or more is a high markup.
             For wine by the glass, first convert the glass price to a bottle price.</p>
         </div>
 
@@ -100,10 +100,10 @@
         </section>
 
         <h2>How the verdict works</h2>
-        <p>The calculator divides the restaurant price by the shop price of the same bottle (same producer, vintage and 750 ml size). These are the same bands the PocSomm app uses by default:</p>
+        <p>The calculator divides the restaurant price by the shop price of the same bottle (same producer, vintage and 750 ml size):</p>
         <ul>
-            <li><strong>2× or less: great value.</strong> At or below the usual US restaurant markup of about twice the shop price.</li>
-            <li><strong>2× to 3×: fair price.</strong> The span from a typical US list to the UK average of about three times retail.</li>
+            <li><strong>1.75× or less: great value.</strong> Clearly below the usual US restaurant markup of about twice the shop price, and better than even the best-value UK lists (about 1.8–2×).</li>
+            <li><strong>1.75× to 3×: fair price.</strong> The span from a typical US list to the UK average of about three times retail.</li>
             <li><strong>3× or more: high markup.</strong> Above what most restaurants charge.</li>
         </ul>
         <p>Where those numbers come from, with sources: <a href="/how-much-do-restaurants-mark-up-wine">How much do restaurants mark up wine?</a></p>
@@ -146,11 +146,15 @@
 
     <script>
     (function () {
-        var BOTTLE_ML = 750, GREAT = 2, HIGH = 3;
+        // Verdict bands (multiple of shop price) and the typical range used to
+        // estimate a shop price from a menu price alone.
+        var BOTTLE_ML = 750, GREAT = 1.75, HIGH = 3, TYPICAL_LOW = 2, TYPICAL_HIGH = 3;
         var mode = "bottle";
         var $ = function (id) { return document.getElementById(id); };
         var fmt = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
         var fmt1 = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+        // Up to two decimals so 1.75x (great value) and 1.8x (fair price) never look the same.
+        var fmtRatio = new Intl.NumberFormat(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 2 });
 
         // Accept "1 200", "1,200", "12,50", "12.50", "$60", "kr 450".
         function num(id) {
@@ -180,8 +184,8 @@
         function verdict(ratio) {
             if (ratio < 1) return ["fair", "Below the shop price",
                 "Unusual. Check that the vintage, producer and bottle size really match."];
-            if (ratio <= GREAT) return ["good", "Great value", "At most twice the shop price: at or below the usual restaurant markup."];
-            if (ratio < HIGH) return ["fair", "Fair price", "Between two and three times the shop price: normal for a restaurant."];
+            if (ratio <= GREAT) return ["good", "Great value", "At most 1.75 times the shop price: well below the usual restaurant markup of about twice the shop price."];
+            if (ratio < HIGH) return ["fair", "Fair price", "Between 1.75 and 3 times the shop price: normal for a restaurant."];
             return ["high", "High markup", "Three times the shop price or more: above what most restaurants charge. Look for a better-value bottle nearby on the list."];
         }
 
@@ -195,9 +199,9 @@
 
             if (mode === "menu") {
                 out.innerHTML =
-                    '<p class="verdict">Likely shop price: ' + fmt.format(menu / HIGH) + "–" + fmt.format(menu / GREAT) + "</p>" +
+                    '<p class="verdict">Likely shop price: ' + fmt.format(menu / TYPICAL_HIGH) + "–" + fmt.format(menu / TYPICAL_LOW) + "</p>" +
                     "<p>Most restaurants charge two to three times the shop price, so a bottle listed at " +
-                    fmt.format(menu) + " usually costs about " + fmt.format(menu / HIGH) + " to " + fmt.format(menu / GREAT) +
+                    fmt.format(menu) + " usually costs about " + fmt.format(menu / TYPICAL_HIGH) + " to " + fmt.format(menu / TYPICAL_LOW) +
                     " in a shop. Look up the actual bottle to know for sure.</p>";
                 share.hidden = false;
                 return;
@@ -215,7 +219,7 @@
             var ratio = bottleEquivalent / shop;
             var v = verdict(ratio);
             var extra = bottleEquivalent - shop;
-            var html = '<p class="verdict ' + v[0] + '">' + v[1] + " · " + fmt1.format(ratio) + "× the shop price</p>" +
+            var html = '<p class="verdict ' + v[0] + '">' + v[1] + " · " + fmtRatio.format(ratio) + "× the shop price</p>" +
                 "<p>" + v[2] + "</p>";
             if (mode === "glass") {
                 html += "<p>Per bottle that's " + fmt.format(bottleEquivalent) + " (" + fmt1.format(BOTTLE_ML / glassMl) +

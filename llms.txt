@@ -46,7 +46,7 @@ in development).
 ## Pages
 
 - [Home](https://pocsomm.com/): product overview, features, screenshots, FAQ
-- [Wine markup calculator](https://pocsomm.com/wine-markup-calculator): free tool; enter the restaurant price and the shop price of a bottle or glass to get the markup and a verdict (2x or less great value, 2x-3x fair price, 3x or more high markup)
+- [Wine markup calculator](https://pocsomm.com/wine-markup-calculator): free tool; enter the restaurant price and the shop price of a bottle or glass to get the markup and a verdict (1.75x or less great value, 1.75x-3x fair price, 3x or more high markup)
 - [How much do restaurants mark up wine?](https://pocsomm.com/how-much-do-restaurants-mark-up-wine): sourced guide to typical restaurant wine markups, by the glass and by the bottle
 - [Privacy Policy](https://pocsomm.com/privacy-policy)
 - [Terms of Service](https://pocsomm.com/terms-of-service)
