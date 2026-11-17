@@ -213,7 +213,7 @@
             font-weight: 500;
         }
         nav.top a.link:hover { text-decoration: underline; }
-        @media (max-width: 720px) { nav.top .inner a.link { display: none; } }
+        @media (max-width: 720px) { nav.top .inner a.link:not(.guides) { display: none; } }
 
         /* language switcher */
         nav.top select.langswitch {
@@ -435,6 +435,7 @@
             <a href="#pricing" class="link" data-i18n="nav.pricing">Pricing</a>
             <a href="#faq" class="link" data-i18n="nav.faq">FAQ</a>
             <a href="#about" class="link" data-i18n="nav.about">About</a>
+            <a href="/guides" class="link guides" data-i18n="nav.guides" data-i18n-href="/guides">Wine guides</a>
             <select class="langswitch" id="langSelect" aria-label="Language">
                 <option value="en">🇬🇧 EN</option>
                 <option value="fr">🇫🇷 FR</option>
@@ -864,12 +865,7 @@
             </a>
         </p>
         <div class="legal">
-            <a href="/wine-markup-calculator" data-i18n="foot.calc" data-i18n-href="/wine-markup-calculator">Wine markup calculator</a>
-            <a href="/how-much-do-restaurants-mark-up-wine" data-i18n="foot.markup" data-i18n-href="/how-much-do-restaurants-mark-up-wine">How much do restaurants mark up wine?</a>
-            <a href="/how-to-tell-if-restaurant-wine-is-good-value" data-i18n="foot.value" data-i18n-href="/how-to-tell-if-restaurant-wine-is-good-value">Is this wine good value?</a>
-            <a href="/how-to-choose-wine-from-a-restaurant-wine-list" data-i18n="foot.choose" data-i18n-href="/how-to-choose-wine-from-a-restaurant-wine-list">How to choose from a wine list</a>
-            <a href="/best-apps-to-scan-a-restaurant-wine-list" data-i18n="foot.best" data-i18n-href="/best-apps-to-scan-a-restaurant-wine-list">Best wine list apps</a>
-            <a href="/pocsomm-vs-vivino" data-i18n="foot.vivino" data-i18n-href="/pocsomm-vs-vivino">PocSomm vs Vivino</a>
+            <a href="/guides" data-i18n="foot.guides" data-i18n-href="/guides">Wine guides</a>
             <a href="/privacy-policy" data-i18n="foot.privacy">Privacy Policy</a>
             <a href="/terms-of-service" data-i18n="foot.terms">Terms of Service</a>
             <a href="mailto:support@pocsomm.com" data-i18n="foot.contact">Contact</a>

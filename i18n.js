@@ -187,12 +187,8 @@
             "foot.terms": "Conditions d'utilisation",
             "foot.contact": "Contact",
             "foot.insta": "Suivez-nous sur Instagram &#64;pocsomm",
-            "foot.calc": "Calculateur de marge sur le vin",
-            "foot.markup": "Quelle marge les restaurants prennent-ils sur le vin ?",
-            "foot.value": "Ce vin est-il un bon rapport qualité-prix ?",
-            "foot.choose": "Comment choisir sur une carte des vins",
-            "foot.best": "Meilleures applis pour cartes des vins",
-            "foot.vivino": "PocSomm ou Vivino"
+            "foot.guides": "Guides du vin",
+            "nav.guides": "Guides du vin"
         },
 
         /* ============================ ITALIANO ============================ */
@@ -347,12 +343,8 @@
             "foot.terms": "Termini di servizio",
             "foot.contact": "Contatti",
             "foot.insta": "Seguici su Instagram &#64;pocsomm",
-            "foot.calc": "Calcolatore del ricarico sul vino",
-            "foot.markup": "Quanto ricaricano i ristoranti sul vino?",
-            "foot.value": "Questo vino vale il prezzo?",
-            "foot.choose": "Come scegliere dalla carta dei vini",
-            "foot.best": "Le migliori app per le carte dei vini",
-            "foot.vivino": "PocSomm o Vivino"
+            "foot.guides": "Guide al vino",
+            "nav.guides": "Guide al vino"
         },
 
         /* ============================ ESPAÑOL ============================ */
@@ -507,12 +499,8 @@
             "foot.terms": "Términos del servicio",
             "foot.contact": "Contacto",
             "foot.insta": "Síguenos en Instagram &#64;pocsomm",
-            "foot.calc": "Calculadora del margen del vino",
-            "foot.markup": "¿Cuánto encarecen el vino los restaurantes?",
-            "foot.value": "¿Este vino tiene buena relación calidad-precio?",
-            "foot.choose": "Cómo elegir en una carta de vinos",
-            "foot.best": "Mejores apps para cartas de vinos",
-            "foot.vivino": "PocSomm o Vivino"
+            "foot.guides": "Guías de vino",
+            "nav.guides": "Guías de vino"
         },
 
         /* ============================ 日本語 ============================ */
@@ -667,12 +655,8 @@
             "foot.terms": "利用規約",
             "foot.contact": "お問い合わせ",
             "foot.insta": "Instagram &#64;pocsomm をフォロー",
-            "foot.calc": "ワインの値付け計算ツール",
-            "foot.markup": "レストランはワインにどれだけ上乗せしている？",
-            "foot.value": "このワインはお買い得？",
-            "foot.choose": "ワインリストの選び方",
-            "foot.best": "ワインリスト向けおすすめアプリ",
-            "foot.vivino": "PocSomm と Vivino の比較"
+            "foot.guides": "ワインガイド",
+            "nav.guides": "ワインガイド"
         },
 
         /* ============================ 中文 ============================ */
@@ -827,12 +811,8 @@
             "foot.terms": "服务条款",
             "foot.contact": "联系我们",
             "foot.insta": "在 Instagram 上关注我们 &#64;pocsomm",
-            "foot.calc": "葡萄酒加价计算器",
-            "foot.markup": "餐厅的葡萄酒加价有多高？",
-            "foot.value": "这款酒值这个价吗？",
-            "foot.choose": "如何从酒单中选酒",
-            "foot.best": "最佳酒单扫描应用",
-            "foot.vivino": "PocSomm 与 Vivino 对比"
+            "foot.guides": "葡萄酒指南",
+            "nav.guides": "葡萄酒指南"
         }
     };
 
