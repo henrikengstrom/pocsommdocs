@@ -9,27 +9,27 @@
     // Page <title> + meta description per language (en handled inline / by default).
     var META = {
         en: {
-            title: "PocSomm - Your Pocket Sommelier",
+            title: "PocSomm: Wine Pairing & Prices · Restaurant Wine List Value",
             desc: "PocSomm is an iPhone app that scans a restaurant wine list and shows every wine's estimated retail price, a value verdict (great value, fair price or high markup), critic ratings and food pairings, with no account and no subscription."
         },
         fr: {
-            title: "PocSomm - Votre sommelier de poche",
+            title: "PocSomm : Accords vins & prix · Carte des vins : le bon prix",
             desc: "PocSomm est une application iPhone qui scanne la carte des vins d'un restaurant et affiche pour chaque vin son prix estimé en boutique, un verdict (très bon rapport, prix juste ou marge élevée), les notes des critiques et les accords mets-vins, sans compte ni abonnement."
         },
         it: {
-            title: "PocSomm - Il tuo sommelier tascabile",
+            title: "PocSomm: Abbinamenti e prezzi · Il valore della carta dei vini",
             desc: "PocSomm è un'app per iPhone che scansiona la carta dei vini di un ristorante e mostra per ogni vino il prezzo stimato in enoteca, un giudizio (ottimo rapporto, prezzo equo o ricarico elevato), i punteggi della critica e gli abbinamenti, senza account né abbonamento."
         },
         es: {
-            title: "PocSomm - Tu sumiller de bolsillo",
+            title: "PocSomm: Maridaje y precios · Carta de vinos: precio justo",
             desc: "PocSomm es una app para iPhone que escanea la carta de vinos de un restaurante y muestra el precio estimado en tienda de cada vino, una valoración (gran valor, precio justo o alto margen), las puntuaciones de la crítica y los maridajes, sin cuenta ni suscripción."
         },
         ja: {
-            title: "PocSomm - ポケットの中のソムリエ",
+            title: "PocSomm: ワインペアリングと価格 · レストランのワインリストを診断",
             desc: "PocSommは、レストランのワインリストをスキャンして、各ワインの推定小売価格、お得度の判定（お買い得・適正価格・高マークアップ）、評論家スコア、料理との相性を表示するiPhoneアプリです。アカウントもサブスクリプションも不要です。"
         },
         zh: {
-            title: "PocSomm - 口袋里的侍酒师",
+            title: "PocSomm：葡萄酒配餐与价格 · 看懂餐厅酒单的性价比",
             desc: "PocSomm 是一款 iPhone 应用：扫描餐厅酒单，即可看到每款酒的预估零售价、性价比判断（高性价比、合理价格或高加价）、评论家评分和餐酒搭配，无需账户，也无需订阅。"
         }
     };
@@ -43,7 +43,7 @@
             "nav.faq": "FAQ",
             "nav.about": "À propos",
 
-            "hero.tagline": "Votre sommelier de poche",
+            "hero.tagline": "Accords vins & prix",
             "hero.desc": "PocSomm met le savoir d'un sommelier dans votre poche. Scannez la carte des vins d'un restaurant pour voir instantanément les prix de détail, les notes des critiques et l'évaluation du rapport qualité-prix. Photographiez une étiquette pour obtenir des notes de dégustation. Accordez les vins à votre dîner grâce à l'IA. Explorez les cépages et recevez des suggestions de vin pour le repas du soir — le tout depuis votre iPhone.",
             "hero.androidSoon": "Bientôt disponible sur Android",
 
@@ -199,7 +199,7 @@
             "nav.faq": "FAQ",
             "nav.about": "Chi siamo",
 
-            "hero.tagline": "Il tuo sommelier tascabile",
+            "hero.tagline": "Abbinamenti e prezzi",
             "hero.desc": "PocSomm mette il sapere di un sommelier in tasca. Scansiona la carta dei vini di un ristorante per vedere subito prezzi al dettaglio, voti della critica e valutazioni di convenienza. Fotografa un'etichetta per le note di degustazione. Abbina i vini alla tua cena con l'IA. Esplora i vitigni e ricevi suggerimenti di vino per la cena di stasera — tutto dal tuo iPhone.",
             "hero.androidSoon": "Presto disponibile su Android",
 
@@ -355,7 +355,7 @@
             "nav.faq": "Preguntas",
             "nav.about": "Quiénes somos",
 
-            "hero.tagline": "Tu sumiller de bolsillo",
+            "hero.tagline": "Maridaje y precios",
             "hero.desc": "PocSomm pone el saber de un sumiller en tu bolsillo. Escanea la carta de vinos de un restaurante para ver al instante precios de venta, puntuaciones de la crítica y valoraciones de relación calidad-precio. Fotografía una etiqueta para obtener notas de cata. Marida los vinos con tu cena gracias a la IA. Explora variedades de uva y recibe sugerencias de vino para la cena de hoy — todo desde tu iPhone.",
             "hero.androidSoon": "Pronto disponible en Android",
 
@@ -511,7 +511,7 @@
             "nav.faq": "よくある質問",
             "nav.about": "私たちについて",
 
-            "hero.tagline": "ポケットの中のソムリエ",
+            "hero.tagline": "ワインペアリングと価格",
             "hero.desc": "PocSommは、ソムリエの知識をあなたのポケットに。レストランのワインリストをスキャンすれば、小売価格、評論家の評価、コストパフォーマンスがすぐに分かります。ボトルのラベルを撮影してテイスティングノートを表示。AIによる料理とのペアリングで、ディナーに合うワインを見つけましょう。ブドウ品種を調べ、今夜の食事に合うワインの提案も受けられます — すべてiPhoneひとつで。",
             "hero.androidSoon": "Android版は近日公開予定",
 
@@ -667,7 +667,7 @@
             "nav.faq": "常见问题",
             "nav.about": "关于我们",
 
-            "hero.tagline": "口袋里的侍酒师",
+            "hero.tagline": "葡萄酒配餐与价格",
             "hero.desc": "PocSomm 将专业的葡萄酒知识装进你的口袋。扫描餐厅酒单，即刻查看零售价、评论家评分和性价比评估。拍下酒标即可获得品鉴笔记。借助 AI 餐酒搭配，为你的晚餐挑选合适的葡萄酒。探索葡萄品种，获取今晚菜肴的配酒建议 — 这一切，只需一部 iPhone。",
             "hero.androidSoon": "Android 版即将推出",
 

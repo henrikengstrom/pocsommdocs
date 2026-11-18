@@ -90,7 +90,7 @@
 
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="updated">Last Updated: September 25, 2026</p>
+        <p class="updated">Last Updated: November 23, 2026</p>
 
         <p>Melkar, LLC ("we", "us", "our") operates the PocSomm mobile application ("the App"). This Privacy Policy describes how we collect, use, and protect your information when you use PocSomm.</p>
 
@@ -102,6 +102,11 @@
         <h3>How Images and Text Are Processed</h3>
         <p>To analyze a scan, captured images are sent to Google's Gemini API via Firebase for processing. The same applies to wine lists you import (PDF pages, photos, or the text of a web page), dish names and recipe details you use for pairings, and questions you ask PocSomm.</p>
         <p>This content is sent solely to produce the wine and food information you asked for. We do not store it on any server. It is transmitted directly from your device to Google and is subject to Google's data handling policies.</p>
+
+        <h3>Your Taste Profile</h3>
+        <p>If you create a taste profile, it is built and stored on your device. To tailor answers to your taste, a short text summary of it (for example, "prefers light, fresh reds and crisp whites; avoids oaky Chardonnay") is sent to Google's Gemini API along with bottle scans, food-pairing requests, and questions you ask PocSomm. It is never sent with wine-list scans; matching a wine list to your taste happens on your device. The summary contains no name, contact details, or other identifying information.</p>
+        <p>If you choose to type wines you have loved or disliked while setting up your profile, those wine names are sent to Google's Gemini API so they can be matched to grapes, regions, and styles. Nothing is added to your profile until you confirm it.</p>
+        <p>As with all AI requests, this is sent solely to produce the answer you asked for and is not stored by PocSomm on any server.</p>
 
         <h3>Links You Import</h3>
         <p>When you paste a link to a restaurant wine list or a recipe, the App downloads that page directly from the website so it can be analyzed. As with any web request, that website receives your device's IP address and a standard request header. PocSomm does not send the link or the page to us.</p>
@@ -118,6 +123,8 @@
             <li><strong>Scan history:</strong> Wine and food scan results (stored in app documents)</li>
             <li><strong>Wine ratings:</strong> Your personal wine ratings (stored in app documents)</li>
             <li><strong>Pairing history:</strong> Your saved food-pairing searches (stored in app documents)</li>
+            <li><strong>Taste profile:</strong> Your tasting-game answers, stated preferences, and what the App has learned from your ratings and feedback (stored in app documents)</li>
+            <li><strong>To-try list:</strong> Wines you have marked to try (stored in app documents)</li>
             <li><strong>Answer cache:</strong> Recent sommelier answers, kept for a limited time so repeat questions are instant (stored in UserDefaults)</li>
             <li><strong>Credit balance:</strong> Your scan credit balance (stored in the iOS Keychain)</li>
             <li><strong>Preferences:</strong> App settings such as language, currency market, and display preferences (stored in UserDefaults)</li>
@@ -136,16 +143,16 @@
         <h2>Third-Party Services</h2>
 
         <h3>AI Provider</h3>
-        <p>Images and text you choose to analyze are sent to Google for processing (see above), subject to its privacy policy:</p>
+        <p>Images and text you choose to analyze, and the taste-profile summary described above, are sent to Google for processing, subject to its privacy policy:</p>
         <ul>
             <li><strong>Google (Gemini API via Firebase, and Firebase App Check):</strong> <a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
         </ul>
 
         <h3>Apple StoreKit and App Attest</h3>
-        <p>PocSomm uses Apple's StoreKit for in-app purchases. Purchase transactions are handled entirely by Apple; PocSomm only records on your device which purchases have already been credited. App Attest (see above) is also provided by Apple. Both are subject to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+        <p>PocSomm uses Apple's StoreKit for in-app purchases and offer codes. Purchase transactions and offer-code redemptions are handled entirely by Apple; PocSomm only records on your device which purchases have already been credited. App Attest (see above) is also provided by Apple. Both are subject to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
 
         <h2>Data Retention</h2>
-        <p>All data is stored locally on your device. You can delete your scan history, ratings, and pairing history at any time in the App. Your scan credit balance is stored in the iOS Keychain and is retained across reinstalls; it contains no personal information and is not transmitted anywhere.</p>
+        <p>All data is stored locally on your device. You can delete your scan history, ratings, and pairing history at any time in the App, and you can view, edit, or reset your taste profile in Settings. Settings → Delete All App Data deletes the App's data on your device, including your taste profile and To-try list. Your scan credit balance is stored in the iOS Keychain and is retained across reinstalls; it contains no personal information and is not transmitted anywhere.</p>
 
         <h2>Children's Privacy</h2>
         <p>PocSomm contains information about alcoholic beverages and is intended for users of legal drinking age (18 years or older). We do not knowingly collect information from children.</p>

@@ -108,6 +108,18 @@
         // App Store opens with no further taps.
         var APP_STORE_SCHEME = "itms-apps://apps.apple.com/app/id6760143052";
 
+        // Campaign code from /go?ct=… (see worker.js): passed on to the App
+        // Store so App Analytics can count installs per campaign. Keep
+        // PROVIDER_TOKEN in step with worker.js.
+        var PROVIDER_TOKEN = "";
+        var ct = (new URLSearchParams(window.location.search).get("ct") || "");
+        if (/^[A-Za-z0-9_-]{1,40}$/.test(ct)) {
+            var q = "?" + (PROVIDER_TOKEN ? "pt=" + PROVIDER_TOKEN + "&" : "") + "ct=" + ct + "&mt=8";
+            APP_STORE_WEB += q;
+            APP_STORE_SCHEME += q;
+            document.getElementById("storeLink").href = APP_STORE_WEB;
+        }
+
         var ua = navigator.userAgent || "";
         var isIOS = /iPhone|iPad|iPod/i.test(ua);
         var isAndroid = /Android/i.test(ua);
