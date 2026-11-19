@@ -146,6 +146,38 @@
                 "@type": "Answer",
                 "text": "PocSomm contains information about alcoholic beverages and is intended for adults of legal drinking age (18+)."
               }
+            },
+            {
+              "@type": "Question",
+              "name": "What is PocSomm?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PocSomm is an iPhone app that scans a restaurant wine list and shows every wine's estimated retail price, a value verdict (great value, fair price or high markup), critic ratings and food pairings, with no account and no subscription."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can PocSomm tell me if a wine on a restaurant list is overpriced?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. For every wine on the list it estimates the shop price where you are and shows the markup (list price divided by shop price) with a verdict: great value, fair price or high markup. The Best Value sort ranks the whole list from the lowest markup to the highest. You can adjust the Value Thresholds in Settings."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can PocSomm pair wine with my food?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. At the restaurant, photograph the food menu, pick your table's dishes, then scan the wine list: every wine gets a match percentage and the reason behind it. At home, paste a recipe link or describe the dish and ask PocSomm for wine suggestions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is PocSomm available on Android?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not yet. PocSomm is on the App Store for iPhone (iOS 18 or later), in 11 languages. An Android version is in development."
+              }
             }
           ]
         }
@@ -247,7 +279,13 @@
             color: var(--burgundy);
             margin-bottom: 8px; letter-spacing: -0.02em;
         }
-        .tagline { font-size: 1.15rem; color: var(--burgundy-light); margin-bottom: 28px; }
+        /* The tagline sits inside the h1 (category words for crawlers) but
+           looks like the separate line it used to be. */
+        .tagline {
+            display: block; margin-top: 8px; margin-bottom: 28px;
+            font-size: 1.15rem; font-weight: 400; letter-spacing: normal;
+            color: var(--burgundy-light);
+        }
         .description { font-size: 1.05rem; line-height: 1.7; color: #4A4A4A; margin-bottom: 32px; }
 
         .badge {
@@ -401,6 +439,10 @@
         summary::after { content: "+"; color: var(--gold); font-size: 1.3rem; font-weight: 700; }
         details[open] summary::after { content: "\2013"; }
         details p { color: #4A4A4A; font-size: 0.95rem; padding: 0 0 18px; }
+        .guide-links { list-style: none; max-width: 680px; margin: 0 auto; text-align: center; }
+        .guide-links li { margin: 6px 0; }
+        .guide-links a { color: var(--burgundy-light); font-weight: 600; text-decoration: none; }
+        .guide-links a:hover { text-decoration: underline; }
 
         /* ---- Responsible / footer ---- */
         .responsible {
@@ -450,8 +492,7 @@
     <!-- ===== Hero ===== -->
     <header class="hero" id="top">
         <img src="logo.png" alt="PocSomm" class="logo">
-        <h1>PocSomm</h1>
-        <p class="tagline" data-i18n="hero.tagline">Wine Pairing &amp; Prices</p>
+        <h1>PocSomm <span class="tagline" data-i18n="hero.tagline">Wine Pairing &amp; Prices</span></h1>
         <p class="description" data-i18n="hero.desc">
             PocSomm puts expert wine knowledge in your pocket. Scan a restaurant wine list to instantly see
             retail prices, critic ratings, and value assessments. Photograph a bottle label for tasting notes.
@@ -820,7 +861,30 @@
                     <summary data-i18n="faq.q6">How old do I need to be?</summary>
                     <p data-i18n="faq.a6">PocSomm contains information about alcoholic beverages and is intended for adults of legal drinking age (18+).</p>
                 </details>
+                <details>
+                    <summary data-i18n="faq.q7">What is PocSomm?</summary>
+                    <p data-i18n="faq.a7">PocSomm is an iPhone app that scans a restaurant wine list and shows every wine's estimated retail price, a value verdict (great value, fair price or high markup), critic ratings and food pairings, with no account and no subscription.</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq.q8">Can PocSomm tell me if a wine on a restaurant list is overpriced?</summary>
+                    <p data-i18n="faq.a8">Yes. For every wine on the list it estimates the shop price where you are and shows the markup (list price divided by shop price) with a verdict: great value, fair price or high markup. The Best Value sort ranks the whole list from the lowest markup to the highest. You can adjust the Value Thresholds in Settings.</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq.q9">Can PocSomm pair wine with my food?</summary>
+                    <p data-i18n="faq.a9">Yes. At the restaurant, photograph the food menu, pick your table's dishes, then scan the wine list: every wine gets a match percentage and the reason behind it. At home, paste a recipe link or describe the dish and ask PocSomm for wine suggestions.</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq.q10">Is PocSomm available on Android?</summary>
+                    <p data-i18n="faq.a10">Not yet. PocSomm is on the App Store for iPhone (iOS 18 or later), in 11 languages. An Android version is in development.</p>
+                </details>
             </div>
+            <p class="eyebrow" style="margin-top:40px;" data-i18n="gl.eyebrow">Free wine guides</p>
+            <ul class="guide-links">
+                <li><a href="/wine-markup-calculator" data-i18n-href="/wine-markup-calculator" data-i18n="gl.calc">Wine markup calculator</a></li>
+                <li><a href="/how-much-do-restaurants-mark-up-wine" data-i18n-href="/how-much-do-restaurants-mark-up-wine" data-i18n="gl.markup">How much do restaurants mark up wine?</a></li>
+                <li><a href="/best-apps-to-scan-a-restaurant-wine-list" data-i18n-href="/best-apps-to-scan-a-restaurant-wine-list" data-i18n="gl.best">Best apps to scan a restaurant wine list (2026), compared</a></li>
+                <li><a href="/pocsomm-vs-vivino" data-i18n-href="/pocsomm-vs-vivino" data-i18n="gl.vivino">PocSomm vs Vivino for restaurant wine lists</a></li>
+            </ul>
         </div>
     </section>
 
